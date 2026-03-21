@@ -83,9 +83,9 @@ export default function Home() {
         <div className="space-y-6">
         <h1 className="font-sans text-4xl">Yujia Zeng</h1>
           <p className="font-sans text-lg text-gray-600 dark:text-gray-400">
-          I am a second-year undergraduate student in the  School of the Gifted Young (SGY), University of Science and Technology of China (USTC).
-           Currently an algorithm intern at Baidu. 
-           On campus, I am currently conducting research at the LDS Lab under the supervision of Prof. Xiangnan He. 
+          I am a third-year undergraduate student in the  School of the Gifted Young (少年班), University of Science and Technology of China (USTC).
+           Before I am an algorithm intern at Baidu and HiDream.ai.
+          Now I am a visiting student at MSC Lab in UC Berkeley, advised by Prof. Masayoshi Tomizuka.
            I’m exploring AIGC and seeking PhD opportunities for Fall 2027.
           </p>
 
