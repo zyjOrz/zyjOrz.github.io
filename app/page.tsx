@@ -78,7 +78,7 @@ const newsItems = [
   },
     {
     date: '2412',
-    emoji: '🏅',
+    emoji: '🥈',
     content: <>Won a silver medal at the ICPC Hong Kong Regional.</>,
   },
   {
