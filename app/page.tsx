@@ -76,9 +76,14 @@ const newsItems = [
     emoji: '💼',
     content: <>Joined Baidu as a Research Intern.</>,
   },
+    {
+    date: '2412',
+    emoji: '🏅',
+    content: <>Won a silver medal at the ICPC Hong Kong Regional.</>,
+  },
   {
     date: '2409',
-    emoji: '🏅',
+    emoji: '🏆',
     content: <>Awarded the National Scholarship.</>,
   },
   {
