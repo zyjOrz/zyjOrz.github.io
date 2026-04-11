@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ChevronDown, Github, MessageCircle, Newspaper } from "lucide-react";
+import { ChevronDown, Github, Globe2, MessageCircle, Newspaper } from "lucide-react";
 import { SiTencentqq } from "react-icons/si";
 
 function SocialLinks() {
@@ -44,6 +44,69 @@ function SocialLinks() {
       </div>
       {copiedMessage && <p className="text-xs text-[#8d6673]">{copiedMessage}</p>}
     </div>
+  );
+}
+
+
+function VisitorMapCard() {
+  const clustrmapsToken = "kCLTgAtSHtmtaymKq-vw-tiXxrIs5zWvF6R_Njthw_Q";
+
+  const globeSrcDoc = `
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+          html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: transparent;
+          }
+
+          body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        </style>
+      </head>
+      <body>
+        <script
+          type="text/javascript"
+          id="clstr_globe"
+          src="https://clustrmaps.com/globe.js?d=${clustrmapsToken}"
+        ><\/script>
+      </body>
+    </html>
+  `;
+
+  return (
+    <section className="mx-auto mt-20 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-12">
+      <div className="mb-6 flex items-center gap-3 text-[#2d2232]">
+        <div className="rounded-xl bg-[#fde8f0] p-2 text-[#c15d82] shadow-sm">
+          <Globe2 size={18} />
+        </div>
+        <div>
+          <h2 className="text-3xl font-semibold tracking-tight">Visitors</h2>
+          <p className="mt-1 text-sm text-[#8b6473]">Live visitor globe</p>
+        </div>
+      </div>
+
+      <div className="rounded-[28px] border border-[#eed4de] bg-gradient-to-br from-[#fffafc] via-[#fff2f7] to-[#fdeaf1] p-5 shadow-[0_10px_30px_rgba(191,113,142,0.12)]">
+        <div className="flex justify-center">
+          <iframe
+            title="Live visitor globe"
+            srcDoc={globeSrcDoc}
+            loading="lazy"
+            className="aspect-square w-full max-w-[560px] overflow-hidden rounded-[22px] border-0 bg-transparent"
+          />
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -238,6 +301,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <VisitorMapCard />
     </div>
   );
 }
