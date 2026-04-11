@@ -184,7 +184,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fff3f7] via-[#ffe8f0] to-[#fce6ee] px-6 py-10 font-sans text-[#23161b]">
       <nav className="mx-auto mb-16 flex max-w-4xl justify-center gap-16 text-[18px] font-extrabold uppercase tracking-wide sm:gap-[168px] sm:text-[20px]">
-        {["Home", "Project", "Publication", "Blog"].map((label) => (
+        {["Home", "Project", "Publication", "Contact"].map((label) => (
           <a
             key={label}
             href={label === "Home" ? "/" : `/${label.toLowerCase()}`}
@@ -225,7 +225,7 @@ export default function Home() {
 
           <div className="space-y-2 pt-4">
             <div className="flex items-center gap-2">
-              <p className="select-all text-sm font-medium text-[#6f4b57]">yujiazng@gmail.com</p>
+              <p className="select-all text-sm font-medium text-[#6f4b57]">yujiazeng [AT] berkeley [DOT] edu</p>
               <button
                 onClick={() => navigator.clipboard.writeText("yujiazng@gmail.com")}
                 className="rounded-full border border-[#dfb5c4] px-3 py-1 text-xs text-[#7b4456] transition hover:bg-[#fff0f5]"
