@@ -96,18 +96,18 @@ function VisitorMapCard() {
         </div>
       </div>
 
-          <div className="rounded-[28px] border border-[#eed4de] bg-gradient-to-br from-[#fffafc] via-[#fff2f7] to-[#fdeaf1] p-5 shadow-[0_10px_30px_rgba(191,113,142,0.12)]">
-      <div className="flex justify-center">
-        <div className="h-[300px] w-[300px] overflow-hidden rounded-[22px]">
-          <iframe
-            title="Live visitor globe"
-            srcDoc={globeSrcDoc}
-            loading="lazy"
-            className="h-full w-full border-0 bg-transparent"
-          />
+              <div className="rounded-[28px] border border-[#eed4de] bg-gradient-to-br from-[#fffafc] via-[#fff2f7] to-[#fdeaf1] p-6 shadow-[0_10px_30px_rgba(191,113,142,0.12)]">
+        <div className="flex justify-center">
+          <div className="h-[540px] w-[420px] rounded-[22px]">
+            <iframe
+              title="Live visitor globe"
+              srcDoc={globeSrcDoc}
+              loading="lazy"
+              className="h-full w-full border-0 bg-transparent"
+            />
+          </div>
         </div>
       </div>
-    </div>
     </section>
   );
 }
