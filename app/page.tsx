@@ -102,7 +102,7 @@ function VisitorMapCard() {
             title="Live visitor globe"
             srcDoc={globeSrcDoc}
             loading="lazy"
-            className="aspect-square w-full max-w-[560px] overflow-hidden rounded-[22px] border-0 bg-transparent"
+            className="aspect-square w-full max-w-[480px] overflow-hidden rounded-[22px] border-0 bg-transparent"
           />
         </div>
       </div>
