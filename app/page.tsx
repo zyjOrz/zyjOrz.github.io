@@ -184,7 +184,7 @@ export default function Home() {
             >
               Prof. Masayoshi Tomizuka
             </a>
-            . Outside of research, I enjoy playing the piano and painting. I’m exploring AIGC and
+            . Outside of research, I enjoy playing the piano and painting. My research focuses on WorldModel and I am currently
             seeking PhD opportunities for Fall 2027.
           </p>
 
