@@ -213,6 +213,18 @@ export default function Home() {
                 className="rounded-[22px] object-cover transition-transform duration-300 ease-out group-hover:scale-[1.015]"
               />
             </div>
+            <p className="mt-5 text-sm text-[#9f8ac3]">
+              Also check out:{' '}
+              <a
+                href="https://bowenxue.me/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-[#8f78ba] underline decoration-[#cabce5] underline-offset-4 transition hover:text-[#7d63ad]"
+              >
+                Bowen
+              </a>
+              .
+            </p>
           </div>
         </div>
       </section>
