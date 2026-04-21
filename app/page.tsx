@@ -213,8 +213,8 @@ export default function Home() {
                 className="rounded-[22px] object-cover transition-transform duration-300 ease-out group-hover:scale-[1.015]"
               />
             </div>
-            <p className="mt-5 text-sm text-[#9f8ac3]">
-              Also check out:{' '}
+            <p className="mt-5 text-Also csm text-[#9f8ac3]">
+              heck out:{' '}
               <a
                 href="https://bowenxue.me/"
                 target="_blank"
