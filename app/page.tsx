@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ChevronDown, Github, Globe2, MessageCircle, Newspaper } from "lucide-react";
+import { ChevronDown, Github, Globe2, MapPin, MessageCircle, Newspaper } from "lucide-react";
 import { SiTencentqq } from "react-icons/si";
 
 function SocialLinks() {
@@ -79,6 +79,11 @@ function VisitorMapCard() {
 
 const newsItems = [
   {
+    date: '2604',
+    emoji: '🎉',
+    content: <>One paper got accepted to ICIC’26.</>,
+  },
+  {
     date: '2603',
     emoji: '✈️',
     content: (
@@ -123,6 +128,88 @@ const newsItems = [
   },
 ];
 
+const publications = [
+  {
+    venue: "ICIC 2026",
+    location: "Toronto, Canada",
+    type: "Oral",
+    title: "ReconNet: Generative Recommendation with Control-Guided Diffusion Models",
+    authors: "Yujia Zeng",
+    image: "/reconnet.png",
+    description:
+      "This work reformulates sequential recommendation as a control-guided diffusion generation task integrating ControlNEXT into the diffusion process, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.",
+  },
+];
+
+function PublicationSection() {
+  return (
+    <section
+      id="publications"
+      className="mx-auto mt-20 scroll-mt-10 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-12"
+    >
+      <div className="mb-8 flex items-center gap-3 text-[#2d2232]">
+        <div className="rounded-xl bg-[#fde8f0] p-2 text-[#c15d82] shadow-sm">
+          <Newspaper size={18} />
+        </div>
+        <div>
+          <h2 className="text-3xl font-semibold tracking-tight">Publications</h2>
+          <p className="mt-1 text-sm text-[#8b6473]">Selected research papers</p>
+        </div>
+      </div>
+
+      <div className="space-y-10">
+        {publications.map((paper) => (
+          <article
+            key={paper.title}
+            className="grid grid-cols-1 gap-7 rounded-[28px] border border-[#eed4de] bg-[#fffafc]/80 p-5 shadow-[0_10px_30px_rgba(191,113,142,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(191,113,142,0.18)] md:grid-cols-[390px_1fr] md:p-6"
+          >
+            <div className="group/image relative aspect-[900/380] overflow-hidden rounded-[22px] border border-[#ead5dd] bg-white shadow-[0_10px_26px_rgba(178,109,143,0.14)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_22px_45px_rgba(191,113,142,0.24)]">
+              <div className="absolute left-0 top-0 z-10 rounded-br-xl bg-[#0b4cae] px-4 py-1.5 text-sm font-semibold text-white shadow-md">
+                {paper.venue}
+              </div>
+              <Image
+                src={paper.image}
+                alt={`${paper.title} overview`}
+                width={900}
+                height={380}
+                className="h-full w-full object-contain transition-transform duration-300 ease-out group-hover/image:scale-[1.02]"
+              />
+            </div>
+
+            <div className="flex flex-col justify-center py-1">
+              <h2 className="text-[1.15rem] font-semibold leading-7 text-[#3a2b36]">
+                <span className="mr-2 text-[#e00000]">({paper.type})</span>
+                {paper.title}
+              </h2>
+              <p className="mt-2 text-sm font-medium text-[#5c5260]">{paper.authors}</p>
+              <p className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-[#7b4456]">
+                {paper.venue}
+                <span className="text-[#c79cac]">·</span>
+                <MapPin size={14} className="text-[#b86380]" />
+                <span>{paper.location}</span>
+              </p>
+
+              <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold">
+                <span className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4" aria-disabled="true">
+                  Paper <span className="font-medium text-[#6f4b57]">(comming soon)</span>
+                </span>
+                <span className="text-[#8d6673]">|</span>
+                <span className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4" aria-disabled="true">
+                  Code <span className="font-medium text-[#6f4b57]">(comming soon)</span>
+                </span>
+              </div>
+
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#3d3842]">
+                <li>{paper.description}</li>
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const newsRef = useRef<HTMLElement | null>(null);
   const [isNewsVisible, setIsNewsVisible] = useState(false);
@@ -149,15 +236,19 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fff3f7] via-[#ffe8f0] to-[#fce6ee] px-6 py-10 font-sans text-[#23161b]">
       <nav className="mx-auto mb-16 flex max-w-4xl justify-center gap-16 text-[18px] font-extrabold uppercase tracking-wide sm:gap-[168px] sm:text-[20px]">
-        {["Home", "Project", "Publication", "Contact"].map((label) => (
-          <a
-            key={label}
-            href={label === "Home" ? "/" : `/${label.toLowerCase()}`}
-            className="relative text-[#3c2029] after:absolute after:bottom-[-6px] after:left-0 after:block after:h-[2px] after:w-0 after:bg-[#9f586f] after:transition-all after:duration-300 hover:after:w-full"
-          >
-            {label}
-          </a>
-        ))}
+        {["Home", "Project", "Publication", "Contact"].map((label) => {
+          const href = label === "Home" ? "/" : label === "Publication" ? "#publications" : `/${label.toLowerCase()}`;
+
+          return (
+            <a
+              key={label}
+              href={href}
+              className="relative text-[#3c2029] after:absolute after:bottom-[-6px] after:left-0 after:block after:h-[2px] after:w-0 after:bg-[#9f586f] after:transition-all after:duration-300 hover:after:w-full"
+            >
+              {label}
+            </a>
+          );
+        })}
       </nav>
 
       <section className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 rounded-3xl border border-[#e9becd] bg-white/60 p-8 shadow-[0_12px_40px_rgba(186,110,140,0.14)] backdrop-blur-sm sm:p-12 md:grid-cols-2">
@@ -256,6 +347,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <PublicationSection />
 
       <VisitorMapCard />
     </div>
