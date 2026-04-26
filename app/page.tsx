@@ -170,8 +170,8 @@ function PublicationSection() {
               <Image
                 src={paper.image}
                 alt={`${paper.title} overview`}
-                width={900}
-                height={380}
+                width={800}
+                height={600}
                 className="h-full w-full object-contain transition-transform duration-300 ease-out group-hover/image:scale-[1.02]"
               />
             </div>
