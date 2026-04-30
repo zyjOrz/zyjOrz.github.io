@@ -189,15 +189,7 @@ function PublicationSection() {
                 <span>{paper.location}</span>
               </p>
 
-              <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold">
-                <span className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4" aria-disabled="true">
-                  Paper <span className="font-medium text-[#6f4b57]">(comming soon)</span>
-                </span>
-                <span className="text-[#8d6673]">|</span>
-                <span className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4" aria-disabled="true">
-                  Code <span className="font-medium text-[#6f4b57]">(comming soon)</span>
-                </span>
-              </div>
+              
 
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#3d3842]">
                 <li>{paper.description}</li>
