@@ -97,7 +97,7 @@ const newsItems = [
         >
           MSC Lab
         </a>{' '}
-        in person for summer research.
+        for onsite summer research.
       </>
     ),
   },
