@@ -228,8 +228,15 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fff3f7] via-[#ffe8f0] to-[#fce6ee] px-6 py-10 font-sans text-[#23161b]">
       <nav className="mx-auto mb-16 flex max-w-4xl justify-center gap-16 text-[18px] font-extrabold uppercase tracking-wide sm:gap-[168px] sm:text-[20px]">
-        {["Home", "Project", "Publication", "Contact"].map((label) => {
-          const href = label === "Home" ? "/" : label === "Publication" ? "#publications" : `/${label.toLowerCase()}`;
+        {["Home", "News", "Publication", "Contact"].map((label) => {
+          const href =
+            label === "Home"
+              ? "/"
+              : label === "News"
+                ? "#news"
+                : label === "Publication"
+                  ? "#publications"
+                  : `/${label.toLowerCase()}`;
 
           return (
             <a
@@ -313,7 +320,7 @@ export default function Home() {
       <section
         id="news"
         ref={newsRef}
-        className={`mx-auto mt-20 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm transition-all duration-700 ease-out sm:px-12 ${
+        className={`mx-auto mt-20 scroll-mt-10 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm transition-all duration-700 ease-out sm:px-12 ${
           isNewsVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}
       >
