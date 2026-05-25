@@ -107,7 +107,7 @@ const newsItems = [
     content: <>Received the Outstanding Physical Fitness Award (top &lt;1% university-wide).</>,
   },
   {
-    date: '2504',
+    date: '2503',
     emoji: '💼',
     content: <>Joined Baidu as a Research Intern.</>,
   },
