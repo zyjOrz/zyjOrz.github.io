@@ -119,7 +119,7 @@ const newsItems = [
   {
     date: '2409',
     emoji: '🏆',
-    content: <>Awarded the National Scholarship.</>,
+    content: <>Awarded the National Scholarship (Top 1%).</>,
   },
   {
     date: '2404',
