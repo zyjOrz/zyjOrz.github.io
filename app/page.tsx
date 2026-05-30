@@ -2,21 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ChevronDown, Github, Globe2, MapPin, MessageCircle, Newspaper } from "lucide-react";
-import { SiTencentqq } from "react-icons/si";
+import { ChevronDown, Github, Globe2, MapPin, Newspaper } from "lucide-react";
+import { SiLinkedin } from "react-icons/si";
 
 function SocialLinks() {
-  const [copiedMessage, setCopiedMessage] = useState("");
-
-  const handleCopy = (text: string, message: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopiedMessage(message);
-      setTimeout(() => setCopiedMessage(""), 2000);
-    });
-  };
-
   return (
-    <div className="space-y-2 pt-4">
+    <div className="pt-4">
       <div className="flex items-center gap-4 text-xl text-[#4b2d38]">
         <a
           href="https://github.com/zyjOrz/"
@@ -27,22 +18,16 @@ function SocialLinks() {
         >
           <Github size={20} />
         </a>
-        <button
-          onClick={() => handleCopy("2124753995", "QQ number copied successfully")}
-          aria-label="QQ"
+        <a
+          href="https://www.linkedin.com/in/yujiazng/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
           className="transition hover:opacity-70"
         >
-          <SiTencentqq size={20} />
-        </button>
-        <button
-          onClick={() => handleCopy("Ivystreammm", "WeChat ID copied successfully")}
-          aria-label="WeChat"
-          className="transition hover:opacity-70"
-        >
-          <MessageCircle size={20} />
-        </button>
+          <SiLinkedin size={20} />
+        </a>
       </div>
-      {copiedMessage && <p className="text-xs text-[#8d6673]">{copiedMessage}</p>}
     </div>
   );
 }
