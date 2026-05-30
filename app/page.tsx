@@ -274,7 +274,7 @@ export default function Home() {
             >
               Prof. Masayoshi Tomizuka
             </a>
-            . My research focuses on Robitics and Video-generation WorldModel and I am currently
+            . My research focuses on Robotics and Video-generation WorldModel and I am currently
             seeking PhD opportunities for Fall 2027.
           </p>
 
