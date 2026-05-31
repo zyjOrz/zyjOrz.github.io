@@ -120,7 +120,7 @@ const publications = [
     type: "Oral",
     title: "ReconNet: Generative Recommendation with Control-Guided Diffusion Models",
     authors: "Yujia Zeng",
-    image: "/reconnet.png",
+    image: "/reconnet1.png",
     description:
       "This work reformulates sequential recommendation as a control-guided diffusion generation task, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.",
   },
