@@ -122,7 +122,7 @@ const publications = [
     authors: "Yujia Zeng",
     image: "/reconnet.png",
     description:
-      "This work reformulates sequential recommendation as a control-guided diffusion generation task integrating ControlNEXT into the diffusion process, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.",
+      "This work reformulates sequential recommendation as a control-guided diffusion generation task, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.",
   },
 ];
 
