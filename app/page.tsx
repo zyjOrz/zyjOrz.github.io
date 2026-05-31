@@ -148,7 +148,7 @@ function PublicationSection() {
             key={paper.title}
             className="grid grid-cols-1 gap-7 rounded-[28px] border border-[#eed4de] bg-[#fffafc]/80 p-5 shadow-[0_10px_30px_rgba(191,113,142,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(191,113,142,0.18)] md:grid-cols-[390px_1fr] md:p-6"
           >
-            <div className="group/image relative aspect-[800/490] overflow-hidden rounded-[22px] border border-[#ead5dd] bg-white shadow-[0_10px_26px_rgba(178,109,143,0.14)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_22px_45px_rgba(191,113,142,0.24)]">
+            <div className="group/image relative aspect-[800/510] overflow-hidden rounded-[22px] border border-[#ead5dd] bg-white shadow-[0_10px_26px_rgba(178,109,143,0.14)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_22px_45px_rgba(191,113,142,0.24)]">
               <div className="absolute left-0 top-0 z-10 rounded-br-xl bg-[#0b4cae] px-4 py-1.5 text-sm font-semibold text-white shadow-md">
                 {paper.venue}
               </div>
