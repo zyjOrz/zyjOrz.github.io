@@ -308,7 +308,7 @@ const navItems = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fff3f7] via-[#ffe8f0] to-[#fce6ee] px-6 py-10 font-sans text-[#23161b]">
-      <nav className="mx-auto mb-16 flex w-full max-w-6xl flex-wrap items-center justify-between gap-x-8 gap-y-4 px-8 text-[15px] font-extrabold uppercase tracking-wide sm:px-12 sm:text-[17px]">
+      <nav className="mx-auto mb-16 flex max-w-6xl flex-wrap justify-center gap-x-8 gap-y-4 text-[15px] font-extrabold uppercase tracking-wide sm:gap-x-12 sm:text-[17px]">
         {navItems.map((item) => (
           <a
             key={item.label}
