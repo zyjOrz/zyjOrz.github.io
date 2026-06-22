@@ -1,22 +1,21 @@
-'use client';
+import Image from 'next/image';
+import {
+  BriefcaseBusiness,
+  ChevronDown,
+  Github,
+  GraduationCap,
+  MapPin,
+  Newspaper,
+} from 'lucide-react';
+import { SiLinkedin } from 'react-icons/si';
+import CopyEmailButton from './CopyEmailButton';
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { ChevronDown, Github, Globe2, MapPin, MessageCircle, Newspaper } from "lucide-react";
-import { SiTencentqq } from "react-icons/si";
+const externalLinkClass =
+  'font-medium text-[#a44d6d] underline decoration-[#d7a0b5] underline-offset-4 transition hover:text-[#8f3d5d]';
 
 function SocialLinks() {
-  const [copiedMessage, setCopiedMessage] = useState("");
-
-  const handleCopy = (text: string, message: string) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopiedMessage(message);
-      setTimeout(() => setCopiedMessage(""), 2000);
-    });
-  };
-
   return (
-    <div className="space-y-2 pt-4">
+    <div className="pt-4">
       <div className="flex items-center gap-4 text-xl text-[#4b2d38]">
         <a
           href="https://github.com/zyjOrz/"
@@ -27,57 +26,26 @@ function SocialLinks() {
         >
           <Github size={20} />
         </a>
-        <button
-          onClick={() => handleCopy("2124753995", "QQ number copied successfully")}
-          aria-label="QQ"
+        <a
+          href="https://www.linkedin.com/in/yujiazng/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
           className="transition hover:opacity-70"
         >
-          <SiTencentqq size={20} />
-        </button>
-        <button
-          onClick={() => handleCopy("Ivystreammm", "WeChat ID copied successfully")}
-          aria-label="WeChat"
-          className="transition hover:opacity-70"
-        >
-          <MessageCircle size={20} />
-        </button>
+          <SiLinkedin size={20} />
+        </a>
       </div>
-      {copiedMessage && <p className="text-xs text-[#8d6673]">{copiedMessage}</p>}
     </div>
   );
 }
 
-function VisitorMapCard() {
-  const clustrmapsToken = "kCLTgAtSHtmtaymKq-vw-tiXxrIs5zWvF6R_Njthw_Q";
-
-  return (
-    <section className="mx-auto mt-20 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-12">
-      <div className="mb-6 flex items-center gap-3 text-[#2d2232]">
-        <div className="rounded-xl bg-[#fde8f0] p-2 text-[#c15d82] shadow-sm">
-          <Globe2 size={18} />
-        </div>
-        <div>
-          <h2 className="text-3xl font-semibold tracking-tight">Visitors</h2>
-          <p className="mt-1 text-sm text-[#8b6473]">Live visitor globe</p>
-        </div>
-      </div>
-
-      <div className="rounded-[28px] border border-[#eed4de] bg-gradient-to-br from-[#fffafc] via-[#fff2f7] to-[#fdeaf1] p-6 shadow-[0_10px_30px_rgba(191,113,142,0.12)]">
-        <div className="flex justify-center">
-          <div className="h-[540px] w-[420px] overflow-hidden rounded-[22px] bg-transparent">
-            <script
-              type="text/javascript"
-              id="clstr_globe"
-              src={`//clustrmaps.com/globe.js?d=${clustrmapsToken}`}
-            ></script>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const newsItems = [
+  {
+    date: '2606',
+    emoji: '🎉',
+    content: <>One paper got accepted to ECCV’26.</>,
+  },
   {
     date: '2604',
     emoji: '🎉',
@@ -107,11 +75,6 @@ const newsItems = [
     content: <>Received the Outstanding Physical Fitness Award (top &lt;1% university-wide).</>,
   },
   {
-    date: '2503',
-    emoji: '💼',
-    content: <>Joined Baidu as a Research Intern.</>,
-  },
-  {
     date: '2412',
     emoji: '🥈',
     content: <>Won a silver medal at the ICPC Hong Kong Regional.</>,
@@ -126,20 +89,169 @@ const newsItems = [
     emoji: '🌟',
     content: <>Served as President of the School Student Union.</>,
   },
+  {
+    date: '2403',
+    emoji: '💼',
+    content: <>Joined Baidu as a Research Intern.</>,
+  },
 ];
 
 const publications = [
   {
-    venue: "ICIC 2026",
-    location: "Toronto, Canada",
-    type: "Oral",
-    title: "ReconNet: Generative Recommendation with Control-Guided Diffusion Models",
-    authors: "Yujia Zeng",
-    image: "/reconnet.png",
+    venue: 'ICIC 2026',
+    location: 'Toronto, Canada',
+    type: 'Oral',
+    title: 'ReconNet: Generative Recommendation with Control-Guided Diffusion Models',
+    authors: 'Yujia Zeng',
+    image: '/reconnet.png',
     description:
-      "This work reformulates sequential recommendation as a control-guided diffusion generation task integrating ControlNEXT into the diffusion process, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.",
+      'This work reformulates sequential recommendation as a control-guided diffusion generation task, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.',
   },
 ];
+
+function EducationSection() {
+  return (
+    <section
+      id="education"
+      className="mx-auto mt-20 scroll-mt-10 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-12"
+    >
+      <div className="mb-8 flex items-center gap-3 text-[#2d2232]">
+        <div className="rounded-xl bg-[#fde8f0] p-2 text-[#c15d82] shadow-sm">
+          <GraduationCap size={19} />
+        </div>
+        <div>
+          <h2 className="text-3xl font-semibold tracking-tight">Education</h2>
+          <p className="mt-1 text-sm text-[#8b6473]">Academic background</p>
+        </div>
+      </div>
+
+      <article className="rounded-[28px] border border-[#eed4de] bg-[#fffafc]/80 p-6 shadow-[0_10px_30px_rgba(191,113,142,0.12)] sm:p-8">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#b05c7b]">B.E. · SGY</p>
+            <h3 className="mt-2 text-xl font-semibold leading-8 text-[#3a2b36]">
+              Bachelor of Engineering in Artificial Intelligence
+            </h3>
+            <p className="mt-2 max-w-3xl leading-7 text-[#5f4a55]">
+              School of the Gifted Young (少年班), University of Science and Technology of China
+              (USTC)
+            </p>
+          </div>
+          <div className="shrink-0 text-left sm:text-right">
+            <p className="font-semibold text-[#7b4456]">2023 – 2027 (Expected)</p>
+            <p className="mt-2 inline-flex rounded-full border border-[#e7c3d1] bg-[#fff2f6] px-3 py-1 text-sm font-semibold text-[#99526c]">
+              GPA: Top 5%
+            </p>
+          </div>
+        </div>
+      </article>
+    </section>
+  );
+}
+
+function ExperienceSection() {
+  return (
+    <section
+      id="experience"
+      className="mx-auto mt-20 scroll-mt-10 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-12"
+    >
+      <div className="mb-8 flex items-center gap-3 text-[#2d2232]">
+        <div className="rounded-xl bg-[#f3e5fb] p-2 text-[#8f4dc7] shadow-sm">
+          <BriefcaseBusiness size={19} />
+        </div>
+        <div>
+          <h2 className="text-3xl font-semibold tracking-tight">Experience</h2>
+          <p className="mt-1 text-sm text-[#8b6473]">Research, industry, and leadership</p>
+        </div>
+      </div>
+
+      <div className="relative ml-2 border-l-2 border-[#d5a6bd] pl-7 sm:pl-10">
+        <article className="relative mb-9">
+          <span className="absolute -left-[35px] top-2 h-3.5 w-3.5 rounded-full border-4 border-[#fff1f6] bg-[#bd6787] shadow-[0_0_0_4px_rgba(189,103,135,0.08)] sm:-left-[44px]" />
+          <div className="grid gap-2 sm:grid-cols-[190px_1fr] sm:gap-7">
+            <p className="font-semibold text-[#9a7785]">Aug. 2025 – Feb. 2026</p>
+            <div>
+              <h3 className="text-lg font-semibold text-[#382931]">Research Experience</h3>
+              <p className="mt-1 leading-7 text-[#5f4a55]">Singapore (Remote)</p>
+              <p className="mt-1 leading-7 text-[#5f4a55]">
+                Advised by{' '}
+                <a
+                  href="https://chenyangsi.top/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={externalLinkClass}
+                >
+                  Prof. Chenyang Si
+                </a>{' '}
+                and{' '}
+                <a
+                  href="https://liuziwei7.github.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={externalLinkClass}
+                >
+                  Prof. Ziwei Liu
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article className="relative mb-9">
+          <span className="absolute -left-[35px] top-2 h-3.5 w-3.5 rounded-full border-4 border-[#fff1f6] bg-[#bd6787] shadow-[0_0_0_4px_rgba(189,103,135,0.08)] sm:-left-[44px]" />
+          <div className="grid gap-2 sm:grid-cols-[190px_1fr] sm:gap-7">
+            <p className="font-semibold text-[#9a7785]">Sep. 2025 – Jan. 2026</p>
+            <div>
+              <h3 className="text-lg font-semibold text-[#382931]">Algorithm Intern</h3>
+              <p className="mt-1 leading-7 text-[#5f4a55]">
+                <a
+                  href="https://hidreamai.com/home"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={externalLinkClass}
+                >
+                  HiDream.ai
+                </a>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article className="relative mb-9">
+          <span className="absolute -left-[35px] top-2 h-3.5 w-3.5 rounded-full border-4 border-[#fff1f6] bg-[#bd6787] shadow-[0_0_0_4px_rgba(189,103,135,0.08)] sm:-left-[44px]" />
+          <div className="grid gap-2 sm:grid-cols-[190px_1fr] sm:gap-7">
+            <p className="font-semibold text-[#9a7785]">Apr. 2024 – Apr. 2025</p>
+            <div>
+              <h3 className="text-lg font-semibold text-[#382931]">President, Student Union</h3>
+              <p className="mt-1 leading-7 text-[#5f4a55]">School of the Gifted Young, USTC</p>
+            </div>
+          </div>
+        </article>
+
+        <article className="relative">
+          <span className="absolute -left-[35px] top-2 h-3.5 w-3.5 rounded-full border-4 border-[#fff1f6] bg-[#bd6787] shadow-[0_0_0_4px_rgba(189,103,135,0.08)] sm:-left-[44px]" />
+          <div className="grid gap-2 sm:grid-cols-[190px_1fr] sm:gap-7">
+            <p className="font-semibold text-[#9a7785]">Mar. 2024 – Jul. 2024</p>
+            <div>
+              <h3 className="text-lg font-semibold text-[#382931]">Algorithm Intern</h3>
+              <p className="mt-1 leading-7 text-[#5f4a55]">
+                <a
+                  href="https://www.baidu.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={externalLinkClass}
+                >
+                  Baidu
+                </a>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  );
+}
 
 function PublicationSection() {
   return (
@@ -163,7 +275,7 @@ function PublicationSection() {
             key={paper.title}
             className="grid grid-cols-1 gap-7 rounded-[28px] border border-[#eed4de] bg-[#fffafc]/80 p-5 shadow-[0_10px_30px_rgba(191,113,142,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_44px_rgba(191,113,142,0.18)] md:grid-cols-[390px_1fr] md:p-6"
           >
-            <div className="group/image relative aspect-[800/600] overflow-hidden rounded-[22px] border border-[#ead5dd] bg-white shadow-[0_10px_26px_rgba(178,109,143,0.14)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_22px_45px_rgba(191,113,142,0.24)]">
+            <div className="group/image relative aspect-[800/560] overflow-hidden rounded-[22px] border border-[#ead5dd] bg-white shadow-[0_10px_26px_rgba(178,109,143,0.14)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_22px_45px_rgba(191,113,142,0.24)]">
               <div className="absolute left-0 top-0 z-10 rounded-br-xl bg-[#0b4cae] px-4 py-1.5 text-sm font-semibold text-white shadow-md">
                 {paper.venue}
               </div>
@@ -189,8 +301,6 @@ function PublicationSection() {
                 <span>{paper.location}</span>
               </p>
 
-              
-
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#3d3842]">
                 <li>{paper.description}</li>
               </ul>
@@ -202,66 +312,63 @@ function PublicationSection() {
   );
 }
 
+const navItems = [
+  { label: 'Home', href: '#home' },
+  { label: 'News', href: '#news' },
+  { label: 'Education', href: '#education' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Publication', href: '#publications' },
+  { label: 'Contact', href: '/contact' },
+];
+
 export default function Home() {
-  const newsRef = useRef<HTMLElement | null>(null);
-  const [isNewsVisible, setIsNewsVisible] = useState(false);
-
-  useEffect(() => {
-    const node = newsRef.current;
-    if (!node) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsNewsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.18 }
-    );
-
-    observer.observe(node);
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fff3f7] via-[#ffe8f0] to-[#fce6ee] px-6 py-10 font-sans text-[#23161b]">
-      <nav className="mx-auto mb-16 flex max-w-4xl justify-center gap-16 text-[18px] font-extrabold uppercase tracking-wide sm:gap-[168px] sm:text-[20px]">
-        {["Home", "News", "Publication", "Contact"].map((label) => {
-          const href =
-            label === "Home"
-              ? "/"
-              : label === "News"
-                ? "#news"
-                : label === "Publication"
-                  ? "#publications"
-                  : `/${label.toLowerCase()}`;
-
-          return (
-            <a
-              key={label}
-              href={href}
-              className="relative text-[#3c2029] after:absolute after:bottom-[-6px] after:left-0 after:block after:h-[2px] after:w-0 after:bg-[#9f586f] after:transition-all after:duration-300 hover:after:w-full"
-            >
-              {label}
-            </a>
-          );
-        })}
+      <nav className="mx-auto mb-16 flex max-w-6xl flex-wrap justify-center gap-x-8 gap-y-4 text-[15px] font-extrabold uppercase tracking-wide sm:gap-x-12 sm:text-[17px]">
+        {navItems.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            className="relative text-[#3c2029] after:absolute after:bottom-[-6px] after:left-0 after:block after:h-[2px] after:w-0 after:bg-[#9f586f] after:transition-all after:duration-300 hover:after:w-full"
+          >
+            {item.label}
+          </a>
+        ))}
       </nav>
 
-      <section className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 rounded-3xl border border-[#e9becd] bg-white/60 p-8 shadow-[0_12px_40px_rgba(186,110,140,0.14)] backdrop-blur-sm sm:p-12 md:grid-cols-2">
+      <section
+        id="home"
+        className="mx-auto grid scroll-mt-10 max-w-6xl grid-cols-1 items-center gap-10 rounded-3xl border border-[#e9becd] bg-white/60 p-8 shadow-[0_12px_40px_rgba(186,110,140,0.14)] backdrop-blur-sm sm:p-12 md:grid-cols-2"
+      >
         <div className="space-y-6">
           <h1 className="text-4xl font-semibold tracking-tight text-[#2d1820]">Yujia Zeng</h1>
           <p className="text-lg leading-8 text-[#6f4b57]">
             I am a third-year undergraduate student in the School of the Gifted Young (少年班),
             University of Science and Technology of China (USTC). Before this, I was an algorithm
-            intern at Baidu and HiDream.ai. Now I am a visiting student at{' '}
+            intern at{' '}
+            <a
+              href="https://www.baidu.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={externalLinkClass}
+            >
+              Baidu
+            </a>{' '}
+            and{' '}
+            <a
+              href="https://hidreamai.com/home"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={externalLinkClass}
+            >
+              HiDream.ai
+            </a>
+            . Now I am a visiting student at{' '}
             <a
               href="https://msc.berkeley.edu/"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-[#a44d6d] underline decoration-[#d7a0b5] underline-offset-4 transition hover:text-[#8f3d5d]"
+              className={externalLinkClass}
             >
               MSC Lab
             </a>{' '}
@@ -270,7 +377,7 @@ export default function Home() {
               href="https://msc.berkeley.edu/people/tomizuka.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-[#a44d6d] underline decoration-[#d7a0b5] underline-offset-4 transition hover:text-[#8f3d5d]"
+              className={externalLinkClass}
             >
               Prof. Masayoshi Tomizuka
             </a>
@@ -281,12 +388,7 @@ export default function Home() {
           <div className="space-y-2 pt-4">
             <div className="flex items-center gap-2">
               <p className="select-all text-sm font-medium text-[#6f4b57]">yujiazng@gmail.com</p>
-              <button
-                onClick={() => navigator.clipboard.writeText("yujiazng@gmail.com")}
-                className="rounded-full border border-[#dfb5c4] px-3 py-1 text-xs text-[#7b4456] transition hover:bg-[#fff0f5]"
-              >
-                Copy
-              </button>
+              <CopyEmailButton />
             </div>
             <SocialLinks />
           </div>
@@ -300,6 +402,7 @@ export default function Home() {
                 alt="Portrait"
                 width={320}
                 height={320}
+                priority
                 className="rounded-[22px] object-cover transition-transform duration-300 ease-out group-hover:scale-[1.015]"
               />
             </div>
@@ -319,10 +422,7 @@ export default function Home() {
 
       <section
         id="news"
-        ref={newsRef}
-        className={`mx-auto mt-20 scroll-mt-10 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm transition-all duration-700 ease-out sm:px-12 ${
-          isNewsVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-        }`}
+        className="mx-auto mt-20 scroll-mt-10 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-12"
       >
         <div className="mb-8 flex items-center gap-3 text-[#2d2232]">
           <div className="rounded-xl bg-[#f3e5fb] p-2 text-[#8f4dc7] shadow-sm">
@@ -333,10 +433,12 @@ export default function Home() {
 
         <div className="relative ml-2 border-l-2 border-[#b26ce1] pl-7 sm:pl-10">
           {newsItems.map((item) => (
-            <div key={item.date} className="relative mb-9 last:mb-0">
+            <div key={`${item.date}-${item.emoji}`} className="relative mb-9 last:mb-0">
               <span className="absolute -left-[35px] top-2 h-3.5 w-3.5 rounded-full border-4 border-[#f8ebff] bg-[#a14ee5] shadow-[0_0_0_4px_rgba(161,78,229,0.08)] sm:-left-[44px]" />
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-7">
-                <div className="min-w-[96px] text-xl font-bold tracking-wide text-[#9a98a7]">{item.date}</div>
+                <div className="min-w-[96px] text-xl font-bold tracking-wide text-[#9a98a7]">
+                  {item.date}
+                </div>
                 <div className="text-[1.15rem] leading-8 text-[#1f2030]">
                   <span className="mr-3 align-middle">{item.emoji}</span>
                   <span className="align-middle">{item.content}</span>
@@ -347,9 +449,9 @@ export default function Home() {
         </div>
       </section>
 
+      <EducationSection />
+      <ExperienceSection />
       <PublicationSection />
-
-      <VisitorMapCard />
     </div>
   );
 }
