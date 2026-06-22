@@ -22,7 +22,7 @@ export default function CopyEmailButton() {
       type="button"
       onClick={copyEmail}
       aria-label="Copy email address"
-      className="rounded-full border border-[#dfb5c4] px-3 py-1 text-xs text-[#7b4456] transition hover:bg-[#fff0f5]"
+      className="soft-action rounded-full border border-[#dfb5c4] bg-white/45 px-3 py-1 text-xs text-[#7b4456]"
     >
       {copied ? 'Copied' : 'Copy'}
     </button>
