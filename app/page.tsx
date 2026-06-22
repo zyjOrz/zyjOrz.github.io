@@ -90,7 +90,7 @@ const newsItems = [
     content: <>Served as President of the School Student Union.</>,
   },
   {
-    date: '2403',
+    date: '2503',
     emoji: '💼',
     content: <>Joined Baidu as a Research Intern.</>,
   },
@@ -128,7 +128,7 @@ function EducationSection() {
       <article className="rounded-[28px] border border-[#eed4de] bg-[#fffafc]/80 p-6 shadow-[0_10px_30px_rgba(191,113,142,0.12)] sm:p-8">
         <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#b05c7b]">B.E. · SGY</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#b05c7b]">B.E.</p>
             <h3 className="mt-2 text-xl font-semibold leading-8 text-[#3a2b36]">
               Bachelor of Engineering in Artificial Intelligence
             </h3>
@@ -150,6 +150,12 @@ function EducationSection() {
 }
 
 function ExperienceSection() {
+  const cardClass =
+    'rounded-[24px] border border-[#ead2dd] bg-[#fffafc]/85 p-6 shadow-[0_10px_28px_rgba(191,113,142,0.1)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(191,113,142,0.16)]';
+
+  const dateClass =
+    'inline-flex rounded-full border border-[#e7c3d1] bg-[#fff2f6] px-3 py-1 text-sm font-semibold text-[#99526c]';
+
   return (
     <section
       id="experience"
@@ -165,88 +171,68 @@ function ExperienceSection() {
         </div>
       </div>
 
-      <div className="relative ml-2 border-l-2 border-[#d5a6bd] pl-7 sm:pl-10">
-        <article className="relative mb-9">
-          <span className="absolute -left-[35px] top-2 h-3.5 w-3.5 rounded-full border-4 border-[#fff1f6] bg-[#bd6787] shadow-[0_0_0_4px_rgba(189,103,135,0.08)] sm:-left-[44px]" />
-          <div className="grid gap-2 sm:grid-cols-[190px_1fr] sm:gap-7">
-            <p className="font-semibold text-[#9a7785]">Aug. 2025 – Feb. 2026</p>
-            <div>
-              <h3 className="text-lg font-semibold text-[#382931]">Research Experience</h3>
-              <p className="mt-1 leading-7 text-[#5f4a55]">Singapore (Remote)</p>
-              <p className="mt-1 leading-7 text-[#5f4a55]">
-                Advised by{' '}
-                <a
-                  href="https://chenyangsi.top/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={externalLinkClass}
-                >
-                  Prof. Chenyang Si
-                </a>{' '}
-                and{' '}
-                <a
-                  href="https://liuziwei7.github.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={externalLinkClass}
-                >
-                  Prof. Ziwei Liu
-                </a>
-                .
-              </p>
-            </div>
-          </div>
+      <div className="grid gap-5 md:grid-cols-2">
+        <article className={cardClass}>
+          <p className={dateClass}>Aug. 2025 – Feb. 2026</p>
+          <h3 className="mt-4 text-xl font-semibold text-[#382931]">Research Experience</h3>
+          <p className="mt-2 leading-7 text-[#5f4a55]">Singapore (Remote)</p>
+          <p className="mt-1 leading-7 text-[#5f4a55]">
+            Advised by{' '}
+            <a
+              href="https://chenyangsi.top/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={externalLinkClass}
+            >
+              Prof. Chenyang Si
+            </a>{' '}
+            and{' '}
+            <a
+              href="https://liuziwei7.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={externalLinkClass}
+            >
+              Prof. Ziwei Liu
+            </a>
+            .
+          </p>
         </article>
 
-        <article className="relative mb-9">
-          <span className="absolute -left-[35px] top-2 h-3.5 w-3.5 rounded-full border-4 border-[#fff1f6] bg-[#bd6787] shadow-[0_0_0_4px_rgba(189,103,135,0.08)] sm:-left-[44px]" />
-          <div className="grid gap-2 sm:grid-cols-[190px_1fr] sm:gap-7">
-            <p className="font-semibold text-[#9a7785]">Sep. 2025 – Jan. 2026</p>
-            <div>
-              <h3 className="text-lg font-semibold text-[#382931]">Algorithm Intern</h3>
-              <p className="mt-1 leading-7 text-[#5f4a55]">
-                <a
-                  href="https://hidreamai.com/home"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={externalLinkClass}
-                >
-                  HiDream.ai
-                </a>
-              </p>
-            </div>
-          </div>
+        <article className={cardClass}>
+          <p className={dateClass}>Sep. 2025 – Jan. 2026</p>
+          <h3 className="mt-4 text-xl font-semibold text-[#382931]">Algorithm Intern</h3>
+          <p className="mt-2 leading-7 text-[#5f4a55]">
+            <a
+              href="https://hidreamai.com/home"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={externalLinkClass}
+            >
+              HiDream.ai
+            </a>
+          </p>
         </article>
 
-        <article className="relative mb-9">
-          <span className="absolute -left-[35px] top-2 h-3.5 w-3.5 rounded-full border-4 border-[#fff1f6] bg-[#bd6787] shadow-[0_0_0_4px_rgba(189,103,135,0.08)] sm:-left-[44px]" />
-          <div className="grid gap-2 sm:grid-cols-[190px_1fr] sm:gap-7">
-            <p className="font-semibold text-[#9a7785]">Apr. 2024 – Apr. 2025</p>
-            <div>
-              <h3 className="text-lg font-semibold text-[#382931]">President, Student Union</h3>
-              <p className="mt-1 leading-7 text-[#5f4a55]">School of the Gifted Young, USTC</p>
-            </div>
-          </div>
+        <article className={cardClass}>
+          <p className={dateClass}>Mar. 2025 – Jul. 2025</p>
+          <h3 className="mt-4 text-xl font-semibold text-[#382931]">Algorithm Intern</h3>
+          <p className="mt-2 leading-7 text-[#5f4a55]">
+            <a
+              href="https://www.baidu.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={externalLinkClass}
+            >
+              Baidu
+            </a>
+          </p>
         </article>
 
-        <article className="relative">
-          <span className="absolute -left-[35px] top-2 h-3.5 w-3.5 rounded-full border-4 border-[#fff1f6] bg-[#bd6787] shadow-[0_0_0_4px_rgba(189,103,135,0.08)] sm:-left-[44px]" />
-          <div className="grid gap-2 sm:grid-cols-[190px_1fr] sm:gap-7">
-            <p className="font-semibold text-[#9a7785]">Mar. 2024 – Jul. 2024</p>
-            <div>
-              <h3 className="text-lg font-semibold text-[#382931]">Algorithm Intern</h3>
-              <p className="mt-1 leading-7 text-[#5f4a55]">
-                <a
-                  href="https://www.baidu.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={externalLinkClass}
-                >
-                  Baidu
-                </a>
-              </p>
-            </div>
-          </div>
+        <article className={cardClass}>
+          <p className={dateClass}>Apr. 2024 – Apr. 2025</p>
+          <h3 className="mt-4 text-xl font-semibold text-[#382931]">President, Student Union</h3>
+          <p className="mt-2 leading-7 text-[#5f4a55]">School of the Gifted Young, USTC</p>
         </article>
       </div>
     </section>
@@ -315,9 +301,9 @@ function PublicationSection() {
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'News', href: '#news' },
+  { label: 'Publications', href: '#publications' },
   { label: 'Education', href: '#education' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Publication', href: '#publications' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -341,7 +327,7 @@ export default function Home() {
         className="mx-auto grid scroll-mt-10 max-w-6xl grid-cols-1 items-center gap-10 rounded-3xl border border-[#e9becd] bg-white/60 p-8 shadow-[0_12px_40px_rgba(186,110,140,0.14)] backdrop-blur-sm sm:p-12 md:grid-cols-2"
       >
         <div className="space-y-6">
-          <h1 className="text-4xl font-semibold tracking-tight text-[#2d1820]">Yujia Zeng</h1>
+          <h1 className="text-4xl font-semibold tracking-tight text-[#2d1820]">Yujia Zeng (曾昱嘉)</h1>
           <p className="text-lg leading-8 text-[#6f4b57]">
             I am a third-year undergraduate student in the School of the Gifted Young (少年班),
             University of Science and Technology of China (USTC). Before this, I was an algorithm
@@ -449,9 +435,9 @@ export default function Home() {
         </div>
       </section>
 
+      <PublicationSection />
       <EducationSection />
       <ExperienceSection />
-      <PublicationSection />
     </div>
   );
 }
