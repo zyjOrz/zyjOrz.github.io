@@ -57,7 +57,7 @@ export default function TopNav() {
   return (
     <nav
       aria-label="Primary navigation"
-      className={`site-nav mx-auto mb-16 flex max-w-4xl justify-center gap-16 text-[18px] font-extrabold uppercase tracking-wide sm:gap-[168px] sm:text-[20px]${
+      className={`site-nav mx-auto mb-12 flex max-w-4xl justify-center gap-16 text-[18px] font-extrabold uppercase tracking-wide sm:gap-[168px] sm:text-[20px]${
         scrolled ? ' is-scrolled' : ''
       }`}
     >

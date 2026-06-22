@@ -21,6 +21,8 @@ export default function CustomCursor() {
   const animationFrameRef = useRef<number | null>(null);
   const nextSparkId = useRef(0);
   const [enabled, setEnabled] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const visibleRef = useRef(false);
   const [hovering, setHovering] = useState(false);
   const [pressed, setPressed] = useState(false);
   const [sparks, setSparks] = useState<CursorSpark[]>([]);
@@ -40,7 +42,6 @@ export default function CustomCursor() {
     let targetY = window.innerHeight / 2;
     let ringX = targetX;
     let ringY = targetY;
-    let hasMoved = false;
 
     const renderCursor = () => {
       ringX += (targetX - ringX) * 0.2;
@@ -61,28 +62,15 @@ export default function CustomCursor() {
         markRef.current.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
       }
 
-      if (!hasMoved) {
-        hasMoved = true;
-        ringRef.current?.classList.add('is-visible');
-        markRef.current?.classList.add('is-visible');
+      if (!visibleRef.current) {
+        visibleRef.current = true;
+        setVisible(true);
       }
     };
 
     const handlePointerOver = (event: PointerEvent) => {
       const target = event.target;
       setHovering(target instanceof Element && Boolean(target.closest(INTERACTIVE_SELECTOR)));
-    };
-
-    const handlePointerLeave = () => {
-      ringRef.current?.classList.remove('is-visible');
-      markRef.current?.classList.remove('is-visible');
-    };
-
-    const handlePointerEnter = () => {
-      if (hasMoved) {
-        ringRef.current?.classList.add('is-visible');
-        markRef.current?.classList.add('is-visible');
-      }
     };
 
     const handlePointerDown = (event: PointerEvent) => {
@@ -116,8 +104,6 @@ export default function CustomCursor() {
     window.addEventListener('pointerover', handlePointerOver, { passive: true });
     window.addEventListener('pointerdown', handlePointerDown, { passive: true });
     window.addEventListener('pointerup', handlePointerUp, { passive: true });
-    document.documentElement.addEventListener('pointerleave', handlePointerLeave);
-    document.documentElement.addEventListener('pointerenter', handlePointerEnter);
 
     animationFrameRef.current = window.requestAnimationFrame(renderCursor);
 
@@ -127,8 +113,6 @@ export default function CustomCursor() {
       window.removeEventListener('pointerover', handlePointerOver);
       window.removeEventListener('pointerdown', handlePointerDown);
       window.removeEventListener('pointerup', handlePointerUp);
-      document.documentElement.removeEventListener('pointerleave', handlePointerLeave);
-      document.documentElement.removeEventListener('pointerenter', handlePointerEnter);
       if (animationFrameRef.current !== null) {
         window.cancelAnimationFrame(animationFrameRef.current);
       }
@@ -143,11 +127,11 @@ export default function CustomCursor() {
     <div aria-hidden="true" className="custom-cursor-layer">
       <div
         ref={ringRef}
-        className={`custom-cursor-ring${hovering ? ' is-hovering' : ''}${pressed ? ' is-pressed' : ''}`}
+        className={`custom-cursor-ring${visible ? ' is-visible' : ''}${hovering ? ' is-hovering' : ''}${pressed ? ' is-pressed' : ''}`}
       />
       <div
         ref={markRef}
-        className={`custom-cursor-mark${hovering ? ' is-hovering' : ''}${pressed ? ' is-pressed' : ''}`}
+        className={`custom-cursor-mark${visible ? ' is-visible' : ''}${hovering ? ' is-hovering' : ''}${pressed ? ' is-pressed' : ''}`}
       >
         ✦
       </div>
