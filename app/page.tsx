@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import {
+  Award,
   BriefcaseBusiness,
   ChevronDown,
   Github,
   GraduationCap,
   MapPin,
   Newspaper,
-  Trophy,
 } from 'lucide-react';
 import { SiLinkedin } from 'react-icons/si';
 import CopyEmailButton from './CopyEmailButton';
@@ -183,8 +183,21 @@ function ExperienceSection() {
               rel="noopener noreferrer"
               className={externalLinkClass}
             >
-              MSC Lab, UC Berkeley
+              MSC Lab
             </a>
+            , UC Berkeley
+          </p>
+          <p className="mt-1 leading-7 text-[#5f4a55]">
+            Advised by{' '}
+            <a
+              href="https://msc.berkeley.edu/people/tomizuka.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={externalLinkClass}
+            >
+              Prof. Masayoshi Tomizuka
+            </a>
+            .
           </p>
         </article>
 
@@ -255,17 +268,8 @@ function ExperienceSection() {
   );
 }
 
-function AwardSection() {
-  const awards = [
-    {
-      title: '国家奖学金',
-      detail: 'Top 1%',
-    },
-    {
-      title: 'ICPC Hong Kong Regional',
-      detail: '银奖',
-    },
-  ];
+function AwardsSection() {
+  const awards = ['The National Scholarship (Top 1%)', 'A Silver Medal at the ICPC Hong Kong Regional'];
 
   return (
     <section
@@ -273,32 +277,25 @@ function AwardSection() {
       className="mx-auto mt-20 scroll-mt-10 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-12"
     >
       <div className="mb-8 flex items-center gap-3 text-[#2d2232]">
-        <div className="rounded-xl bg-[#fff0e8] p-2 text-[#b86a4d] shadow-sm">
-          <Trophy size={19} />
+        <div className="rounded-xl bg-[#fff0d9] p-2 text-[#b87924] shadow-sm">
+          <Award size={19} />
         </div>
         <div>
           <h2 className="text-3xl font-semibold tracking-tight">Awards</h2>
-          <p className="mt-1 text-sm text-[#8b6473]">Selected honors and achievements</p>
+          <p className="mt-1 text-sm text-[#8b6473]">Honors and distinctions</p>
         </div>
       </div>
 
       <div className="space-y-4">
         {awards.map((award, index) => (
           <article
-            key={award.title}
-            className="flex items-center gap-5 rounded-[24px] border border-[#ead2dd] bg-[#fffafc]/85 px-6 py-5 shadow-[0_8px_24px_rgba(191,113,142,0.09)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_13px_30px_rgba(191,113,142,0.14)] sm:px-7"
+            key={award}
+            className="flex items-center gap-5 rounded-[24px] border border-[#ead2dd] bg-[#fffafc]/85 px-6 py-5 shadow-[0_10px_28px_rgba(191,113,142,0.09)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(191,113,142,0.14)] sm:px-7"
           >
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#ebcbd7] bg-[#fff2f6] text-sm font-semibold text-[#a65d77]">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#efd6b0] bg-[#fff7e9] text-sm font-semibold text-[#a66a18]">
               {String(index + 1).padStart(2, '0')}
-            </div>
-            <div className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-5">
-              <h3 className="text-lg font-semibold leading-7 text-[#382931] sm:text-xl">
-                {award.title}
-              </h3>
-              <span className="w-fit shrink-0 rounded-full border border-[#e7c3d1] bg-[#fff2f6] px-3 py-1 text-sm font-semibold text-[#99526c]">
-                {award.detail}
-              </span>
-            </div>
+            </span>
+            <h3 className="text-lg font-semibold leading-7 text-[#382931] sm:text-xl">{award}</h3>
           </article>
         ))}
       </div>
@@ -503,7 +500,7 @@ export default function Home() {
       <PublicationSection />
       <EducationSection />
       <ExperienceSection />
-      <AwardSection />
+      <AwardsSection />
     </div>
   );
 }
