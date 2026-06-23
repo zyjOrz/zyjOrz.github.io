@@ -37,6 +37,11 @@ const newsItems = [
     content: <>Received the Outstanding Physical Fitness Award (top &lt;1% university-wide).</>,
   },
   {
+    date: '2503',
+    emoji: '💼',
+    content: <>Joined Baidu as a Research Intern.</>,
+  },
+  {
     date: '2412',
     emoji: '🥈',
     content: <>Won a silver medal at the ICPC Hong Kong Regional.</>,
@@ -50,11 +55,6 @@ const newsItems = [
     date: '2404',
     emoji: '🌟',
     content: <>Served as President of the School Student Union.</>,
-  },
-  {
-    date: '2503',
-    emoji: '💼',
-    content: <>Joined Baidu as a Research Intern.</>,
   },
 ];
 
