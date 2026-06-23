@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CustomCursor from "./CustomCursor";
+import MouseGradient from "./MouseGradient";
 
 export const metadata: Metadata = {
   title: "Yujia Zeng",
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <MouseGradient />
         <CustomCursor />
         {children}
       </body>

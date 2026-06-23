@@ -5,6 +5,10 @@
   --foreground: #23161b;
   --font-geist-sans: Arial, Helvetica, sans-serif;
   --font-geist-mono: "Courier New", monospace;
+
+  /* default position: upper-right before mouse moves */
+  --mouse-x: 88vw;
+  --mouse-y: 16vh;
 }
 
 @theme inline {
@@ -39,15 +43,36 @@ body {
 
 .site-canvas {
   background:
-    radial-gradient(circle at 10% 4%, rgba(255, 210, 227, 0.72), transparent 28%),
-    radial-gradient(circle at 88% 18%, rgba(228, 209, 255, 0.42), transparent 25%),
-    radial-gradient(circle at 82% 86%, rgba(255, 195, 220, 0.54), transparent 30%),
-    radial-gradient(circle at 18% 72%, rgba(255, 231, 239, 0.72), transparent 24%),
-    linear-gradient(135deg, #fff6f9 0%, #ffeaf1 48%, #fcecf3 100%);
+    /* purple glow following mouse */
+    radial-gradient(
+      circle 560px at var(--mouse-x) var(--mouse-y),
+      rgba(218, 199, 255, 0.42),
+      rgba(235, 211, 255, 0.22) 34%,
+      transparent 68%
+    ),
+
+    /* soft pink base glow */
+    radial-gradient(
+      circle 760px at 10% 6%,
+      rgba(255, 216, 231, 0.56),
+      transparent 58%
+    ),
+
+    /* bottom-right pink glow */
+    radial-gradient(
+      circle 780px at 86% 88%,
+      rgba(255, 205, 224, 0.42),
+      transparent 62%
+    ),
+
+    /* overall pale pink background */
+    linear-gradient(
+      135deg,
+      #fff8fa 0%,
+      #ffeff5 48%,
+      #fff6fa 100%
+    );
   background-attachment: fixed;
-  background-position: 0% 0%, 100% 0%, 100% 100%, 0% 100%, center;
-  background-size: 118% 118%, 122% 122%, 124% 124%, 116% 116%, 100% 100%;
-  animation: ambient-background 18s ease-in-out infinite alternate;
 }
 
 .hero-card,
