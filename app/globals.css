@@ -45,7 +45,7 @@ body {
   background:
     /* purple glow following mouse */
     radial-gradient(
-      circle 560px at var(--mouse-x) var(--mouse-y),
+      circle 760px at var(--mouse-x) var(--mouse-y),
       rgba(218, 199, 255, 0.42),
       rgba(235, 211, 255, 0.22) 34%,
       transparent 68%
