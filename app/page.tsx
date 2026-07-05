@@ -119,7 +119,7 @@ function ExperienceSection() {
 
       <div className="grid gap-5 md:grid-cols-2">
         <article className={cardClass}>
-          <p className={dateClass}>Mar. 2026 – Oct. 2026</p>
+          <p className={dateClass}>Mar. 2026 – Jan. 2027</p>
           <h3 className="mt-4 text-xl font-semibold text-[#382931]">J-1 Summer Research</h3>
           <p className="mt-2 leading-7 text-[#5f4a55]">
             <a
@@ -411,7 +411,6 @@ export default function Home() {
       </section>
 
       <PublicationSection />
-      <EducationSection />
       <ExperienceSection />
     </div>
   );
