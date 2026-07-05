@@ -413,7 +413,6 @@ export default function Home() {
       <PublicationSection />
       <EducationSection />
       <ExperienceSection />
-      <AwardsSection />
     </div>
   );
 }
