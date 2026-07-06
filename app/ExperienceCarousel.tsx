@@ -123,7 +123,7 @@ const experiences: ExperienceItem[] = [
     role: 'President, Student Union',
     organization: 'School of the Gifted Young, USTC',
     organizationUrl: 'https://en.ustc.edu.cn/',
-    logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Logo_of_University_of_Science_and_Technology_of_China.svg/250px-Logo_of_University_of_Science_and_Technology_of_China.svg.png',
+    logo: 'https://en.scgy.ustc.edu.cn/_upload/tpl/15/36/5430/template5430/htmlRes/logo.png',
     logoAlt: 'University of Science and Technology of China SGY logo',
     logoFallback: 'USTC',
     details: [],
