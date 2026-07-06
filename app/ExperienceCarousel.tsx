@@ -101,7 +101,7 @@ const experiences: ExperienceItem[] = [
     logo: 'https://hidream.ai/assets/logos/hidream-logo-en.png',
     logoAlt: 'HiDream.ai logo',
     logoFallback: 'Hi',
-    summary: 'Algorithm internship in generative AI product and model development.',
+    // summary: 'Algorithm internship in generative AI product and model development.',
     details: [],
   },
   {
@@ -124,8 +124,21 @@ const experiences: ExperienceItem[] = [
     organization: 'School of the Gifted Young, USTC',
     organizationUrl: 'https://en.ustc.edu.cn/',
     logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Logo_of_University_of_Science_and_Technology_of_China.svg/250px-Logo_of_University_of_Science_and_Technology_of_China.svg.png',
+    logoAlt: 'University of Science and Technology of China SGY logo',
+    logoFallback: 'USTC',
+    details: [],
+  },
+  {
+    id: 'ustc-be',
+    date: 'Sep. 2023 – Jun. 2027(Expected)',
+    category: 'Education',
+    role: 'B.E. in Artificial Intelligence',
+    organization: 'School of the Gifted Young, USTC',
+    organizationUrl: 'https://sgy.ustc.edu.cn/main.htm',
+    logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Logo_of_University_of_Science_and_Technology_of_China.svg/250px-Logo_of_University_of_Science_and_Technology_of_China.svg.png',
     logoAlt: 'University of Science and Technology of China logo',
     logoFallback: 'USTC',
+    summary: 'Rank: Top 5%',
     details: [],
   },
 ];
@@ -333,7 +346,7 @@ export default function ExperienceCarousel() {
               Experience
             </h2>
             <p className="mt-4 max-w-sm leading-7 text-[#725766]">
-              Research, industry, and leadership experiences in a Stanford-style card carousel.
+              Research, industry, education and leadership experiences.
             </p>
           </div>
 
