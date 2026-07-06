@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import {
   Award,
-  BriefcaseBusiness,
   ChevronDown,
   Github,
   GraduationCap,
@@ -12,6 +11,7 @@ import { SiLinkedin } from 'react-icons/si';
 import CopyEmailButton from './CopyEmailButton';
 import NewsTimeline from './NewsTimeline';
 import TopNav from './TopNav';
+import ExperienceCarousel from './ExperienceCarousel';
 
 const externalLinkClass = 'academic-link';
 
@@ -91,124 +91,6 @@ function EducationSection() {
           </div>
         </div>
       </article>
-    </section>
-  );
-}
-
-function ExperienceSection() {
-  const cardClass =
-    'interactive-card rounded-[24px] border border-[#ead2dd] bg-[#fffafc]/85 p-6 shadow-[0_10px_28px_rgba(191,113,142,0.1)]';
-
-  const dateClass =
-    'inline-flex rounded-full border border-[#e7c3d1] bg-[#fff2f6] px-3 py-1 text-sm font-semibold text-[#99526c]';
-
-  return (
-    <section
-      id="experience"
-      className="section-shell mx-auto mt-20 scroll-mt-28 max-w-5xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-8 py-10 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-12"
-    >
-      <div className="mb-8 flex items-center gap-3 text-[#2d2232]">
-        <div className="rounded-xl bg-[#f3e5fb] p-2 text-[#8f4dc7] shadow-sm">
-          <BriefcaseBusiness size={19} />
-        </div>
-        <div>
-          <h2 className="text-3xl font-semibold tracking-tight">Experience</h2>
-          <p className="mt-1 text-sm text-[#8b6473]">Research, industry, and leadership</p>
-        </div>
-      </div>
-
-      <div className="grid gap-5 md:grid-cols-2">
-        <article className={cardClass}>
-          <p className={dateClass}>Mar. 2026 – Jan. 2027</p>
-          <h3 className="mt-4 text-xl font-semibold text-[#382931]">J-1 Summer Research</h3>
-          <p className="mt-2 leading-7 text-[#5f4a55]">
-            <a
-              href="https://msc.berkeley.edu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={externalLinkClass}
-            >
-              MSC Lab
-            </a>
-            , UC Berkeley
-          </p>
-          <p className="mt-1 leading-7 text-[#5f4a55]">
-            Advised by{' '}
-            <a
-              href="https://msc.berkeley.edu/people/tomizuka.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={externalLinkClass}
-            >
-              Prof. Masayoshi Tomizuka
-            </a>
-            .
-          </p>
-        </article>
-
-        <article className={cardClass}>
-          <p className={dateClass}>Aug. 2025 – Feb. 2026</p>
-          <h3 className="mt-4 text-xl font-semibold text-[#382931]">Research Experience</h3>
-          <p className="mt-2 leading-7 text-[#5f4a55]">Singapore (Remote)</p>
-          <p className="mt-1 leading-7 text-[#5f4a55]">
-            Advised by{' '}
-            <a
-              href="https://chenyangsi.top/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={externalLinkClass}
-            >
-              Prof. Chenyang Si
-            </a>{' '}
-            and{' '}
-            <a
-              href="https://liuziwei7.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={externalLinkClass}
-            >
-              Prof. Ziwei Liu
-            </a>
-            .
-          </p>
-        </article>
-
-        <article className={cardClass}>
-          <p className={dateClass}>Sep. 2025 – Jan. 2026</p>
-          <h3 className="mt-4 text-xl font-semibold text-[#382931]">Algorithm Intern</h3>
-          <p className="mt-2 leading-7 text-[#5f4a55]">
-            <a
-              href="https://hidreamai.com/home"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={externalLinkClass}
-            >
-              HiDream.ai
-            </a>
-          </p>
-        </article>
-
-        <article className={cardClass}>
-          <p className={dateClass}>Mar. 2025 – Jul. 2025</p>
-          <h3 className="mt-4 text-xl font-semibold text-[#382931]">Algorithm Intern</h3>
-          <p className="mt-2 leading-7 text-[#5f4a55]">
-            <a
-              href="https://www.baidu.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={externalLinkClass}
-            >
-              Baidu
-            </a>
-          </p>
-        </article>
-
-        <article className={cardClass}>
-          <p className={dateClass}>Apr. 2024 – Apr. 2025</p>
-          <h3 className="mt-4 text-xl font-semibold text-[#382931]">President, Student Union</h3>
-          <p className="mt-2 leading-7 text-[#5f4a55]">School of the Gifted Young, USTC</p>
-        </article>
-      </div>
     </section>
   );
 }
@@ -411,7 +293,7 @@ export default function Home() {
       </section>
 
       <PublicationSection />
-      <ExperienceSection />
+      <ExperienceCarousel />
     </div>
   );
 }
