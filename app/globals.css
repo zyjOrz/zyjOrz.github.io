@@ -97,6 +97,7 @@ body {
   position: sticky;
   top: 1.25rem;
   z-index: 50;
+  box-sizing: border-box;
   isolation: isolate;
 }
 
@@ -122,6 +123,8 @@ body {
 }
 
 .site-nav-link {
+  flex: 0 0 auto;
+  white-space: nowrap;
   transition: color 220ms ease, transform 220ms ease;
 }
 
@@ -464,21 +467,17 @@ body {
   }
 }
 
-@media (max-width: 1023px) {
-  .site-nav {
-    gap: clamp(1.6rem, 6vw, 4rem);
-  }
-}
-
 @media (max-width: 639px) {
   .site-nav {
     top: 0.85rem;
-    gap: 1.6rem;
-    font-size: 0.9rem;
+    padding-right: 0.15rem;
+    padding-left: 0.15rem;
+    font-size: clamp(0.68rem, 3.1vw, 0.82rem);
+    letter-spacing: 0.02em;
   }
 
   .site-nav::before {
-    inset: -0.65rem -0.8rem;
+    inset: -0.65rem -0.45rem;
   }
 }
 
