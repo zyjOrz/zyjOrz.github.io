@@ -50,6 +50,7 @@ const publications = [
     title: 'ReconNet: Generative Recommendation with Control-Guided Diffusion Models',
     authors: 'Yujia Zeng',
     image: '/reconnet.png',
+    paperUrl: 'https://link.springer.com/chapter/10.1007/978-981-92-3384-7_1',
     description:
       'This work reformulates sequential recommendation as a control-guided diffusion generation task, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.',
   },
@@ -177,6 +178,17 @@ function PublicationSection() {
                 <MapPin size={14} className="text-[#b86380]" />
                 <span>{paper.location}</span>
               </p>
+
+              <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold">
+                <a
+                  href={paper.paperUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4 transition hover:text-[#143d72]"
+                >
+                  Paper
+                </a>
+              </div>
 
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#3d3842]">
                 <li>{paper.description}</li>

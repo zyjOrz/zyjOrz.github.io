@@ -8,6 +8,7 @@ const publications = [
     title: "ReconNet: Generative Recommendation with Control-Guided Diffusion Models",
     authors: "Yujia Zeng",
     image: "/reconnet.png",
+    paperUrl: "https://link.springer.com/chapter/10.1007/978-981-92-3384-7_1",
     description:
       "This work reformulates sequential recommendation as a control-guided diffusion generation task integrating ControlNEXT into the diffusion process, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.",
   },
@@ -62,9 +63,14 @@ export default function PublicationPage() {
                   <p className="mt-1 text-sm font-semibold text-[#7b4456]">{paper.venue}</p>
 
                   <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-[1rem] font-semibold">
-                    <span className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4" aria-disabled="true">
-                      Paper <span className="font-medium text-[#6f4b57]">(comming soon)</span>
-                    </span>
+                    <a
+                      href={paper.paperUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4 transition hover:text-[#143d72]"
+                    >
+                      Paper
+                    </a>
                     <span className="text-[#8d6673]">|</span>
                     <span className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4" aria-disabled="true">
                       Code <span className="font-medium text-[#6f4b57]">(comming soon)</span>

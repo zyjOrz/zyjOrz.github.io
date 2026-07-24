@@ -332,7 +332,7 @@ export default function ExperienceCarousel() {
 
   return (
     <section
-      id="experience"
+      id="experiences"
       className="section-shell mx-auto mt-20 scroll-mt-28 max-w-6xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-6 py-9 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-10 lg:px-12"
     >
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.7fr] lg:items-stretch">
@@ -343,7 +343,7 @@ export default function ExperienceCarousel() {
             </div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#b05c7b]">Selected</p>
             <h2 className="mt-2 text-4xl font-semibold tracking-tight text-[#2d2232] sm:text-5xl">
-              Experience
+              Experiences
             </h2>
             <p className="mt-4 max-w-sm leading-7 text-[#725766]">
               Research, industry, education and leadership experiences.
@@ -351,7 +351,7 @@ export default function ExperienceCarousel() {
           </div>
 
           <div className="mt-8 space-y-5">
-            <div className="flex items-center gap-3" aria-label="Experience carousel controls">
+            <div className="flex items-center gap-3" aria-label="Experiences carousel controls">
               <button
                 type="button"
                 onClick={() => moveBy(-1)}
@@ -394,7 +394,7 @@ export default function ExperienceCarousel() {
           <div
             className="experience-carousel-viewport overflow-hidden rounded-[32px] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-4 focus-visible:outline-[#d78dac]"
             role="region"
-            aria-label="Experience carousel. Use left and right arrow keys or buttons to navigate."
+            aria-label="Experiences carousel. Use left and right arrow keys or buttons to navigate."
             tabIndex={0}
             onKeyDown={handleKeyDown}
             onPointerDown={handlePointerDown}
