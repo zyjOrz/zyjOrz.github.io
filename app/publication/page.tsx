@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, FileText } from "lucide-react";
 
 const publications = [
   {
@@ -67,9 +67,11 @@ export default function PublicationPage() {
                       href={paper.paperUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4 transition hover:text-[#143d72]"
+                      className="paper-link-button"
+                      aria-label={`Open ${paper.title} paper`}
                     >
-                      Paper
+                      <FileText size={16} strokeWidth={2.2} aria-hidden="true" />
+                      <span>Paper</span>
                     </a>
                     <span className="text-[#8d6673]">|</span>
                     <span className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4" aria-disabled="true">

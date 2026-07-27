@@ -239,6 +239,51 @@ body {
   box-shadow: 0 10px 26px rgba(165, 91, 120, 0.12);
 }
 
+.paper-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #d7c3cc;
+  border-radius: 0.65rem;
+  background: #665963;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(76, 53, 64, 0.18);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.paper-link-button svg {
+  flex: 0 0 auto;
+  transition: transform 220ms ease;
+}
+
+.paper-link-button:hover {
+  transform: translateY(-2px);
+  border-color: #b8879b;
+  background: #51454e;
+  color: #ffffff;
+  box-shadow: 0 9px 20px rgba(76, 53, 64, 0.23);
+}
+
+.paper-link-button:hover svg {
+  transform: translateY(-1px);
+}
+
+.paper-link-button:active {
+  transform: translateY(0);
+}
+
 .portrait-card {
   position: relative;
 }

@@ -2,12 +2,13 @@ import Image from 'next/image';
 import {
   Award,
   ChevronDown,
+  FileText,
   Github,
   GraduationCap,
   MapPin,
   Newspaper,
 } from 'lucide-react';
-import { SiLinkedin } from 'react-icons/si';
+import { SiGooglescholar, SiLinkedin } from 'react-icons/si';
 import CopyEmailButton from './CopyEmailButton';
 import NewsTimeline from './NewsTimeline';
 import TopNav from './TopNav';
@@ -36,6 +37,15 @@ function SocialLinks() {
           className="transition hover:opacity-70"
         >
           <SiLinkedin size={20} />
+        </a>
+        <a
+          href="https://scholar.google.com/citations?hl=zh-CN&user=Uu-610EAAAAJ"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Google Scholar"
+          className="transition hover:opacity-70"
+        >
+          <SiGooglescholar size={20} />
         </a>
       </div>
     </div>
@@ -184,9 +194,11 @@ function PublicationSection() {
                   href={paper.paperUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4 transition hover:text-[#143d72]"
+                  className="paper-link-button"
+                  aria-label={`Open ${paper.title} paper`}
                 >
-                  Paper
+                  <FileText size={16} strokeWidth={2.2} aria-hidden="true" />
+                  <span>Paper</span>
                 </a>
               </div>
 
