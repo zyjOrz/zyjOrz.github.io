@@ -39,7 +39,7 @@ function SocialLinks() {
           <SiLinkedin size={20} />
         </a>
         <a
-          href="https://scholar.google.com/citations?hl=en&user=3hZIwCoAAAAJ"
+          href="https://scholar.google.com/citations?hl=zh-CN&user=Uu-610EAAAAJ"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Google Scholar"
