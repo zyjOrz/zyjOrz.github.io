@@ -1,0 +1,53 @@
+{
+  "frontendDirectory": "/mnt/e/paper/DexterousGPT/RAL/Questionnaire/zyjOrz.github.io/public/asl_questionnaire",
+  "backendDirectory": "/tmp/asl-questionnaire-api-unused",
+  "publicUrl": "https://www.yujiazeng.com/asl_questionnaire/",
+  "apiBase": "https://asl-questionnaire-api.onrender.com",
+  "fileCount": 66,
+  "totalBytes": 59877225,
+  "totalMiB": 57.10337162017822,
+  "largestFiles": [
+    {
+      "path": "media/Q10/9a2459bff73663800c9a.mp4",
+      "bytes": 2105721
+    },
+    {
+      "path": "media/Q10/074f63fb431825d0557c.mp4",
+      "bytes": 2060697
+    },
+    {
+      "path": "media/Q04/f9e19aed418b58ccf500.mp4",
+      "bytes": 2037671
+    },
+    {
+      "path": "media/Q10/3c3f9a1aba2fd13552a0.mp4",
+      "bytes": 2017730
+    },
+    {
+      "path": "media/Q04/9e1c8873bcfd995d56c3.mp4",
+      "bytes": 1959907
+    },
+    {
+      "path": "media/Q04/e9b4c16448e87bc64a19.mp4",
+      "bytes": 1925219
+    },
+    {
+      "path": "media/Q08/bc4b23f2a827cb0fc1e6.mp4",
+      "bytes": 1753960
+    },
+    {
+      "path": "media/Q08/d8552d4c2cb1cbc82406.mp4",
+      "bytes": 1744997
+    },
+    {
+      "path": "media/Q17/4f214aaa946c7407e64e.mp4",
+      "bytes": 1724299
+    },
+    {
+      "path": "media/Q08/b6ad7d323216c927d8a2.mp4",
+      "bytes": 1699375
+    }
+  ],
+  "over100MiB": [],
+  "githubPagesUnder1GiB": true
+}

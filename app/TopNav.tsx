@@ -69,7 +69,7 @@ export default function TopNav() {
             key={item.label}
             href={item.href}
             aria-current={isActive ? 'location' : undefined}
-            className={`site-nav-link relative text-[#3c2029]${isActive ? ' is-active' : ''}`}
+            className={`site-nav-link relative text-[#fff7fb]${isActive ? ' is-active' : ''}`}
           >
             {item.label}
           </a>

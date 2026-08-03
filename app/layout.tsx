@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import CustomCursor from "./CustomCursor";
-import MouseGradient from "./MouseGradient";
+import type { Metadata } from 'next';
+import './globals.css';
+import MouseRipple from './MouseRipple';
 
 export const metadata: Metadata = {
-  title: "Yujia Zeng",
-  description: "Personal homepage of Yujia Zeng",
+  title: 'Yujia Zeng',
+  description: 'Personal homepage of Yujia Zeng',
 };
 
 export default function RootLayout({
@@ -16,8 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <MouseGradient />
-        <CustomCursor />
+        <div className="site-backdrop" aria-hidden="true" />
+        <MouseRipple />
         {children}
       </body>
     </html>
