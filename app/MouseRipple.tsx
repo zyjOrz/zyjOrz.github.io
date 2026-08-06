@@ -75,13 +75,13 @@ export default function MouseRipple() {
 
         context.beginPath();
         context.arc(ripple.x, ripple.y, radius, 0, Math.PI * 2);
-        context.strokeStyle = `rgba(232, 127, 168, ${opacity})`;
+        context.strokeStyle = `rgba(211, 79, 131, ${opacity})`;
         context.lineWidth = ripple.lineWidth * (1 - progress * 0.35);
         context.stroke();
 
         context.beginPath();
         context.arc(ripple.x, ripple.y, radius * 0.72, 0, Math.PI * 2);
-        context.strokeStyle = `rgba(248, 229, 240, ${opacity * 0.54})`;
+        context.strokeStyle = `rgba(218, 199, 255, ${opacity * 0.54})`;
         context.lineWidth = Math.max(0.65, ripple.lineWidth * 0.58);
         context.stroke();
 
@@ -123,7 +123,7 @@ export default function MouseRipple() {
           bornAt: now,
           lifetime: 820,
           maximumRadius: 34 + Math.min(distance, 46) * 0.18,
-          opacity: 0.24,
+          opacity: 0.23,
           lineWidth: 1.25,
         });
 
@@ -144,9 +144,9 @@ export default function MouseRipple() {
           x: event.clientX,
           y: event.clientY,
           bornAt: now + delay,
-          lifetime: 1080 + index * 90,
+          lifetime: 1_080 + index * 90,
           maximumRadius: 62 + index * 18,
-          opacity: 0.36 - index * 0.055,
+          opacity: 0.34 - index * 0.055,
           lineWidth: 1.7 - index * 0.18,
         });
       });

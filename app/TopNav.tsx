@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 
 const navItems = [
   { label: 'Home', href: '#home', sectionId: 'home' },
-  { label: 'Publications', href: '#publications', sectionId: 'publications' },
+  { label: 'News', href: '#news', sectionId: 'news' },
+  { label: 'Publication', href: '#publications', sectionId: 'publications' },
   { label: 'Experiences', href: '#experiences', sectionId: 'experiences' },
-  { label: 'Contact', href: '/contact' },
 ];
 
 const observedSections = navItems.flatMap((item) => (item.sectionId ? [item.sectionId] : []));
@@ -69,7 +69,7 @@ export default function TopNav() {
             key={item.label}
             href={item.href}
             aria-current={isActive ? 'location' : undefined}
-            className={`site-nav-link relative text-[#fff7fb]${isActive ? ' is-active' : ''}`}
+            className={`site-nav-link relative text-[#fff8fb]${isActive ? ' is-active' : ''}`}
           >
             {item.label}
           </a>

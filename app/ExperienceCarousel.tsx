@@ -336,7 +336,7 @@ export default function ExperienceCarousel() {
       className="section-shell mx-auto mt-20 scroll-mt-28 max-w-6xl rounded-[32px] border border-[#ebd2df] bg-white/65 px-6 py-9 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-10 lg:px-12"
     >
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.7fr] lg:items-stretch">
-        <div className="flex flex-col justify-between rounded-[30px] border border-[#ead2dd] bg-[#fffafc]/70 p-6 shadow-[0_10px_30px_rgba(191,113,142,0.1)] sm:p-8">
+        <div className="experience-intro-panel flex flex-col justify-between rounded-[30px] border border-[#ead2dd] bg-[#fffafc]/70 p-6 shadow-[0_10px_30px_rgba(191,113,142,0.1)] sm:p-8">
           <div>
             <div className="mb-6 inline-flex rounded-xl bg-[#f3e5fb] p-2 text-[#8f4dc7] shadow-sm">
               <BriefcaseBusiness size={20} />
