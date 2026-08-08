@@ -31,7 +31,7 @@ type ExperienceItem = {
 const experiences: ExperienceItem[] = [
   {
     id: 'berkeley-msc',
-    date: 'Mar. 2026 – Jan. 2027',
+    date: 'Mar. 2026 – Mar. 2027',
     category: 'Research',
     role: 'J-1 Summer Research',
     organization: 'MSC Lab, UC Berkeley',
