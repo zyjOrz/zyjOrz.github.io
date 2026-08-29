@@ -41,8 +41,7 @@ const newsItems = [
     emoji: '🏆',
     content: (
       <>
-        Received the <strong className="font-bold">Yang Ya Alumni Fund Scholarship</strong> —
-        awarded to the top 5 female students in the School of the Gifted Young.
+        Received the Yang Ya Alumni Fund Scholarship (￥5000, awarded to the top 5 female students in the School of the Gifted Young).
       </>
     ),
   },
@@ -59,7 +58,7 @@ const newsItems = [
   {
     date: '2409',
     emoji: '🏆',
-    content: <>Awarded the National Scholarship (Top 1%).</>,
+    content: <>Awarded the <strong className="font-bold">National Scholarship</strong> (￥10000, GPA Top 1%).</>,
   },
   {
     date: '2404',

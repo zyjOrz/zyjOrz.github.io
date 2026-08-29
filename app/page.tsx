@@ -70,7 +70,7 @@ const publications = [
     paperUrl: 'https://arxiv.org/abs/2608.26794',
     projectUrl: 'https://ringforcing.com/',
     description:
-      'We present Ring Forcing, an autoregressive video diffusion framework designed to robustly construct and precisely utilize long-term memory. Our ring-structured training strategy enforces retrieval from distant history, effectively reconciling the trade-off between strict historical adherence and generative diversity. Extensive experiments demonstrate that Ring Forcing achieves superior minutes-long coherence and object permanence, significantly outperforming state-of-the-art methods.',
+      'We present Ring Forcing, an autoregressive video diffusion framework designed to robustly construct and precisely utilize long-term memory, which achieves superior minutes-long coherence and object permanence, significantly outperforming state-of-the-art methods.',
   },
   {
     venue: 'ICIC 2026',
