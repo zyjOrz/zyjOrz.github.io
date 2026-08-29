@@ -37,6 +37,16 @@ const newsItems = [
     content: <>Received the Outstanding Physical Fitness Award (top &lt;1% university-wide).</>,
   },
   {
+    date: '2509',
+    emoji: '🏆',
+    content: (
+      <>
+        Received the <strong className="font-bold">Yang Ya Alumni Fund Scholarship</strong> —
+        awarded to the top 5 female students in the School of the Gifted Young.
+      </>
+    ),
+  },
+  {
     date: '2503',
     emoji: '💼',
     content: <>Joined Baidu as a Research Intern.</>,

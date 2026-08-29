@@ -2,6 +2,7 @@ import Image from 'next/image';
 import {
   Award,
   ChevronDown,
+  ExternalLink,
   FileText,
   Github,
   GraduationCap,
@@ -54,13 +55,32 @@ function SocialLinks() {
 
 const publications = [
   {
+    venue: 'ECCV 2026',
+    location: 'Malmö, Sweden',
+    type: null,
+    title: 'Ring Forcing: Towards Precise Long-Term Memory for Autoregressive Video Diffusion',
+    authors: (
+      <>
+        {'Bowen Xue, Brandon Y. Feng, Chenguo Lin, Yuchen Lin, '}
+        <strong className="font-extrabold text-[#35242d]">Yujia Zeng</strong>
+        {', Lvmin Zhang, Maneesh Agrawala, Honglei Yan, and Panwang Pan'}
+      </>
+    ),
+    image: 'https://arxiv.org/html/2608.26794v1/teaser.png',
+    paperUrl: 'https://arxiv.org/abs/2608.26794',
+    projectUrl: 'https://ringforcing.com/',
+    description:
+      'We present Ring Forcing, an autoregressive video diffusion framework designed to robustly construct and precisely utilize long-term memory. Our ring-structured training strategy enforces retrieval from distant history, effectively reconciling the trade-off between strict historical adherence and generative diversity. Extensive experiments demonstrate that Ring Forcing achieves superior minutes-long coherence and object permanence, significantly outperforming state-of-the-art methods.',
+  },
+  {
     venue: 'ICIC 2026',
     location: 'Toronto, Canada',
     type: 'Oral',
     title: 'ReconNet: Generative Recommendation with Control-Guided Diffusion Models',
-    authors: 'Yujia Zeng',
+    authors: <strong className="font-extrabold text-[#35242d]">Yujia Zeng</strong>,
     image: '/reconnet.png',
     paperUrl: 'https://link.springer.com/chapter/10.1007/978-981-92-3384-7_1',
+    projectUrl: null,
     description:
       'This work reformulates sequential recommendation as a control-guided diffusion generation task, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.',
   },
@@ -178,7 +198,7 @@ function PublicationSection() {
 
             <div className="flex flex-col justify-center py-1">
               <h2 className="text-[1.15rem] font-semibold leading-7 text-[#3a2b36]">
-                <span className="mr-2 text-[#e00000]">({paper.type})</span>
+                {paper.type ? <span className="mr-2 text-[#e00000]">({paper.type})</span> : null}
                 <span className="publication-title">{paper.title}</span>
               </h2>
               <p className="mt-2 text-sm font-medium text-[#5c5260]">{paper.authors}</p>
@@ -190,6 +210,18 @@ function PublicationSection() {
               </p>
 
               <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold">
+                {paper.projectUrl ? (
+                  <a
+                    href={paper.projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="paper-link-button"
+                    aria-label={`Open ${paper.title} project page`}
+                  >
+                    <ExternalLink size={16} strokeWidth={2.2} aria-hidden="true" />
+                    <span>Project Page</span>
+                  </a>
+                ) : null}
                 <a
                   href={paper.paperUrl}
                   target="_blank"

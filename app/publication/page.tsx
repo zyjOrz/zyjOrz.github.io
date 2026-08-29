@@ -1,14 +1,36 @@
 import Image from "next/image";
-import { ArrowLeft, FileText } from "lucide-react";
+import { ArrowLeft, ExternalLink, FileText, MapPin } from "lucide-react";
 
 const publications = [
   {
+    venue: "ECCV 2026",
+    location: "Malmö, Sweden",
+    type: null,
+    title: "Ring Forcing: Towards Precise Long-Term Memory for Autoregressive Video Diffusion",
+    authors: (
+      <>
+        {'Bowen Xue, Brandon Y. Feng, Chenguo Lin, Yuchen Lin, '}
+        <strong className="font-extrabold text-[#35242d]">Yujia Zeng</strong>
+        {', Lvmin Zhang, Maneesh Agrawala, Honglei Yan, and Panwang Pan'}
+      </>
+    ),
+    image: "https://arxiv.org/html/2608.26794v1/teaser.png",
+    paperUrl: "https://arxiv.org/abs/2608.26794",
+    projectUrl: "https://ringforcing.com/",
+    codeComingSoon: false,
+    description:
+      "We present Ring Forcing, an autoregressive video diffusion framework designed to robustly construct and precisely utilize long-term memory. Our ring-structured training strategy enforces retrieval from distant history, effectively reconciling the trade-off between strict historical adherence and generative diversity. Extensive experiments demonstrate that Ring Forcing achieves superior minutes-long coherence and object permanence, significantly outperforming state-of-the-art methods.",
+  },
+  {
     venue: "ICIC 2026",
+    location: "Toronto, Canada",
     type: "Oral",
     title: "ReconNet: Generative Recommendation with Control-Guided Diffusion Models",
-    authors: "Yujia Zeng",
+    authors: <strong className="font-extrabold text-[#35242d]">Yujia Zeng</strong>,
     image: "/reconnet.png",
     paperUrl: "https://link.springer.com/chapter/10.1007/978-981-92-3384-7_1",
+    projectUrl: null,
+    codeComingSoon: true,
     description:
       "This work reformulates sequential recommendation as a control-guided diffusion generation task integrating ControlNEXT into the diffusion process, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.",
   },
@@ -49,20 +71,37 @@ export default function PublicationPage() {
                     alt={`${paper.title} overview`}
                     width={900}
                     height={380}
-                    className="h-full min-h-[210px] w-full object-cover transition-transform duration-300 ease-out group-hover/image:scale-[1.02]"
+                    className="h-full min-h-[210px] w-full object-contain transition-transform duration-300 ease-out group-hover/image:scale-[1.02]"
                     priority
                   />
                 </div>
 
                 <div className="flex flex-col justify-center py-1">
                   <h2 className="text-[1.35rem] font-semibold leading-8 text-[#3a2b36]">
-                    <span className="mr-2 text-[#e00000]">({paper.type})</span>
+                    {paper.type ? <span className="mr-2 text-[#e00000]">({paper.type})</span> : null}
                     <span className="publication-title">{paper.title}</span>
                   </h2>
                   <p className="mt-3 text-base font-medium text-[#5c5260]">{paper.authors}</p>
-                  <p className="mt-1 text-sm font-semibold text-[#7b4456]">{paper.venue}</p>
+                  <p className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-[#7b4456]">
+                    {paper.venue}
+                    <span className="text-[#c79cac]">·</span>
+                    <MapPin size={14} className="text-[#b86380]" />
+                    <span>{paper.location}</span>
+                  </p>
 
                   <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-[1rem] font-semibold">
+                    {paper.projectUrl ? (
+                      <a
+                        href={paper.projectUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="paper-link-button"
+                        aria-label={`Open ${paper.title} project page`}
+                      >
+                        <ExternalLink size={16} strokeWidth={2.2} aria-hidden="true" />
+                        <span>Project Page</span>
+                      </a>
+                    ) : null}
                     <a
                       href={paper.paperUrl}
                       target="_blank"
@@ -73,10 +112,17 @@ export default function PublicationPage() {
                       <FileText size={16} strokeWidth={2.2} aria-hidden="true" />
                       <span>Paper</span>
                     </a>
-                    <span className="text-[#8d6673]">|</span>
-                    <span className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4" aria-disabled="true">
-                      Code <span className="font-medium text-[#6f4b57]">(comming soon)</span>
-                    </span>
+                    {paper.codeComingSoon ? (
+                      <>
+                        <span className="text-[#8d6673]">|</span>
+                        <span
+                          className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4"
+                          aria-disabled="true"
+                        >
+                          Code <span className="font-medium text-[#6f4b57]">(coming soon)</span>
+                        </span>
+                      </>
+                    ) : null}
                   </div>
 
                   <ul className="mt-4 list-disc space-y-2 pl-6 text-[1.05rem] leading-8 text-[#3d3842]">
