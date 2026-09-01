@@ -88,7 +88,6 @@ const publications = [
   },
   {
     venue: 'arXiv 2026',
-    location: 'Online',
     type: null,
     title: 'StableWorld: Towards Stable and Consistent Long Interactive Video Generation',
     authors: (
@@ -103,7 +102,7 @@ const publications = [
     projectUrl: 'https://sd-world.github.io/',
     codeUrl: 'https://github.com/xbyym/StableWorld',
     description:
-      'StableWorld introduces a model-agnostic Dynamic Frame Eviction Mechanism that filters degraded frames while retaining geometrically consistent ones, reducing cumulative drift and improving stability and temporal consistency across multiple interactive video generation frameworks.',
+      'StableWorld introduces a model-agnostic Dynamic Frame Eviction Mechanism that filters degraded frames while retaining geometrically consistent ones, reducing cumulative drift and improving stability and temporal consistency across interactive video generation frameworks.',
   },
 ];
 
