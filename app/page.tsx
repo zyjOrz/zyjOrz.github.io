@@ -69,6 +69,7 @@ const publications = [
     image: 'https://arxiv.org/html/2608.26794v1/teaser.png',
     paperUrl: 'https://arxiv.org/abs/2608.26794',
     projectUrl: 'https://ringforcing.com/',
+    codeUrl: null,
     description:
       'We present Ring Forcing, an autoregressive video diffusion framework designed to robustly construct and precisely utilize long-term memory, which achieves superior minutes-long coherence and object permanence, significantly outperforming state-of-the-art methods.',
   },
@@ -81,8 +82,28 @@ const publications = [
     image: '/reconnet.png',
     paperUrl: 'https://link.springer.com/chapter/10.1007/978-981-92-3384-7_1',
     projectUrl: null,
+    codeUrl: null,
     description:
       'This work reformulates sequential recommendation as a control-guided diffusion generation task, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.',
+  },
+  {
+    venue: 'arXiv 2026',
+    location: 'Online',
+    type: null,
+    title: 'StableWorld: Towards Stable and Consistent Long Interactive Video Generation',
+    authors: (
+      <>
+        {'Ying Yang, Zhengyao Lv, '}
+        <strong className="font-extrabold text-[#35242d]">Yujia Zeng</strong>
+        {', Tianlin Pan, Haofan Wang, Yueming Lyu, Binxin Yang, Hubery Yin, Chen Li, Jing Lyu, Ziwei Liu, and Chenyang Si'}
+      </>
+    ),
+    image: 'https://arxiv.org/html/2601.15281v2/teasor13.png',
+    paperUrl: 'https://arxiv.org/abs/2601.15281',
+    projectUrl: 'https://sd-world.github.io/',
+    codeUrl: 'https://github.com/xbyym/StableWorld',
+    description:
+      'StableWorld introduces a model-agnostic Dynamic Frame Eviction Mechanism that filters degraded frames while retaining geometrically consistent ones, reducing cumulative drift and improving stability and temporal consistency across multiple interactive video generation frameworks.',
   },
 ];
 
@@ -232,6 +253,18 @@ function PublicationSection() {
                   <FileText size={16} strokeWidth={2.2} aria-hidden="true" />
                   <span>Paper</span>
                 </a>
+                {paper.codeUrl ? (
+                  <a
+                    href={paper.codeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="paper-link-button"
+                    aria-label={`Open ${paper.title} code repository`}
+                  >
+                    <Github size={16} strokeWidth={2.2} aria-hidden="true" />
+                    <span>Code</span>
+                  </a>
+                ) : null}
               </div>
 
               <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-[#3d3842]">
