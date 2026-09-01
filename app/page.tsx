@@ -289,7 +289,7 @@ export default function Home() {
         <div className="space-y-6">
           <h1 className="text-4xl font-semibold tracking-tight text-[#2d1820]">Yujia Zeng (曾昱嘉)</h1>
           <p className="text-lg leading-8 text-[#6f4b57]">
-            I am a third-year undergraduate student in the School of the Gifted Young (少年班),
+            I am a fourth-year undergraduate student in the School of the Gifted Young (少年班),
             University of Science and Technology of China (USTC). Before this, I was an algorithm
             intern at{' '}
             <a
