@@ -42,5 +42,5 @@ export const robostar: PublicationEntry = {
   // This is the exact Code URL requested by the site owner.
   codeUrl: 'https://github.com/zyjOrz/zyjOrz.github.io',
   description:
-    'RoboSTAR translates text into continuous sign language motion using part-wise finite scalar quantization and next-scale autoregression, refining synchronized body and hand motion from coarse to fine before retargeting it for humanoid robot execution.',
+    'RoboSTAR translates speech/text into continuous sign language motion using part-wise finite scalar quantization and next-scale autoregression, refining synchronized body and hand motion from coarse to fine before retargeting it for humanoid robot execution.',
 };
