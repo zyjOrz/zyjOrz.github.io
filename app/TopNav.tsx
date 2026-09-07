@@ -2,11 +2,19 @@
 
 import { useEffect, useState } from 'react';
 
-const navItems = [
+type NavItem = {
+  label: string;
+  href: string;
+  sectionId?: string;
+  newTab?: boolean;
+};
+
+const navItems: NavItem[] = [
   { label: 'Home', href: '#home', sectionId: 'home' },
   { label: 'News', href: '#news', sectionId: 'news' },
   { label: 'Publication', href: '#publications', sectionId: 'publications' },
   { label: 'Experiences', href: '#experiences', sectionId: 'experiences' },
+  { label: 'CV', href: '/resume.pdf', newTab: true },
 ];
 
 const observedSections = navItems.flatMap((item) => (item.sectionId ? [item.sectionId] : []));
@@ -68,6 +76,10 @@ export default function TopNav() {
           <a
             key={item.label}
             href={item.href}
+            target={item.newTab ? '_blank' : undefined}
+            rel={item.newTab ? 'noopener noreferrer' : undefined}
+            aria-label={item.newTab ? 'CV — preview PDF in a new tab' : undefined}
+            title={item.newTab ? 'View CV (PDF)' : undefined}
             aria-current={isActive ? 'location' : undefined}
             className={`site-nav-link relative text-[#fff8fb]${isActive ? ' is-active' : ''}`}
           >

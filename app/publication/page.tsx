@@ -1,7 +1,9 @@
+import { robostar, type PublicationEntry } from '../robostar';
 import Image from "next/image";
 import { ArrowLeft, ExternalLink, FileText, Github, MapPin } from "lucide-react";
 
-const publications = [
+const publications: PublicationEntry[] = [
+  robostar,
   {
     venue: "ECCV 2026",
     location: "Malmö, Sweden",
@@ -81,20 +83,39 @@ export default function PublicationPage() {
             {publications.map((paper) => (
               <article
                 key={paper.title}
-                className="interactive-card publication-card group/paper grid grid-cols-1 gap-7 rounded-[28px] border border-[#eed4de] bg-[#fffafc]/80 p-5 shadow-[0_10px_30px_rgba(191,113,142,0.12)] md:grid-cols-[420px_1fr] md:p-6"
+                className={`interactive-card publication-card group/paper grid grid-cols-1 gap-7 rounded-[28px] border border-[#eed4de] bg-[#fffafc]/80 p-5 shadow-[0_10px_30px_rgba(191,113,142,0.12)] md:grid-cols-[420px_1fr] md:p-6${paper.wideImage ? ' publication-card--wide' : ''}`}
               >
                 <div className="publication-media group/image relative overflow-hidden rounded-[22px] border border-[#ead5dd] bg-white shadow-[0_10px_26px_rgba(178,109,143,0.14)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_22px_45px_rgba(191,113,142,0.24)]">
                   <div className="absolute left-0 top-0 z-10 rounded-br-xl bg-[#0b4cae] px-4 py-1.5 text-sm font-semibold text-white shadow-md">
                     {paper.venue}
                   </div>
-                  <Image
-                    src={paper.image}
-                    alt={`${paper.title} overview`}
-                    width={900}
-                    height={380}
-                    className="h-full min-h-[210px] w-full object-contain transition-transform duration-300 ease-out group-hover/image:scale-[1.02]"
-                    priority
-                  />
+                  {paper.wideImage ? (
+                    <a
+                      href={paper.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View the ${paper.title} figure at full resolution`}
+                      title="View full-size image"
+                    >
+                      <Image
+                        src={paper.image}
+                        alt={`${paper.title} overview`}
+                        width={paper.wideImage ? 2048 : 900}
+                        height={paper.wideImage ? 572 : 380}
+                        className="h-full min-h-[210px] w-full object-contain transition-transform duration-300 ease-out group-hover/image:scale-[1.02]"
+                        priority
+                      />
+                    </a>
+                  ) : (
+                    <Image
+                      src={paper.image}
+                      alt={`${paper.title} overview`}
+                      width={paper.wideImage ? 2048 : 900}
+                      height={paper.wideImage ? 572 : 380}
+                      className="h-full min-h-[210px] w-full object-contain transition-transform duration-300 ease-out group-hover/image:scale-[1.02]"
+                      priority
+                    />
+                  )}
                 </div>
 
                 <div className="flex flex-col justify-center py-1">
@@ -103,12 +124,29 @@ export default function PublicationPage() {
                     <span className="publication-title">{paper.title}</span>
                   </h2>
                   <p className="mt-3 text-base font-medium text-[#5c5260]">{paper.authors}</p>
-                  <p className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-[#7b4456]">
-                    {paper.venue}
-                    <span className="text-[#c79cac]">·</span>
-                    <MapPin size={14} className="text-[#b86380]" />
-                    <span>{paper.location}</span>
+                  {paper.authorsNote ? (
+                    <p className="mt-1 text-xs leading-5 text-[#8b6473]">{paper.authorsNote}</p>
+                  ) : null}
+                  <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-2 text-sm font-semibold text-[#7b4456]">
+                    <span>{paper.venue}</span>
+                    {paper.location ? (
+                      <>
+                        <span className="text-[#c79cac]" aria-hidden="true">·</span>
+                        <span className="inline-flex items-center gap-1.5">
+                          <MapPin size={14} className="text-[#b86380]" aria-hidden="true" />
+                          <span>{paper.location}</span>
+                        </span>
+                      </>
+                    ) : null}
+                    {paper.status ? (
+                      <span className="publication-status" title="The full paper is under review.">
+                        {paper.status}
+                      </span>
+                    ) : null}
                   </p>
+                  {paper.venueDetail ? (
+                    <p className="mt-2 text-sm leading-6 text-[#6f4b57]">{paper.venueDetail}</p>
+                  ) : null}
 
                   <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-[1rem] font-semibold">
                     {paper.projectUrl ? (
@@ -123,16 +161,18 @@ export default function PublicationPage() {
                         <span>Project Page</span>
                       </a>
                     ) : null}
-                    <a
-                      href={paper.paperUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="paper-link-button"
-                      aria-label={`Open ${paper.title} paper`}
-                    >
-                      <FileText size={16} strokeWidth={2.2} aria-hidden="true" />
-                      <span>Paper</span>
-                    </a>
+                    {paper.paperUrl ? (
+                      <a
+                        href={paper.paperUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="paper-link-button"
+                        aria-label={`Open ${paper.title} paper`}
+                      >
+                        <FileText size={16} strokeWidth={2.2} aria-hidden="true" />
+                        <span>Paper</span>
+                      </a>
+                    ) : null}
                     {paper.codeUrl ? (
                       <a
                         href={paper.codeUrl}
