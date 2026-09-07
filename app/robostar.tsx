@@ -15,7 +15,6 @@ export type PublicationEntry = {
   description: string;
   status?: string;
   venueDetail?: string;
-  wideImage?: boolean;
 };
 
 // Shared by the homepage and /publication so RoboSTAR stays consistent.
@@ -37,7 +36,6 @@ export const robostar: PublicationEntry = {
   ),
   authorsNote: '* Equal contribution.',
   image: '/robostar-method.png',
-  wideImage: true,
   // No public paper URL was supplied. Do not create a placeholder Paper link.
   paperUrl: null,
   projectUrl: 'https://www.yujiazeng.com/RoboSTAR/',
