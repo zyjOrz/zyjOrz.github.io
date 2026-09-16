@@ -67,7 +67,7 @@ const experiences: ExperienceItem[] = [
     logo: '/logos/harvard.jpg',
     logoAlt: 'Harvard University logo',
     logoFallback: 'Harvard',
-    summary: 'Researchcollaboration at the Embodied Minds Lab.',
+    summary: 'Research collaboration at the Embodied Minds Lab.',
     details: [
       <>
         Working with{' '}
