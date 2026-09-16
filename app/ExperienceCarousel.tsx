@@ -64,7 +64,7 @@ const experiences: ExperienceItem[] = [
     organization: 'Harvard University',
     organizationUrl: 'https://www.harvard.edu/',
     location: 'Cambridge, MA',
-    logo: '/logos/harvard.jpg',
+    logo: '/logos/harvard.png',
     logoAlt: 'Harvard University logo',
     logoFallback: 'Harvard',
     summary: 'Research collaboration at the Embodied Minds Lab.',
