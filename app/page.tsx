@@ -342,7 +342,16 @@ export default function Home() {
             >
               Prof. Masayoshi Tomizuka
             </a>
-            . My research focuses on Dexterous Hand and Generative Models and I am currently
+            . I also work closely with{' '}
+            <a
+              href="https://yilundu.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={externalLinkClass}
+            >
+              Prof. Yilun Du
+            </a>{' '}
+            at Harvard University. My research focuses on Dexterous Hand and Generative Models and I am currently
             seeking PhD opportunities for Fall 2027.
           </p>
 

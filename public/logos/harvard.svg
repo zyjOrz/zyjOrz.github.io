@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 150" role="img" aria-labelledby="title desc">
+  <title id="title">Harvard University</title>
+  <desc id="desc">Harvard University wordmark</desc>
+  <rect width="520" height="150" fill="white"/>
+  <g transform="translate(16 19)">
+    <path d="M0 0h88v67c0 24-18 40-44 48C18 107 0 91 0 67z" fill="#A51C30"/>
+    <text x="44" y="69" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="47" font-weight="700" fill="white">H</text>
+  </g>
+  <text x="128" y="72" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" letter-spacing="1.3" fill="#1f1f1f">HARVARD</text>
+  <text x="130" y="108" font-family="Georgia, 'Times New Roman', serif" font-size="24" letter-spacing="5.5" fill="#555">UNIVERSITY</text>
+</svg>

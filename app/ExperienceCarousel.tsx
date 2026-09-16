@@ -57,6 +57,32 @@ const experiences: ExperienceItem[] = [
     ],
   },
   {
+    id: 'harvard-yilun-du',
+    date: 'Sep. 2026 – Present',
+    category: 'Research',
+    role: 'Research Intern',
+    organization: 'Harvard University',
+    organizationUrl: 'https://www.harvard.edu/',
+    location: 'Cambridge, MA',
+    logo: '/logos/harvard.svg',
+    logoAlt: 'Harvard University logo',
+    logoFallback: 'Harvard',
+    details: [
+      <>
+        Working with{' '}
+        <a
+          href="https://yilundu.github.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={externalLinkClass}
+        >
+          Prof. Yilun Du
+        </a>
+        .
+      </>,
+    ],
+  },
+  {
     id: 'ntu-remote',
     date: 'Aug. 2025 – Feb. 2026',
     category: 'Research',
