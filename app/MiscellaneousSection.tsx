@@ -18,7 +18,8 @@ export default function MiscellaneousSection() {
         </p>
       </div>
 
-      <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
+      <ul className="misc-list m-0 list-none p-0">
+        <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
   <div className="misc-category">
     <span className="misc-category-dot" aria-hidden="true" />
     Sports
