@@ -94,16 +94,25 @@ export default function MiscellaneousSection() {
         </li>
 
         <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
-          <div className="misc-category">
-            <span className="misc-category-dot" aria-hidden="true" />
-            Student Leadership
-          </div>
-          <p className="m-0 text-[0.98rem] leading-7 text-[#4c3e45]">
-            I previously served as President of the Student Union at the School of the Gifted Young,
-            Deputy Head of the Academic Affairs Department of the USTC Student Union, and team leader
-            for a summer social practice program in Xinjiang.
-          </p>
-        </li>
+  <div className="misc-category">
+    <span className="misc-category-dot" aria-hidden="true" />
+    Student Leadership
+  </div>
+
+  <div className="space-y-1 text-[0.98rem] leading-7 text-[#4c3e45]">
+    <p className="m-0">
+      President of the Student Union at the School of the Gifted Young.
+    </p>
+
+    <p className="m-0">
+      Deputy Head of the Academic Affairs Department of the USTC Student Union.
+    </p>
+
+    <p className="m-0">
+      Team leader for a summer social practice program in Xinjiang.
+    </p>
+  </div>
+</li>
       </ul>
     </section>
   );
