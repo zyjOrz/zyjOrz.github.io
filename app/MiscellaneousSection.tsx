@@ -14,23 +14,34 @@ export default function MiscellaneousSection() {
         </h2>
         <div className="misc-title-rule mt-3" aria-hidden="true" />
         <p className="mt-4 max-w-3xl text-[0.98rem] leading-7 text-[#745e68]">
-          Beyond research, I enjoy sports, music, drawing, and student activities.
+          Beyond research
         </p>
       </div>
 
-      <ul className="misc-list m-0 list-none p-0">
-        <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
-          <div className="misc-category">
-            <span className="misc-category-dot" aria-hidden="true" />
-            Sports
-          </div>
-          <p className="m-0 text-[0.98rem] leading-7 text-[#4c3e45]">
-            🏃 Received the Outstanding Physical Fitness Award (
-            <span className="font-semibold text-[#3a2b33]">top 1% university-wide</span>); 🏸 won the
-            university badminton team championship; and 🏃 placed sixth in the women&apos;s 200 m sprint
-            at the university sports meet.
-          </p>
-        </li>
+      <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
+  <div className="misc-category">
+    <span className="misc-category-dot" aria-hidden="true" />
+    Sports
+  </div>
+
+  <div className="space-y-1.5 text-[0.98rem] leading-7 text-[#4c3e45]">
+    <p className="m-0">
+      🏃 Received the Outstanding Physical Fitness Award (
+      <span className="font-semibold text-[#3a2b33]">
+        top 1% university-wide
+      </span>
+      ).
+    </p>
+
+    <p className="m-0">
+      🏸 Won the university badminton team championship.
+    </p>
+
+    <p className="m-0">
+      🏃 Placed sixth in the women&apos;s 200 m sprint at the university sports meet.
+    </p>
+  </div>
+</li>
 
         <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
           <div className="misc-category">
