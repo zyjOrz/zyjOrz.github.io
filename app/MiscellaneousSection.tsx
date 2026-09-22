@@ -76,7 +76,7 @@ export default function MiscellaneousSection() {
             Social Media
           </div>
           <p className="m-0 flex flex-wrap items-center gap-x-2 gap-y-2 text-[0.98rem] leading-7 text-[#4c3e45]">
-            <span>My Xiaohongshu account:</span>
+            <span>My RedNote account:</span>
             <a
               href="https://www.xiaohongshu.com/user/profile/5ce00f51000000001600bd54?xsec_token=ABarcBM9m82KvULRkEPPT9rkuVXIY2-OH9sybePLzfeo0%3D&xsec_source=pc_search"
               target="_blank"
