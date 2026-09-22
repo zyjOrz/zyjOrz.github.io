@@ -1,3 +1,5 @@
+import { Sparkles } from 'lucide-react';
+
 export default function MiscellaneousSection() {
   return (
     <section
@@ -5,18 +7,37 @@ export default function MiscellaneousSection() {
       aria-labelledby="miscellaneous-heading"
       className="section-shell miscellaneous-shell mx-auto mt-20 scroll-mt-28 max-w-5xl rounded-[32px] border px-6 py-10 sm:px-12 sm:py-11"
     >
-      <div className="mb-7 sm:mb-8">
-        <h2
-          id="miscellaneous-heading"
-          className="text-3xl font-semibold tracking-[-0.025em] text-[#2d2232]"
-        >
-          Miscellaneous
-        </h2>
-        <div className="misc-title-rule mt-3" aria-hidden="true" />
-        <p className="mt-4 max-w-3xl text-[0.98rem] leading-7 text-[#745e68]">
-          Beyond research
-        </p>
-      </div>
+      <div className="mb-7 flex items-center gap-4 sm:mb-8">
+  <div
+    className="
+      flex h-12 w-12 shrink-0 items-center justify-center
+      rounded-2xl
+      border border-[#e8d7e5]
+      bg-gradient-to-br from-[#fff8fc] to-[#f3e7ff]
+      shadow-[0_4px_12px_rgba(91,55,83,0.10)]
+    "
+    aria-hidden="true"
+  >
+    <Sparkles
+      size={23}
+      strokeWidth={2}
+      className="text-[#b44fd3]"
+    />
+  </div>
+
+  <div>
+    <h2
+      id="miscellaneous-heading"
+      className="m-0 text-3xl font-semibold tracking-[-0.025em] text-[#2d2232]"
+    >
+      Miscellaneous
+    </h2>
+
+    <p className="mt-1 text-[0.98rem] leading-6 text-[#8b6676]">
+      Beyond research
+    </p>
+  </div>
+</div>
 
       <ul className="misc-list m-0 list-none p-0">
         <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
