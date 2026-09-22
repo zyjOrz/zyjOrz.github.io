@@ -15,6 +15,7 @@ import CopyEmailButton from './CopyEmailButton';
 import NewsTimeline from './NewsTimeline';
 import TopNav from './TopNav';
 import ExperienceCarousel from './ExperienceCarousel';
+import MiscellaneousSection from './MiscellaneousSection';
 
 const externalLinkClass = 'academic-link';
 
@@ -406,6 +407,7 @@ export default function Home() {
 
       <PublicationSection />
       <ExperienceCarousel />
+      <MiscellaneousSection />
     </div>
   );
 }

@@ -32,11 +32,6 @@ const newsItems = [
     ),
   },
   {
-    date: '2510',
-    emoji: '🏃',
-    content: <>Received the Outstanding Physical Fitness Award (top &lt;1% university-wide).</>,
-  },
-  {
     date: '2509',
     emoji: '🏆',
     content: (
