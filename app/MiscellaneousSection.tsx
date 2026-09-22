@@ -39,7 +39,7 @@ export default function MiscellaneousSection() {
     </p>
 
     <p className="m-0">
-      🏃 Placed sixth in the women&apos;s 200 m sprint at the university sports meet.
+      🏃 Placed sixth in the women&apos;s 200m sprint at the university sports meet.
     </p>
   </div>
 </li>
