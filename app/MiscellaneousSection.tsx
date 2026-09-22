@@ -45,24 +45,30 @@ export default function MiscellaneousSection() {
 </li>
 
         <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
-          <div className="misc-category">
-            <span className="misc-category-dot" aria-hidden="true" />
-            Arts
-          </div>
-          <p className="m-0 text-[0.98rem] leading-7 text-[#4c3e45]">
-            🎹 I have played the piano for 10+ years and attained Grade 10 in piano. 🎨 I also enjoy
-            drawing; see{' '}
-            <a
-              href="https://github.com/zyjOrz/Hand-drawn-Anime-Style-LoRA-Expand"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="academic-link [overflow-wrap:anywhere]"
-            >
-              zyjOrz/Hand-drawn-Anime-Style-LoRA-Expand
-            </a>{' '}
-            for a LoRA trained on my own artwork to capture my drawing style.
-          </p>
-        </li>
+  <div className="misc-category">
+    <span className="misc-category-dot" aria-hidden="true" />
+    Arts
+  </div>
+
+  <div className="space-y-1 text-[0.98rem] leading-7 text-[#4c3e45]">
+    <p className="m-0">
+      🎹 I have played the piano for 10+ years and attained Grade 10 in piano.
+    </p>
+
+    <p className="m-0">
+      🎨 I also enjoy drawing; see{' '}
+      <a
+        href="https://github.com/zyjOrz/Hand-drawn-Anime-Style-LoRA-Expand"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="academic-link [overflow-wrap:anywhere]"
+      >
+        zyjOrz/Hand-drawn-Anime-Style-LoRA-Expand
+      </a>{' '}
+      for a LoRA trained on my own artwork to capture my drawing style.
+    </p>
+  </div>
+</li>
 
         <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
           <div className="misc-category">
