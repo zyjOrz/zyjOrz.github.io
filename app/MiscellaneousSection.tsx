@@ -46,9 +46,9 @@ export default function MiscellaneousSection() {
 
   <div className="space-y-1 text-[0.98rem] leading-7 text-[#4c3e45]">
     <p className="m-0">
-      📄 Reviewer for 
+      📄 Reviewer for  
       <span className="font-semibold text-[#3a2b33]">
-        ICLR 
+         ICLR 
       </span>.
     </p>
   </div>
