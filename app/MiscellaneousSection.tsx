@@ -33,13 +33,49 @@ export default function MiscellaneousSection() {
       Miscellaneous
     </h2>
 
-    <p className="mt-1 text-[0.98rem] leading-6 text-[#8b6676]">
-      Beyond research
-    </p>
   </div>
 </div>
 
       <ul className="misc-list m-0 list-none p-0">
+
+        <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
+  <div className="misc-category">
+    <span className="misc-category-dot" aria-hidden="true" />
+    Academic Service
+  </div>
+
+  <div className="space-y-1 text-[0.98rem] leading-7 text-[#4c3e45]">
+    <p className="m-0">
+      📄 Reviewer for the International Conference on Learning Representations (
+      <span className="font-semibold text-[#3a2b33]">
+        ICLR 2027
+      </span>
+      ).
+    </p>
+  </div>
+</li>
+
+        <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
+  <div className="misc-category">
+    <span className="misc-category-dot" aria-hidden="true" />
+    Student Leadership
+  </div>
+
+  <div className="space-y-1 text-[0.98rem] leading-7 text-[#4c3e45]">
+    <p className="m-0">
+    👩🏻‍💻 President of the Student Union at the School of the Gifted Young.
+    </p>
+
+    <p className="m-0">
+    🗳️ Deputy Head of the Academic Affairs Department of the USTC Student Union.
+    </p>
+
+    <p className="m-0">
+    🤝 Team leader for a summer social practice program in Xinjiang.
+    </p>
+  </div>
+</li>
+
         <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
   <div className="misc-category">
     <span className="misc-category-dot" aria-hidden="true" />
@@ -117,26 +153,7 @@ export default function MiscellaneousSection() {
           </p>
         </li>
 
-        <li className="misc-list-row grid gap-2 py-5 sm:grid-cols-[9.75rem_1fr] sm:gap-6">
-  <div className="misc-category">
-    <span className="misc-category-dot" aria-hidden="true" />
-    Student Leadership
-  </div>
-
-  <div className="space-y-1 text-[0.98rem] leading-7 text-[#4c3e45]">
-    <p className="m-0">
-    👩🏻‍💻 President of the Student Union at the School of the Gifted Young.
-    </p>
-
-    <p className="m-0">
-    🗳️ Deputy Head of the Academic Affairs Department of the USTC Student Union.
-    </p>
-
-    <p className="m-0">
-    🤝 Team leader for a summer social practice program in Xinjiang.
-    </p>
-  </div>
-</li>
+        
       </ul>
     </section>
   );
