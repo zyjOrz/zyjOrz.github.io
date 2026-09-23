@@ -108,7 +108,7 @@ export default function MiscellaneousSection() {
               <span className="misc-rednote-mark" aria-hidden="true">
                 <img src="/rednote-xiaohongshu.svg" alt="" width="18" height="18" />
               </span>
-              <span lang="zh-CN"> </span>
+              <span lang="zh-CN"></span>
               <span className="misc-external-arrow" aria-hidden="true">↗</span>
             </a>
           </p>
