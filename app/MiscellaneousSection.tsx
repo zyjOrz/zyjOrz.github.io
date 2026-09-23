@@ -97,19 +97,22 @@ export default function MiscellaneousSection() {
             Social Media
           </div>
           <p className="m-0 flex flex-wrap items-center gap-x-2 gap-y-2 text-[0.98rem] leading-7 text-[#4c3e45]">
-            <span>🥰My RedNote account:</span>
+            <span>🥰Find me on RedNote:</span>
             <a
               href="https://www.xiaohongshu.com/user/profile/5ce00f51000000001600bd54?xsec_token=ABarcBM9m82KvULRkEPPT9rkuVXIY2-OH9sybePLzfeo0%3D&xsec_source=pc_search"
               target="_blank"
               rel="noopener noreferrer"
-              className="misc-social-link"
-              aria-label="Open 左眼睛跳跳跳 on Xiaohongshu"
+              className="misc-rednote-link"
+              aria-label="Open my RedNote profile"
+              title="RedNote"
             >
-              <span className="misc-rednote-mark" aria-hidden="true">
-                <img src="/rednote-xiaohongshu.svg" alt="" width="18" height="18" />
-              </span>
-              <span lang="zh-CN"></span>
-              <span className="misc-external-arrow" aria-hidden="true">↗</span>
+              <img
+                src="/rednote-xiaohongshu.svg"
+                alt=""
+                width="20"
+                height="20"
+                aria-hidden="true"
+              />
             </a>
           </p>
         </li>
