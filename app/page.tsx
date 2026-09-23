@@ -303,7 +303,7 @@ export default function Home() {
         className="hero-card mx-auto grid scroll-mt-28 max-w-6xl grid-cols-1 items-center gap-10 rounded-3xl border border-[#e9becd] bg-white/60 p-8 shadow-[0_12px_40px_rgba(186,110,140,0.14)] backdrop-blur-sm sm:p-12 md:grid-cols-2"
       >
         <div className="space-y-6">
-          <h1 className="text-4xl font-semibold tracking-tight text-[#2d1820]">Yujia Zeng (曾昱嘉)</h1>
+          <h1 className="text-4xl font-semibold tracking-tight text-[#2d1820]">Yujia Zeng</h1>
           <p className="text-lg leading-8 text-[#6f4b57]">
             I am a fourth-year undergraduate student in the School of the Gifted Young (少年班),
             University of Science and Technology of China (USTC). Before this, I was an algorithm
