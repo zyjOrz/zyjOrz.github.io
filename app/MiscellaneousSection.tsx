@@ -122,15 +122,15 @@ export default function MiscellaneousSection() {
 
   <div className="space-y-1 text-[0.98rem] leading-7 text-[#4c3e45]">
     <p className="m-0">
-      President of the Student Union at the School of the Gifted Young.
+    👩🏻‍💻 President of the Student Union at the School of the Gifted Young.
     </p>
 
     <p className="m-0">
-      Deputy Head of the Academic Affairs Department of the USTC Student Union.
+    🗳️ Deputy Head of the Academic Affairs Department of the USTC Student Union.
     </p>
 
     <p className="m-0">
-      Team leader for a summer social practice program in Xinjiang.
+    🤝 Team leader for a summer social practice program in Xinjiang.
     </p>
   </div>
 </li>
