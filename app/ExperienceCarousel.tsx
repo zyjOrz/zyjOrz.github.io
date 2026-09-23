@@ -8,7 +8,7 @@ import {
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
 } from 'react';
-import { BriefcaseBusiness, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { BriefcaseBusiness, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const externalLinkClass = 'academic-link academic-link-violet';
 const slideTransitionMs = 560;
@@ -234,8 +234,7 @@ function ExperienceCard({ item, active }: { item: ExperienceItem; active: boolea
             ) : (
               item.organization
             )}
-            {item.organizationUrl ? <ExternalLink size={16} className="text-[#b36a86]" /> : null}
-          </p>
+            </p>
 
           {item.location ? <p className="mt-1 text-sm font-medium text-[#8b6473]">{item.location}</p> : null}
 
