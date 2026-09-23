@@ -48,7 +48,7 @@ export default function MiscellaneousSection() {
 
   <div className="space-y-1.5 text-[0.98rem] leading-7 text-[#4c3e45]">
     <p className="m-0">
-      🏃 Received the Outstanding Physical Fitness Award (
+      🏋🏻‍♀️ Received the Outstanding Physical Fitness Award (
       <span className="font-semibold text-[#3a2b33]">
         top 1% university-wide
       </span>
@@ -108,7 +108,7 @@ export default function MiscellaneousSection() {
               <span className="misc-rednote-mark" aria-hidden="true">
                 <img src="/rednote-xiaohongshu.svg" alt="" width="18" height="18" />
               </span>
-              <span lang="zh-CN">左眼睛跳跳跳</span>
+              <span lang="zh-CN"> </span>
               <span className="misc-external-arrow" aria-hidden="true">↗</span>
             </a>
           </p>
