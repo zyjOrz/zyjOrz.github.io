@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Visitor locations</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body {
+        width: 100%; height: auto; min-height: 0; margin: 0;
+        overflow: hidden;
+        background: transparent; color: #765965;
+        font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
+        font-size: 12px; line-height: 1.5;
+      }
+      body { display: block; }
+      [hidden] { display: none !important; }
+      #stage { order: 0; position: relative; width: 100%; min-height: 248px; }
+      #globe-root { width: 240px; max-width: 100%; margin: 0 auto; }
+      #globe-root > *, #globe-root canvas, #globe-root img,
+      #globe-root iframe { max-width: 100% !important; }
+      #globe-root canvas, #globe-root img { display: block; height: auto !important; }
+      #status {
+        position: absolute; inset: 0;
+        display: grid; align-content: center; justify-items: center;
+        padding: 16px; text-align: center; gap: 10px;
+      }
+      #status p { max-width: 220px; margin: 0; }
+      #map-view {
+        min-height: 248px; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 8px;
+      }
+      #map-image { display: block; max-width: 100%; height: auto; border-radius: 8px; }
+      #map-caption { margin: 0; font-size: 11px; }
+      a, button { color: #8e526d; }
+      a { text-decoration: none; }
+      a:hover, button:hover { text-decoration: underline; }
+      button {
+        border: 0; background: transparent; padding: 2px 0;
+        font: inherit; cursor: pointer;
+      }
+      :focus-visible { outline: 2px solid #b44fd3; outline-offset: 3px; }
+    </style>
+  </head>
+  <body data-state="loading">
+    <div id="stage">
+      <div id="status" role="status" aria-live="polite">
+        <p id="status-text">Loading visitor globe…</p>
+      </div>
+      <div id="map-view" hidden>
+        <img id="map-image" alt="Visitor locations on a world map" />
+        <p id="map-caption">2D map · Globe unavailable</p>
+      </div>
+      <div id="globe-root">
+        <script>
+          (function () {
+            'use strict';
+            var KEY = 'R3Qj_OgtGlT9u6JqS3wlp84xiJAHI2-aqgABYV5Yv58';
+            var root = document.getElementById('globe-root');
+            var status = document.getElementById('status');
+            var statusText = document.getElementById('status-text');
+            var mapView = document.getElementById('map-view');
+            var mapImage = document.getElementById('map-image');
+            var state = 'loading';
+            var poll;
+            var deadline;
+            var mapDeadline;
+
+            function setState(next) {
+              state = next;
+              document.body.dataset.state = next;
+            }
+
+            function stopGlobeChecks() {
+              window.clearInterval(poll);
+              window.clearTimeout(deadline);
+            }
+
+            function failMap() {
+              if (state !== 'map-loading') return;
+              window.clearTimeout(mapDeadline);
+              setState('error');
+              mapView.hidden = true;
+              status.hidden = false;
+              statusText.textContent =
+                'Visitor map could not load. The provider may be blocked or temporarily unavailable. Please refresh the page to retry.';
+            }
+
+            function useMap(reason) {
+              if (state !== 'loading') return;
+              stopGlobeChecks();
+              setState('map-loading');
+              root.hidden = true;
+              statusText.textContent = 'Loading 2D visitor map…';
+              console.warn('[VisitorGlobe] ' + reason + ' Trying the provider’s 2D map.');
+              // Request the fallback only after the globe fails; do not load
+              // two counters in parallel on the normal, successful path.
+              mapImage.onload = function () {
+                if (state !== 'map-loading') return;
+                if (mapImage.naturalWidth < 20 || mapImage.naturalHeight < 20) {
+                  failMap();
+                  return;
+                }
+                window.clearTimeout(mapDeadline);
+                setState('map');
+                status.hidden = true;
+                mapView.hidden = false;
+              };
+              mapImage.onerror = failMap;
+              mapDeadline = window.setTimeout(failMap, 12000);
+              mapImage.src = 'https://mapmyvisitors.com/map.png?cl=ffffff&d=' + KEY;
+            }
+
+            function checkGlobe() {
+              if (state !== 'loading') return;
+              var visuals = root.querySelectorAll('canvas, svg, img, iframe, object, embed');
+              for (var i = 0; i < visuals.length; i += 1) {
+                var visual = visuals[i];
+                var rect = visual.getBoundingClientRect();
+                // Ignore tiny logos, tracking pixels and unfinished images.
+                if (rect.width < 100 || rect.height < 80) continue;
+                if (visual.tagName === 'IMG' &&
+                    (!visual.complete || visual.naturalWidth < 20)) continue;
+                // An element with plausible dimensions is a best-effort ready
+                // signal; the provider exposes no documented readiness API.
+                setState('globe');
+                stopGlobeChecks();
+                status.hidden = true;
+                return;
+              }
+            }
+
+            window.visitorGlobeScriptFailed = function () {
+              useMap('The globe script failed to load.');
+            };
+            poll = window.setInterval(checkGlobe, 250);
+            deadline = window.setTimeout(function () {
+              useMap('The globe did not create visible content within 15 seconds.');
+            }, 15000);
+            window.addEventListener('load', checkGlobe);
+            window.addEventListener('pagehide', function () {
+              stopGlobeChecks();
+              window.clearTimeout(mapDeadline);
+            });
+          }());
+        </script>
+        <!-- Keep this a normal parser-inserted script: no async/defer, React
+             Effect, or next/script hoisting. Keep the provider's exact ID. -->
+        <script
+          type="text/javascript"
+          id="mmvst_globe"
+          src="https://mapmyvisitors.com/globe.js?d=R3Qj_OgtGlT9u6JqS3wlp84xiJAHI2-aqgABYV5Yv58"
+          onerror="window.visitorGlobeScriptFailed()"
+        ></script>
+      </div>
+    </div>
+    <!-- Size the viewport to the content, not the content to the viewport.
+         Keep the 240px globe width and its natural aspect ratio unchanged. -->
+    <script>
+      (function () {
+        'use strict';
+        var frame = window.frameElement;
+        var stage = document.getElementById('stage');
+        if (!frame || !stage) return;
+
+        var queued = false;
+        function fitFrame() {
+          queued = false;
+          var rect = stage.getBoundingClientRect();
+          var bottom = Math.max(
+            rect.bottom,
+            rect.top + stage.scrollHeight,
+            document.body.offsetHeight,
+            document.body.scrollHeight
+          );
+          // Include absolutely positioned visuals that overflow a vendor wrapper.
+          var visuals = stage.querySelectorAll('canvas, svg, img, iframe, object, embed');
+          for (var i = 0; i < visuals.length; i += 1) {
+            var bounds = visuals[i].getBoundingClientRect();
+            if (bounds.width > 0 && bounds.height > 0) {
+              bottom = Math.max(bottom, bounds.bottom);
+            }
+          }
+          var height = Math.ceil(Math.max(248, bottom) + 8);
+          var value = height + 'px';
+          if (frame.style.height !== value) frame.style.height = value;
+        }
+        function scheduleFit() {
+          if (queued) return;
+          queued = true;
+          window.requestAnimationFrame(fitFrame);
+        }
+
+        if ('ResizeObserver' in window) {
+          var sizeObserver = new ResizeObserver(scheduleFit);
+          sizeObserver.observe(document.body);
+          sizeObserver.observe(stage);
+        }
+        var domObserver = new MutationObserver(scheduleFit);
+        domObserver.observe(stage, {
+          subtree: true,
+          childList: true,
+          attributes: true,
+          attributeFilter: ['style', 'class', 'width', 'height', 'hidden']
+        });
+        document.addEventListener('load', scheduleFit, true);
+        window.addEventListener('load', scheduleFit);
+        window.addEventListener('resize', scheduleFit);
+        window.addEventListener('pageshow', scheduleFit);
+        scheduleFit();
+      }());
+    </script>
+    <noscript>JavaScript is required to display the visitor globe.</noscript>
+  </body>
+</html>

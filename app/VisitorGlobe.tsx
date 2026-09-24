@@ -6,13 +6,13 @@ export default function VisitorGlobe() {
       className="mx-auto mt-10 mb-4 w-full max-w-[260px]"
     >
       <iframe
-        src="/visitor-globe.html"
+        src="/visitor-globe-v2.html"
         title="Visitor locations"
         width="260"
-        height="260"
+        height="320"
         loading="eager"
         referrerPolicy="strict-origin-when-cross-origin"
-        className="block h-[260px] w-full border-0 bg-transparent"
+        className="block w-full border-0 bg-transparent"
       />
     </section>
   );
