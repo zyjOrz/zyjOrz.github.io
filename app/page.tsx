@@ -296,7 +296,7 @@ function PublicationSection() {
 
 export default function Home() {
   return (
-    <div className="site-canvas min-h-screen px-6 py-10 font-sans text-[#23161b]">
+    <div className="site-canvas min-h-screen px-6 pt-10 pb-0 font-sans text-[#23161b]">
       <TopNav />
 
       <section
