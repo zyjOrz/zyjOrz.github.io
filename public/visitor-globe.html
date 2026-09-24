@@ -32,6 +32,10 @@
       }
       #map-image { display: block; max-width: 100%; height: auto; border-radius: 8px; }
       #map-caption { margin: 0; font-size: 11px; }
+      footer {
+        order: 1; display: flex; justify-content: center; align-items: center;
+        gap: 8px; padding: 5px 0 3px; font-size: 10px;
+      }
       a, button { color: #8e526d; }
       a { text-decoration: none; }
       a:hover, button:hover { text-decoration: underline; }
@@ -43,6 +47,13 @@
     </style>
   </head>
   <body data-state="loading">
+    <!-- Parse the retry control before the remote, parser-blocking script.
+         CSS keeps the footer below the widget visually. -->
+    <footer>
+      <a href="https://mapmyvisitors.com/" target="_blank" rel="noopener noreferrer">MapMyVisitors</a>
+      <span aria-hidden="true">·</span>
+      <button type="button" onclick="window.location.reload()" aria-label="Retry loading the visitor map">Retry</button>
+    </footer>
     <div id="stage">
       <div id="status" role="status" aria-live="polite">
         <p id="status-text">Loading visitor globe…</p>
@@ -83,7 +94,7 @@
               mapView.hidden = true;
               status.hidden = false;
               statusText.textContent =
-                'Visitor map could not load. The provider may be blocked or temporarily unavailable. Please refresh the page to retry.';
+                'Visitor map could not load. The provider may be blocked or temporarily unavailable. Use Retry below.';
             }
 
             function useMap(reason) {
