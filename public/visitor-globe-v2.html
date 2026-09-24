@@ -8,7 +8,10 @@
     <style>
       * { box-sizing: border-box; }
       html, body {
-        width: 100%; height: auto; min-height: 0; margin: 0;
+        width: 100%;
+        height: 270px;
+        min-height: 0;
+        margin: 0;
         overflow: hidden;
         background: transparent; color: #765965;
         font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
@@ -16,7 +19,12 @@
       }
       body { display: block; }
       [hidden] { display: none !important; }
-      #stage { order: 0; position: relative; width: 100%; min-height: 248px; }
+      #stage {
+        position: relative;
+        width: 100%;
+        height: 270px;
+        overflow: hidden;
+      }
       #globe-root { width: 240px; max-width: 100%; margin: 0 auto; }
       #globe-root > *, #globe-root canvas, #globe-root img,
       #globe-root iframe { max-width: 100% !important; }
@@ -155,62 +163,7 @@
         ></script>
       </div>
     </div>
-    <!-- Size the viewport to the content, not the content to the viewport.
-         Keep the 240px globe width and its natural aspect ratio unchanged. -->
-    <script>
-      (function () {
-        'use strict';
-        var frame = window.frameElement;
-        var stage = document.getElementById('stage');
-        if (!frame || !stage) return;
-
-        var queued = false;
-        function fitFrame() {
-          queued = false;
-          var rect = stage.getBoundingClientRect();
-          var bottom = Math.max(
-            rect.bottom,
-            rect.top + stage.scrollHeight,
-            document.body.offsetHeight,
-            document.body.scrollHeight
-          );
-          // Include absolutely positioned visuals that overflow a vendor wrapper.
-          var visuals = stage.querySelectorAll('canvas, svg, img, iframe, object, embed');
-          for (var i = 0; i < visuals.length; i += 1) {
-            var bounds = visuals[i].getBoundingClientRect();
-            if (bounds.width > 0 && bounds.height > 0) {
-              bottom = Math.max(bottom, bounds.bottom);
-            }
-          }
-          var height = Math.ceil(Math.max(248, bottom) + 8);
-          var value = height + 'px';
-          if (frame.style.height !== value) frame.style.height = value;
-        }
-        function scheduleFit() {
-          if (queued) return;
-          queued = true;
-          window.requestAnimationFrame(fitFrame);
-        }
-
-        if ('ResizeObserver' in window) {
-          var sizeObserver = new ResizeObserver(scheduleFit);
-          sizeObserver.observe(document.body);
-          sizeObserver.observe(stage);
-        }
-        var domObserver = new MutationObserver(scheduleFit);
-        domObserver.observe(stage, {
-          subtree: true,
-          childList: true,
-          attributes: true,
-          attributeFilter: ['style', 'class', 'width', 'height', 'hidden']
-        });
-        document.addEventListener('load', scheduleFit, true);
-        window.addEventListener('load', scheduleFit);
-        window.addEventListener('resize', scheduleFit);
-        window.addEventListener('pageshow', scheduleFit);
-        scheduleFit();
-      }());
-    </script>
+    
     <noscript>JavaScript is required to display the visitor globe.</noscript>
   </body>
 </html>
