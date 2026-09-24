@@ -6,7 +6,7 @@ export default function VisitorGlobe() {
       className="mx-auto mt-3 mb-0 w-full max-w-[260px]"
     >
       <iframe
-        src="/visitor-globe-v2.html?v=3"
+        src="/visitor-globe-v2.html?v=globe-only-4"
         title="Visitor locations"
         width="260"
         height="240"
