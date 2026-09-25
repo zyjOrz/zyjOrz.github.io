@@ -4,77 +4,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Visitor locations</title>
-    <!-- globe-only-4: no 2D fallback, timeout hiding, or auto-height script -->
+    <title>Visitor locations — MapMyVisitors</title>
     <style>
       * { box-sizing: border-box; }
-
-      html, body {
-        width: 100%;
-        height: 240px;
-        min-height: 0;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background: transparent;
-      }
-
-      [hidden] { display: none !important; }
-
-      #stage {
-        position: relative;
-        width: 100%;
-        height: 240px;
-        overflow: hidden;
-      }
-
-      #globe-root {
-        width: 240px;
-        max-width: 100%;
-        margin: 0 auto;
-      }
-
-      #globe-root > *,
-      #globe-root canvas,
-      #globe-root img,
-      #globe-root iframe {
-        max-width: 100% !important;
-      }
-
-      #globe-root canvas,
-      #globe-root img {
-        display: block;
-        height: auto !important;
-      }
-
-      #globe-error {
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        margin: 0;
-        padding: 16px;
-        color: #bca8b1;
-        font: 12px/1.5 "Segoe UI", Arial, sans-serif;
-        text-align: center;
-      }
+      html, body { margin: 0; padding: 0; background: transparent; }
+      .visitor-map { width: 240px; max-width: 100%; margin: 0 auto; }
+      a { display: block; }
+      img { display: block; width: 100%; height: auto; border: 0; }
     </style>
   </head>
   <body>
-    <div id="stage">
-      <p id="globe-error" role="status" hidden>
-        Visitor globe could not load. Please refresh the page.
-      </p>
-
-      <div id="globe-root">
-        <!-- Keep the exact provider ID and key. Do not add async/defer. -->
-        <script
-          type="text/javascript"
-          id="mmvst_globe"
-          src="https://mapmyvisitors.com/globe.js?d=R3Qj_OgtGlT9u6JqS3wlp84xiJAHI2-aqgABYV5Yv58"
-          onerror="document.getElementById('globe-error').hidden = false; console.error('[VisitorGlobe] The globe.js request failed. Check the Network panel.');"
-        ></script>
-      </div>
+    <!-- Compatibility page only. The homepage now embeds the image directly
+         via app/VisitorGlobe.tsx and does not load this page in an iframe. -->
+    <div class="visitor-map">
+      <a
+        href="https://mapmyvisitors.com/web/1c8f1"
+        title="Visit tracker"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://mapmyvisitors.com/map.png?d=lKHf8BqRebBB-StPHh2OO0tGiewbln-oYKxaOgftHfA&amp;cl=ffffff"
+          alt="Visitor locations on a world map — open visitor statistics"
+          width="240"
+          loading="eager"
+          decoding="async"
+          referrerpolicy="strict-origin-when-cross-origin"
+        />
+      </a>
     </div>
   </body>
 </html>

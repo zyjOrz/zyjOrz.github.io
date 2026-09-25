@@ -7,160 +7,31 @@
     <title>Visitor locations — MapMyVisitors</title>
     <style>
       * { box-sizing: border-box; }
-      html, body {
-        width: 100%; height: 100%; margin: 0;
-        background: transparent; color: #765965;
-        font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
-        font-size: 12px; line-height: 1.5;
-      }
-      body { display: flex; flex-direction: column; overflow-x: hidden; }
-      [hidden] { display: none !important; }
-      #stage { order: 0; position: relative; width: 100%; min-height: 248px; }
-      #globe-root { width: 240px; max-width: 100%; margin: 0 auto; }
-      #globe-root > *, #globe-root canvas, #globe-root img,
-      #globe-root iframe { max-width: 100% !important; }
-      #globe-root canvas, #globe-root img { height: auto !important; }
-      #status {
-        position: absolute; inset: 0;
-        display: grid; align-content: center; justify-items: center;
-        padding: 16px; text-align: center; gap: 10px;
-      }
-      #status p { max-width: 220px; margin: 0; }
-      #map-view {
-        min-height: 248px; display: flex; flex-direction: column;
-        align-items: center; justify-content: center; gap: 8px;
-      }
-      #map-image { display: block; max-width: 100%; height: auto; border-radius: 8px; }
-      #map-caption { margin: 0; font-size: 11px; }
-      footer {
-        order: 1; display: flex; justify-content: center; align-items: center;
-        gap: 8px; padding: 5px 0 3px; font-size: 10px;
-      }
-      a, button { color: #8e526d; }
-      a { text-decoration: none; }
-      a:hover, button:hover { text-decoration: underline; }
-      button {
-        border: 0; background: transparent; padding: 2px 0;
-        font: inherit; cursor: pointer;
-      }
-      :focus-visible { outline: 2px solid #b44fd3; outline-offset: 3px; }
+      html, body { margin: 0; padding: 0; background: transparent; }
+      .visitor-map { width: 240px; max-width: 100%; margin: 0 auto; }
+      a { display: block; }
+      img { display: block; width: 100%; height: auto; border: 0; }
     </style>
   </head>
-  <body data-state="loading">
-    <!-- Parse the retry control before the remote, parser-blocking script.
-         CSS keeps the footer below the widget visually. -->
-    
-    <div id="stage">
-      <div id="status" role="status" aria-live="polite">
-        <p id="status-text">Loading visitor globe…</p>
-      </div>
-      <div id="map-view" hidden>
-        <img id="map-image" alt="Visitor locations on a world map" />
-        <p id="map-caption">2D map · Globe unavailable</p>
-      </div>
-      <div id="globe-root">
-        <script>
-          (function () {
-            'use strict';
-            var KEY = 'R3Qj_OgtGlT9u6JqS3wlp84xiJAHI2-aqgABYV5Yv58';
-            var root = document.getElementById('globe-root');
-            var status = document.getElementById('status');
-            var statusText = document.getElementById('status-text');
-            var mapView = document.getElementById('map-view');
-            var mapImage = document.getElementById('map-image');
-            var state = 'loading';
-            var poll;
-            var deadline;
-            var mapDeadline;
-
-            function setState(next) {
-              state = next;
-              document.body.dataset.state = next;
-            }
-
-            function stopGlobeChecks() {
-              window.clearInterval(poll);
-              window.clearTimeout(deadline);
-            }
-
-            function failMap() {
-              if (state !== 'map-loading') return;
-              window.clearTimeout(mapDeadline);
-              setState('error');
-              mapView.hidden = true;
-              status.hidden = false;
-              statusText.textContent =
-                'Visitor map could not load. The provider may be blocked or temporarily unavailable. Use Retry below.';
-            }
-
-            function useMap(reason) {
-              if (state !== 'loading') return;
-              stopGlobeChecks();
-              setState('map-loading');
-              root.hidden = true;
-              statusText.textContent = 'Loading 2D visitor map…';
-              console.warn('[VisitorGlobe] ' + reason + ' Trying the provider’s 2D map.');
-              // Request the fallback only after the globe fails; do not load
-              // two counters in parallel on the normal, successful path.
-              mapImage.onload = function () {
-                if (state !== 'map-loading') return;
-                if (mapImage.naturalWidth < 20 || mapImage.naturalHeight < 20) {
-                  failMap();
-                  return;
-                }
-                window.clearTimeout(mapDeadline);
-                setState('map');
-                status.hidden = true;
-                mapView.hidden = false;
-              };
-              mapImage.onerror = failMap;
-              mapDeadline = window.setTimeout(failMap, 12000);
-              mapImage.src = 'https://mapmyvisitors.com/map.png?cl=ffffff&d=' + KEY;
-            }
-
-            function checkGlobe() {
-              if (state !== 'loading') return;
-              var visuals = root.querySelectorAll('canvas, svg, img, iframe, object, embed');
-              for (var i = 0; i < visuals.length; i += 1) {
-                var visual = visuals[i];
-                var rect = visual.getBoundingClientRect();
-                // Ignore tiny logos, tracking pixels and unfinished images.
-                if (rect.width < 100 || rect.height < 80) continue;
-                if (visual.tagName === 'IMG' &&
-                    (!visual.complete || visual.naturalWidth < 20)) continue;
-                // An element with plausible dimensions is a best-effort ready
-                // signal; the provider exposes no documented readiness API.
-                setState('globe');
-                stopGlobeChecks();
-                status.hidden = true;
-                return;
-              }
-            }
-
-            window.visitorGlobeScriptFailed = function () {
-              useMap('The globe script failed to load.');
-            };
-            poll = window.setInterval(checkGlobe, 250);
-            deadline = window.setTimeout(function () {
-              useMap('The globe did not create visible content within 15 seconds.');
-            }, 15000);
-            window.addEventListener('load', checkGlobe);
-            window.addEventListener('pagehide', function () {
-              stopGlobeChecks();
-              window.clearTimeout(mapDeadline);
-            });
-          }());
-        </script>
-        <!-- Keep this a normal parser-inserted script: no async/defer, React
-             Effect, or next/script hoisting. Keep the provider's exact ID. -->
-        <script
-          type="text/javascript"
-          id="mmvst_globe"
-          src="https://mapmyvisitors.com/globe.js?d=R3Qj_OgtGlT9u6JqS3wlp84xiJAHI2-aqgABYV5Yv58"
-          onerror="window.visitorGlobeScriptFailed()"
-        ></script>
-      </div>
+  <body>
+    <!-- Compatibility page only. The homepage now embeds the image directly
+         via app/VisitorGlobe.tsx and does not load this page in an iframe. -->
+    <div class="visitor-map">
+      <a
+        href="https://mapmyvisitors.com/web/1c8f1"
+        title="Visit tracker"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://mapmyvisitors.com/map.png?d=lKHf8BqRebBB-StPHh2OO0tGiewbln-oYKxaOgftHfA&amp;cl=ffffff"
+          alt="Visitor locations on a world map — open visitor statistics"
+          width="240"
+          loading="eager"
+          decoding="async"
+          referrerpolicy="strict-origin-when-cross-origin"
+        />
+      </a>
     </div>
-    <noscript>JavaScript is required to display the visitor globe.</noscript>
   </body>
 </html>

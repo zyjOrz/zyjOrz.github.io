@@ -1,43 +1,33 @@
-import { Globe2 } from 'lucide-react';
-
 /**
- * Keep the legacy visitor script outside React's lifecycle. The iframe loads
- * ordinary HTML so parser-time scripts and document-ready handlers can work.
- * This is DOM/lifecycle separation, not a security sandbox.
+ * Official MapMyVisitors image embed (the provider's non-JavaScript option).
+ * Keep the request remote and eager: do not replace this with a local image,
+ * next/image optimization, an iframe, or a second tracker running in parallel.
+ * The legacy component name is kept so app/page.tsx does not need to change.
  */
 export default function VisitorGlobe() {
   return (
     <section
       id="visitors"
-      aria-labelledby="visitors-heading"
-      className="section-shell mx-auto mt-10 w-full max-w-lg scroll-mt-28 rounded-[24px] border border-[#ebd2df] p-5 sm:p-6"
+      aria-label="Visitor locations"
+      className="mx-auto mt-10 w-full max-w-[240px] scroll-mt-28 bg-transparent"
     >
-      <div className="mb-3 flex items-center gap-3">
-        <div
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#e8d7e5] bg-gradient-to-br from-[#fff8fc] to-[#f3e7ff] shadow-[0_3px_10px_rgba(91,55,83,0.08)]"
-          aria-hidden="true"
-        >
-          <Globe2 size={19} strokeWidth={2} className="text-[#b44fd3]" />
-        </div>
-        <h2
-          id="visitors-heading"
-          className="m-0 text-xl font-semibold tracking-[-0.025em] text-[#2d2232]"
-        >
-          Visitors
-        </h2>
-      </div>
-
-      <div className="mx-auto w-full max-w-[260px]">
-        <iframe
-          src="/visitor-globe.html"
-          title="Visitor locations — MapMyVisitors"
-          width="260"
-          height="280"
+      <a
+        href="https://mapmyvisitors.com/web/1c8f1"
+        title="Visit tracker"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block"
+      >
+        <img
+          src="https://mapmyvisitors.com/map.png?d=lKHf8BqRebBB-StPHh2OO0tGiewbln-oYKxaOgftHfA&cl=ffffff"
+          alt="Visitor locations on a world map — open visitor statistics"
+          width={240}
           loading="eager"
+          decoding="async"
           referrerPolicy="strict-origin-when-cross-origin"
-          className="block h-[280px] w-full border-0 bg-transparent"
+          className="block h-auto w-full border-0"
         />
-      </div>
+      </a>
     </section>
   );
 }
