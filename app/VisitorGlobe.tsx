@@ -63,7 +63,7 @@ export default function VisitorGlobe() {
     <section
       id="visitors"
       aria-label="Visitor locations"
-      className="mx-auto mt-10 w-full max-w-[300px] scroll-mt-28 bg-transparent"
+      className="mx-auto mt-10 pb-6 w-full max-w-[300px] scroll-mt-28 bg-transparent"
     >
       <div
         ref={mountRef}
