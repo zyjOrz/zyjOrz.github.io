@@ -170,6 +170,20 @@ export default function PublicationPage() {
                         </span>
                       </>
                     ) : null}
+                    {paper.modelUrl ? (
+                    <a
+                      href={paper.modelUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="paper-link-button"
+                      aria-label={`Open ${paper.title} models on Hugging Face`}
+                    >
+                      <span className="text-[17px] leading-none" aria-hidden="true">
+                        🤗
+                      </span>
+                      <span>Models</span>
+                    </a>
+                  ) : null}
                   </div>
 
                   <ul className="mt-4 list-disc space-y-2 pl-6 text-[1.05rem] leading-8 text-[#3d3842]">

@@ -6,7 +6,7 @@ const newsItems = [
   {
     date: '2610',
     emoji: '🏆',
-    content: <>RoboSTAR won the Best Paper Award at IROS 2026 NOC Workshop.</>,
+    content: <>RoboSTAR won the Best Paper Award at IROS 2026 NOC.</>,
   },
   {
     date: '2609',
