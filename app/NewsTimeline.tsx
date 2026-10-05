@@ -4,6 +4,11 @@ import { type CSSProperties, useEffect, useRef, useState } from 'react';
 
 const newsItems = [
   {
+    date: '2610',
+    emoji: '🏆',
+    content: <>RoboSTAR won the Best Paper Award at IROS 2026 NOC Workshop.</>,
+  },
+  {
     date: '2609',
     emoji: '🎉',
     content: <>RoboSTAR was released.</>,
