@@ -19,7 +19,6 @@ function Highlight({ children }: { children: ReactNode }) {
 
 export const profile = {
   name: 'Yujia Zeng',
-  role: 'Undergraduate at USTC · Visiting Student at UC Berkeley',
   email: 'yujiazng@gmail.com',
   portrait: '/images/portrait.webp',
   links: [
@@ -90,15 +89,6 @@ export const news: NewsItem[] = [
       <>
         Arrived at the <ExtLink href="https://msc.berkeley.edu/">MSC Lab</ExtLink>, UC Berkeley, for
         on-site summer research.
-      </>
-    ),
-  },
-  {
-    date: 'Sep 2025',
-    body: (
-      <>
-        Received the Yang Ya Alumni Fund Scholarship (¥5,000, awarded to the top five female students in
-        the School of the Gifted Young).
       </>
     ),
   },
@@ -235,7 +225,7 @@ export const experience: Entry[] = [
     period: 'Sep 2026 – Present',
     org: 'Harvard University',
     orgUrl: 'https://www.harvard.edu/',
-    place: 'Cambridge, MA',
+    place: 'Cambridge, MA (remote)',
     role: 'Research Intern, Embodied Minds Lab',
     note: (
       <>

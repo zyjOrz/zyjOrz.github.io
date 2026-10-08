@@ -1,3 +1,4 @@
+import CopyEmail from './components/CopyEmail';
 import EntryList from './components/EntryList';
 import PublicationList from './components/PublicationList';
 import Section from './components/Section';
@@ -14,13 +15,10 @@ function Hero() {
 
       <div className="hero-text">
         <h1 className="hero-name">{profile.name}</h1>
-        <p className="hero-role">{profile.role}</p>
         <div className="hero-bio">{bio}</div>
         <ul className="hero-links">
           <li>
-            <a href={`mailto:${profile.email}`} className="link">
-              {profile.email}
-            </a>
+            <CopyEmail email={profile.email} />
           </li>
           {profile.links.map((link) => (
             <li key={link.label}>

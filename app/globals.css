@@ -231,6 +231,26 @@ sup {
   height: 96%;
 }
 
+/* On wide screens the frame takes the exact height of the text beside it, so
+   both columns start and end together; the cutout stays anchored to the bottom. */
+@media (min-width: 900px) {
+  .hero {
+    align-items: stretch;
+  }
+
+  .hero-portrait {
+    width: 100%;
+    height: 100%;
+    min-height: calc(13.5rem * 799 / 560);
+    aspect-ratio: auto;
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .hero-name {
   margin: 0;
   color: var(--ink);
@@ -241,15 +261,7 @@ sup {
   letter-spacing: -0.02em;
 }
 
-.hero-role {
-  margin-top: 1rem;
-  color: var(--soft);
-  font-family: var(--font-sans);
-  font-size: 0.9375rem;
-}
-
 .hero-bio {
-  max-width: 35rem;
   margin-top: 1.75rem;
 }
 
@@ -266,6 +278,39 @@ sup {
   list-style: none;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
+}
+
+.copy-email {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+.copy-email:hover .link {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+/* Small "Copied" hint above the button; takes no layout space. */
+.copy-email-note {
+  position: absolute;
+  bottom: calc(100% + 0.35rem);
+  left: 50%;
+  color: var(--accent);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, 0.25rem);
+  transition: opacity 160ms ease, transform 160ms ease;
+  pointer-events: none;
+}
+
+.copy-email-note.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
 }
 
 /* -------------------------------------------------------------- sections */
