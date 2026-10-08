@@ -18,7 +18,7 @@ function Hero() {
         <div className="hero-bio">{bio}</div>
         <ul className="hero-links">
           <li>
-            <CopyEmail email={profile.email} />
+            <CopyEmail parts={profile.email.split('@')} />
           </li>
           {profile.links.map((link) => (
             <li key={link.label}>

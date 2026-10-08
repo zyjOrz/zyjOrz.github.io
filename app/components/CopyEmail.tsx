@@ -2,14 +2,16 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-// Shows "Email" instead of the address; clicking copies the address.
-export default function CopyEmail({ email }: { email: string }) {
+// Shows "Email" instead of the address; clicking copies the address. The
+// address arrives in two parts so the full string never appears in the HTML.
+export default function CopyEmail({ parts }: { parts: string[] }) {
   const [copied, setCopied] = useState(false);
   const timer = useRef<number | undefined>(undefined);
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
 
   async function copy() {
+    const email = parts.join('@');
     try {
       await navigator.clipboard.writeText(email);
     } catch {

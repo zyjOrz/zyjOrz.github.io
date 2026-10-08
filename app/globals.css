@@ -228,7 +228,7 @@ sup {
 .hero-portrait img {
   display: block;
   width: auto;
-  height: 96%;
+  height: 88%;
 }
 
 /* On wide screens the frame takes the exact height of the text beside it, so
@@ -241,12 +241,13 @@ sup {
   .hero-portrait {
     width: 100%;
     height: 100%;
-    min-height: calc(13.5rem * 799 / 560);
+    /* Never shorter than the 85%-wide cutout plus a little headroom. */
+    min-height: calc(13.5rem * 0.85 * 799 / 560 / 0.9);
     aspect-ratio: auto;
   }
 
   .hero-portrait img {
-    width: 100%;
+    width: 85%;
     height: auto;
   }
 }
@@ -585,13 +586,19 @@ sup {
 /* ---------------------------------------------------------------- footer */
 
 .site-footer {
-  align-items: end;
   padding-block: 2.5rem 3rem;
   border-top: 1px solid var(--rule);
   color: var(--faint);
   font-family: var(--font-sans);
   font-size: 0.8125rem;
   line-height: 1.6;
+}
+
+/* The map lines up with the content column, not the section rail. */
+@media (min-width: 900px) {
+  .site-footer .visitor-map {
+    grid-column: 2;
+  }
 }
 
 .visitor-map {

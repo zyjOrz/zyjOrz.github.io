@@ -2,7 +2,6 @@ const items = [
   { label: 'News', href: '/#news' },
   { label: 'Publications', href: '/#publications' },
   { label: 'Experience', href: '/#experiences' },
-  { label: 'Misc', href: '/#miscellaneous' },
 ];
 
 export default function SiteNav() {
