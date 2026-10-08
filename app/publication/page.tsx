@@ -1,200 +1,26 @@
-import { robostar, type PublicationEntry } from '../robostar';
-import Image from "next/image";
-import { ArrowLeft, ExternalLink, FileText, Github, MapPin } from "lucide-react";
+import type { Metadata } from 'next';
+import PublicationList from '../components/PublicationList';
+import Section from '../components/Section';
+import SiteFooter from '../components/SiteFooter';
+import SiteNav from '../components/SiteNav';
 
-const publications: PublicationEntry[] = [
-  robostar,
-  {
-    venue: "ECCV 2026",
-    location: "Malmö, Sweden",
-    type: null,
-    title: "Ring Forcing: Towards Precise Long-Term Memory for Autoregressive Video Diffusion",
-    authors: (
-      <>
-        {'Bowen Xue, Brandon Y. Feng, Chenguo Lin, Yuchen Lin, '}
-        <strong className="font-extrabold text-[#35242d]">Yujia Zeng</strong>
-        {', Lvmin Zhang, Maneesh Agrawala, Honglei Yan, and Panwang Pan'}
-      </>
-    ),
-    image: "https://arxiv.org/html/2608.26794v1/teaser.png",
-    paperUrl: "https://arxiv.org/abs/2608.26794",
-    projectUrl: "https://ringforcing.com/",
-    codeUrl: null,
-    codeComingSoon: false,
-    description:
-      "We present Ring Forcing, an autoregressive video diffusion framework designed to robustly construct and precisely utilize long-term memory, which achieves superior minutes-long coherence and object permanence, significantly outperforming state-of-the-art methods.",
-  },
-  {
-    venue: "ICIC 2026",
-    location: "Toronto, Canada",
-    type: "Oral",
-    title: "ReconNet: Generative Recommendation with Control-Guided Diffusion Models",
-    authors: <strong className="font-extrabold text-[#35242d]">Yujia Zeng</strong>,
-    image: "/reconnet.png",
-    paperUrl: "https://link.springer.com/chapter/10.1007/978-981-92-3384-7_1",
-    projectUrl: null,
-    codeUrl: null,
-    codeComingSoon: true,
-    description:
-      "This work reformulates sequential recommendation as a control-guided diffusion generation task integrating ControlNEXT into the diffusion process, allowing user preferences across multiple domains to act as control signals that guide personalized recommendation item generation.",
-  },
-  {
-    venue: "arXiv 2026",
-    type: null,
-    title: "StableWorld: Towards Stable and Consistent Long Interactive Video Generation",
-    authors: (
-      <>
-        {'Ying Yang, Zhengyao Lv, '}
-        <strong className="font-extrabold text-[#35242d]">Yujia Zeng</strong>
-        {', Tianlin Pan, Haofan Wang, Yueming Lyu, Binxin Yang, Hubery Yin, Chen Li, Jing Lyu, Ziwei Liu, and Chenyang Si'}
-      </>
-    ),
-    image: "https://arxiv.org/html/2601.15281v2/teasor13.png",
-    paperUrl: "https://arxiv.org/abs/2601.15281",
-    projectUrl: "https://sd-world.github.io/",
-    codeUrl: "https://github.com/xbyym/StableWorld",
-    codeComingSoon: false,
-    description:
-      "StableWorld introduces a model-agnostic Dynamic Frame Eviction Mechanism that filters degraded frames while retaining geometrically consistent ones, reducing cumulative drift and improving stability and temporal consistency across interactive video generation frameworks.",
-  },
-];
+export const metadata: Metadata = {
+  title: 'Publications · Yujia Zeng',
+  alternates: { canonical: '/publication' },
+};
 
 export default function PublicationPage() {
   return (
-    <main className="site-canvas min-h-screen px-6 py-10 font-sans text-[#23161b]">
-      <div className="mx-auto max-w-6xl">
-        <a
-          href="/#publications"
-          className="soft-action mb-10 inline-flex items-center gap-2 rounded-full border border-[#e2bfd0] bg-white/60 px-4 py-2 text-sm font-medium text-[#7b4456] shadow-sm backdrop-blur-sm"
-        >
-          <ArrowLeft size={16} />
-          Back to Home
-        </a>
+    <div className="page">
+      <SiteNav />
 
-        <section className="section-shell rounded-[32px] border border-[#ebd2df] bg-white/65 px-6 py-8 shadow-[0_16px_44px_rgba(178,109,143,0.12)] backdrop-blur-sm sm:px-10 sm:py-12">
-          <div className="mb-10">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.28em] text-[#b05c7c]">
-              Selected Work
-            </p>
-            <h1 className="text-4xl font-semibold tracking-tight text-[#2d1820]">Publications</h1>
-          </div>
+      <main className="pt-12 md:pt-16">
+        <Section id="publications" title="Publications" note="* Equal contribution">
+          <PublicationList />
+        </Section>
+      </main>
 
-          <div className="space-y-10">
-            {publications.map((paper) => (
-              <article
-                key={paper.title}
-                className="interactive-card publication-card group/paper grid grid-cols-1 gap-7 rounded-[28px] border border-[#eed4de] bg-[#fffafc]/80 p-5 shadow-[0_10px_30px_rgba(191,113,142,0.12)] md:grid-cols-[420px_1fr] md:p-6"
-              >
-                <div className="publication-media group/image relative overflow-hidden rounded-[22px] border border-[#ead5dd] bg-white shadow-[0_10px_26px_rgba(178,109,143,0.14)] transition-all duration-300 ease-out hover:-translate-y-3 hover:shadow-[0_22px_45px_rgba(191,113,142,0.24)]">
-                  <div className="absolute left-0 top-0 z-10 rounded-br-xl bg-[#0b4cae] px-4 py-1.5 text-sm font-semibold text-white shadow-md">
-                    {paper.venue}
-                  </div>
-                  <Image
-                    src={paper.image}
-                    alt={`${paper.title} overview`}
-                    width={900}
-                    height={380}
-                    className="h-full min-h-[210px] w-full object-contain transition-transform duration-300 ease-out group-hover/image:scale-[1.02]"
-                    priority
-                  />
-                </div>
-
-                <div className="flex flex-col justify-center py-1">
-                  <h2 className="text-[1.35rem] font-semibold leading-8 text-[#3a2b36]">
-                    {paper.type ? <span className="mr-2 text-[#e00000]">({paper.type})</span> : null}
-                    <span className="publication-title">{paper.title}</span>
-                  </h2>
-                  <p className="mt-3 text-base font-medium text-[#5c5260]" title={paper.authorsNote}>{paper.authors}</p>
-
-                  <p className="mt-1 inline-flex flex-wrap items-center gap-1.5 text-sm font-semibold text-[#7b4456]">
-                    <span title={paper.venueDetail}>{paper.venue}</span>
-                    {paper.location ? (
-                      <>
-                        <span className="text-[#c79cac]">·</span>
-                        <MapPin size={14} className="text-[#b86380]" />
-                        <span>{paper.location}</span>
-                      </>
-                    ) : null}
-                    {paper.status ? (
-                      <>
-                        <span className="text-[#c79cac]">·</span>
-                        <span>{paper.status}</span>
-                      </>
-                    ) : null}
-                  </p>
-
-                  <div className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-[1rem] font-semibold">
-                    {paper.projectUrl ? (
-                      <a
-                        href={paper.projectUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="paper-link-button"
-                        aria-label={`Open ${paper.title} project page`}
-                      >
-                        <ExternalLink size={16} strokeWidth={2.2} aria-hidden="true" />
-                        <span>Project Page</span>
-                      </a>
-                    ) : null}
-                    {paper.paperUrl ? (
-                      <a
-                        href={paper.paperUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="paper-link-button"
-                        aria-label={`Open ${paper.title} paper`}
-                      >
-                        <FileText size={16} strokeWidth={2.2} aria-hidden="true" />
-                        <span>Paper</span>
-                      </a>
-                    ) : null}
-                    {paper.codeUrl ? (
-                      <a
-                        href={paper.codeUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="paper-link-button"
-                        aria-label={`Open ${paper.title} code repository`}
-                      >
-                        <Github size={16} strokeWidth={2.2} aria-hidden="true" />
-                        <span>Code</span>
-                      </a>
-                    ) : paper.codeComingSoon ? (
-                      <>
-                        <span className="text-[#8d6673]">|</span>
-                        <span
-                          className="text-[#1d4f91] underline decoration-[#a9bddb] underline-offset-4"
-                          aria-disabled="true"
-                        >
-                          Code <span className="font-medium text-[#6f4b57]">(coming soon)</span>
-                        </span>
-                      </>
-                    ) : null}
-                    {paper.modelUrl ? (
-                    <a
-                      href={paper.modelUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="paper-link-button"
-                      aria-label={`Open ${paper.title} models on Hugging Face`}
-                    >
-                      <span className="text-[17px] leading-none" aria-hidden="true">
-                        🤗
-                      </span>
-                      <span>Models</span>
-                    </a>
-                  ) : null}
-                  </div>
-
-                  <ul className="mt-4 list-disc space-y-2 pl-6 text-[1.05rem] leading-8 text-[#3d3842]">
-                    <li>{paper.description}</li>
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      </div>
-    </main>
+      <SiteFooter />
+    </div>
   );
 }

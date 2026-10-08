@@ -5,11 +5,26 @@ import { useEffect, useRef, useState } from 'react';
 // Keep the existing site token. Changing the presentation must not create a
 // different counter or send traffic to the reference website's counter.
 const STATS_URL = 'https://mapmyvisitors.com/web/1c8f1';
-const WIDGET_URL =
-  'https://mapmyvisitors.com/map.js' +
-  '?d=lKHf8BqRebBB-StPHh2OO0tGiewbln-oYKxaOgftHfA' +
-  '&w=300&t=n' +
-  '&cl=ffffff&co=bcd6f2&cmo=a7b0bb&cmn=e8800c&ct=23262a';
+const MAP_TOKEN = 'lKHf8BqRebBB-StPHh2OO0tGiewbln-oYKxaOgftHfA';
+
+// Map colors follow the page theme (CSS variables in globals.css).
+function widgetUrl() {
+  const css = getComputedStyle(document.documentElement);
+  const color = (name: string, fallback: string) =>
+    (css.getPropertyValue(name).trim() || fallback).replace('#', '');
+
+  const params = new URLSearchParams({
+    d: MAP_TOKEN,
+    w: '240',
+    t: 'n',
+    cl: color('--underline', 'c9d2c6'), // land
+    co: color('--paper', 'f8faf6'), // ocean
+    cmo: color('--soft', '5c6a5f'), // earlier visitors
+    cmn: color('--accent', '3d6e52'), // recent visitors
+    ct: color('--ink', '1c251e'), // labels
+  });
+  return `https://mapmyvisitors.com/map.js?${params}`;
+}
 
 /**
  * Direct JavaScript map, using the reference site's light-mode display options.
@@ -42,7 +57,7 @@ export default function VisitorGlobe() {
       script = document.createElement('script');
       script.id = 'mapmyvisitors';
       script.type = 'text/javascript';
-      script.src = WIDGET_URL;
+      script.src = widgetUrl();
       script.async = true;
       script.referrerPolicy = 'strict-origin-when-cross-origin';
       script.onerror = () => {
@@ -60,32 +75,20 @@ export default function VisitorGlobe() {
   }, []);
 
   return (
-    <section
-      id="visitors"
-      aria-label="Visitor locations"
-      className="mx-auto mt-10 pb-6 w-full max-w-[300px] scroll-mt-28 bg-transparent"
-    >
-      <div
-        ref={mountRef}
-        className="w-full [&_img]:max-w-full [&_canvas]:max-w-full [&_svg]:max-w-full"
-      />
+    <div id="visitors" aria-label="Visitor locations" className="visitor-map">
+      <div ref={mountRef} />
       {loadFailed && (
-        <p className="py-3 text-center text-xs">
-          <a
-            href={STATS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-4"
-          >
+        <p>
+          <a href={STATS_URL} target="_blank" rel="noopener noreferrer" className="link">
             Visitor map unavailable — view statistics
           </a>
         </p>
       )}
       <noscript>
-        <a href={STATS_URL} target="_blank" rel="noopener noreferrer">
+        <a href={STATS_URL} target="_blank" rel="noopener noreferrer" className="link">
           View visitor statistics
         </a>
       </noscript>
-    </section>
+    </div>
   );
 }
