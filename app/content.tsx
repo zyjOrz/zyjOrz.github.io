@@ -298,7 +298,7 @@ export const miscellaneous: { label: string; items: ReactNode[] }[] = [
     items: [
       <>
         President of the Student Union at the School of the Gifted Young{' '}
-        <span className="whitespace-nowrap">(2024–2025)</span>.
+        <span className="whitespace-nowrap"></span>.
       </>,
       <>Deputy Head of the Academic Affairs Department of the USTC Student Union.</>,
       <>Team leader for a summer social practice program in Xinjiang.</>,
