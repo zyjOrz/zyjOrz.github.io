@@ -280,9 +280,13 @@ export const honors: { title: string; detail?: string }[] = [
   },
   {
     title: 'Yang Ya Alumni Fund Scholarship',
-    detail: '¥5,000 · awarded to the top five female students in the School of the Gifted Young',
+    detail: '¥5,000 · top 5 female students in the School of the Gifted Young',
   },
   { title: 'Guangfa Securities Scholarship', detail: '¥8,000' },
+  {
+    title: 'AI Elite Class Scholarship',
+    detail: '¥5,800 · awarded to the top 3 students in the Artificial Intelligence major',
+  },
   { title: 'Silver Medal, ICPC Hong Kong Regional' },
   { title: 'Bronze Medal, CCPC Regional Contest' },
   {
