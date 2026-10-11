@@ -282,10 +282,13 @@ export const honors: { title: string; detail?: string }[] = [
     title: 'Yang Ya Alumni Fund Scholarship',
     detail: '¥5,000 · awarded to the top five female students in the School of the Gifted Young',
   },
-  { title: 'Guangfa Securities Award', detail: '¥8,000' },
+  { title: 'Guangfa Securities Scholarship', detail: '¥8,000' },
   { title: 'Silver Medal, ICPC Hong Kong Regional' },
   { title: 'Bronze Medal, CCPC Regional Contest' },
-  { title: 'Best Paper Award, IROS 2026 Workshop on Nonverbal Cues for Human-Robot Cooperative Intelligence' },
+  {
+    title: 'Best Paper Award, IROS 2026 Workshop on Nonverbal Cues for Human-Robot Cooperative Intelligence',
+    detail: '$300',
+  },
 ];
 
 /* ------------------------------------------------------------ miscellaneous */
