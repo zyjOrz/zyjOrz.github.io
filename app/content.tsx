@@ -124,7 +124,7 @@ export const publications: Publication[] = [
     venueDetail: 'Workshop on Nonverbal Cues for Human-Robot Cooperative Intelligence',
     highlight: 'Best Paper Award',
     status: 'Under review',
-    image: '/images/pubs/robostar.webp',
+    image: '/images/pubs/robostar-full.webp',
     links: [
       { label: 'Paper', href: 'https://arxiv.org/abs/2609.32250' },
       { label: 'Project page', href: 'https://www.yujiazeng.com/RoboSTAR/' },
@@ -285,7 +285,7 @@ export const honors: { title: string; detail?: string }[] = [
   { title: 'Guangfa Securities Scholarship', detail: '¥8,000' },
   {
     title: 'AI Elite Class Scholarship',
-    detail: '¥5,800 · awarded to the top 3 students in the Artificial Intelligence major',
+    detail: '¥5,800 · top 2 students in the Artificial Intelligence major',
   },
   { title: 'Silver Medal, ICPC Hong Kong Regional' },
   { title: 'Bronze Medal, CCPC Regional Contest' },

@@ -13,7 +13,7 @@
 
 - 所有文字内容都在 `app/content.tsx`：简介、News、论文、经历、教育、荣誉和 Miscellaneous。新增一条 News 或一篇论文只需改这个文件。
 - 论文作者里给名字末尾加 `*` 表示共同一作；`Yujia Zeng` 会自动加粗。
-- 论文配图放在 `public/images/pubs/`（WebP，宽 560 px），照片在 `public/images/portrait.webp`。
+- 论文配图放在 `public/images/pubs/`（WebP），列表中每张图都完整显示在统一的 2:1 白底框里，不裁剪；照片在 `public/images/portrait.webp`。
 - “少年班”三个字使用随站点托管的思源宋体子集 `public/fonts/noto-serif-sc-subset.woff2`。如果要加入其他中文字，需要重新下载子集（方法见 `app/globals.css` 中的注释）。
 
 ## 移除

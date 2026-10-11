@@ -25,19 +25,23 @@ function Venue({ paper }: { paper: Publication }) {
     <p className="pub-venue">
       <span title={paper.venueDetail}>{paper.venue}</span>
       {paper.location ? <span className="pub-meta">, {paper.location}</span> : null}
+      {/* A no-break space keeps each separator with the item before it;
+          the plain space after it is where the line may wrap. */}
       {paper.highlight ? (
         <>
+          {'\u00a0'}
           <span className="pub-sep" aria-hidden="true">
             ·
-          </span>
+          </span>{' '}
           <span className="highlight">{paper.highlight}</span>
         </>
       ) : null}
       {paper.status ? (
         <>
+          {'\u00a0'}
           <span className="pub-sep" aria-hidden="true">
             ·
-          </span>
+          </span>{' '}
           <span className="pub-meta">{paper.status}</span>
         </>
       ) : null}
