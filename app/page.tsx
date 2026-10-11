@@ -65,11 +65,11 @@ export default function Home() {
         </Section>
 
         <Section id="honors" title="Honors">
-          <ul className="dated">
-            {honors.map((item, index) => (
-              <li key={index}>
-                <p className="date">{item.year}</p>
-                <p>{item.body}</p>
+          <ul className="honors">
+            {honors.map((item) => (
+              <li key={item.title}>
+                <p className="honor-title">{item.title}</p>
+                {item.detail ? <p className="honor-detail">{item.detail}</p> : null}
               </li>
             ))}
           </ul>

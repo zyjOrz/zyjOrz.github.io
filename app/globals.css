@@ -353,7 +353,7 @@ sup {
   min-width: 0;
 }
 
-/* News and honors: date column + text. */
+/* News: date column + text. */
 .dated {
   display: grid;
   gap: 0.85rem;
@@ -541,6 +541,27 @@ sup {
 }
 
 .entry-note {
+  margin-top: 0.1rem;
+  color: var(--soft);
+  font-size: 0.97rem;
+}
+
+/* ---------------------------------------------------------------- honors */
+
+.honors {
+  display: grid;
+  gap: 1.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.honor-title {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.honor-detail {
   margin-top: 0.1rem;
   color: var(--soft);
   font-size: 0.97rem;

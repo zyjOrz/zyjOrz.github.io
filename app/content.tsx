@@ -273,17 +273,19 @@ export const education: Entry[] = [
 
 /* ------------------------------------------------------------------- honors */
 
-export const honors: { year: string; body: ReactNode }[] = [
+export const honors: { title: string; detail?: string }[] = [
   {
-    year: '2026',
-    body: <>Best Paper Award, IROS 2026 Workshop on Nonverbal Cues for Human-Robot Cooperative Intelligence</>,
+    title: 'National Scholarship',
+    detail: '¥10,000 · top 1% · universally acknowledged as the highest national honor for undergraduates in China',
   },
   {
-    year: '2025',
-    body: <>Yang Ya Alumni Fund Scholarship, awarded to the top five female students in the School of the Gifted Young</>,
+    title: 'Yang Ya Alumni Fund Scholarship',
+    detail: '¥5,000 · awarded to the top five female students in the School of the Gifted Young',
   },
-  { year: '2024', body: <>Silver Medal, ICPC Hong Kong Regional</> },
-  { year: '2024', body: <>National Scholarship, top 1% GPA</> },
+  { title: 'Guangfa Securities Award', detail: '¥8,000' },
+  { title: 'Silver Medal, ICPC Hong Kong Regional' },
+  { title: 'Bronze Medal, CCPC Regional Contest' },
+  { title: 'Best Paper Award, IROS 2026 Workshop on Nonverbal Cues for Human-Robot Cooperative Intelligence' },
 ];
 
 /* ------------------------------------------------------------ miscellaneous */
@@ -296,10 +298,7 @@ export const miscellaneous: { label: string; items: ReactNode[] }[] = [
   {
     label: 'Student Leadership',
     items: [
-      <>
-        President of the Student Union at the School of the Gifted Young{' '}
-        <span className="whitespace-nowrap"></span>.
-      </>,
+      <>President of the Student Union at the School of the Gifted Young.</>,
       <>Deputy Head of the Academic Affairs Department of the USTC Student Union.</>,
       <>Team leader for a summer social practice program in Xinjiang.</>,
     ],
