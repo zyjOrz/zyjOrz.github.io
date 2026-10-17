@@ -1,5 +1,6 @@
 import CopyEmail from './components/CopyEmail';
 import EntryList from './components/EntryList';
+import Miscellaneous from './components/Miscellaneous';
 import PublicationList from './components/PublicationList';
 import Section from './components/Section';
 import SiteFooter from './components/SiteFooter';
@@ -75,20 +76,12 @@ export default function Home() {
           </ul>
         </Section>
 
-        <Section id="miscellaneous" title="Miscellaneous">
-          <dl className="misc">
-            {miscellaneous.map((group) => (
-              <div key={group.label} className="misc-row">
-                <dt>{group.label}</dt>
-                <dd>
-                  {group.items.map((item, index) => (
-                    <p key={index}>{item}</p>
-                  ))}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </Section>
+        <Miscellaneous
+          groups={miscellaneous.map((group) => ({
+            label: group.label,
+            notes: group.items.map((item, index) => <p key={index}>{item}</p>),
+          }))}
+        />
       </main>
 
       <SiteFooter />

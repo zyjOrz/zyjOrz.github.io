@@ -25,7 +25,9 @@
 
   a,
   button,
-  summary {
+  summary,
+  .misc:not(.is-open),
+  .misc:not(.is-open) dt {
     cursor: var(--cursor-link);
   }
 }

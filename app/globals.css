@@ -570,10 +570,109 @@ sup {
 
 /* ---------------------------------------------------------- miscellaneous */
 
+/* The section title doubles as the fold toggle. */
+.fold-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+/* A hairline ring holding a plus; opening swings the upright stroke down
+   into a minus. Pixel sizes keep the strokes on whole pixels. */
+.fold-icon {
+  position: relative;
+  flex: none;
+  width: 19px;
+  height: 19px;
+  border: 1px solid var(--underline);
+  border-radius: 50%;
+  transition: border-color 200ms ease;
+}
+
+.fold-icon::before,
+.fold-icon::after {
+  position: absolute;
+  top: 8px;
+  left: 4px;
+  width: 9px;
+  height: 1px;
+  background: var(--soft);
+  content: "";
+  transition: transform 420ms cubic-bezier(0.65, 0, 0.35, 1), background-color 200ms ease;
+}
+
+.fold-icon::after {
+  transform: rotate(90deg);
+}
+
+.fold-toggle[aria-expanded="true"] .fold-icon::after {
+  transform: rotate(180deg);
+}
+
+.fold-toggle:hover .fold-icon,
+.section:has(.misc:not(.is-open):hover) .fold-icon {
+  border-color: var(--accent);
+}
+
+.fold-toggle:hover .fold-icon::before,
+.fold-toggle:hover .fold-icon::after,
+.section:has(.misc:not(.is-open):hover) .fold-icon::before,
+.section:has(.misc:not(.is-open):hover) .fold-icon::after {
+  background: var(--accent);
+}
+
 .misc {
   display: grid;
   gap: 1.4rem;
   margin: 0;
+}
+
+/* Folded: the labels run on as one line of contents and the notes are not
+   laid out. Overflow clips the dot in front of each line's first label. */
+.misc:not(.is-open) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.6rem;
+  overflow: hidden;
+  /* Sits the labels on the title's baseline. */
+  padding-top: 0.2rem;
+}
+
+.misc:not(.is-open) .misc-row {
+  display: block;
+}
+
+.misc:not(.is-open) dd {
+  display: none;
+}
+
+.misc:not(.is-open):hover dt {
+  color: var(--ink);
+}
+
+.misc dt::before {
+  position: absolute;
+  top: 50%;
+  left: calc(-0.8rem - 1.5px);
+  width: 3px;
+  height: 3px;
+  margin-top: -1.5px;
+  border-radius: 50%;
+  background: var(--underline);
+  content: "";
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.misc:not(.is-open) dt::before {
+  opacity: 1;
+  transition: opacity 240ms ease 260ms;
 }
 
 .misc-row {
@@ -591,10 +690,12 @@ sup {
 }
 
 .misc dt {
+  position: relative;
   color: var(--soft);
   font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-weight: 500;
+  transition: color 160ms ease;
 }
 
 .misc dd {
@@ -660,7 +761,12 @@ sup {
   .link,
   .site-nav a,
   .pub-title a,
-  .entry-org a {
+  .entry-org a,
+  .fold-icon,
+  .fold-icon::before,
+  .fold-icon::after,
+  .misc dt,
+  .misc dt::before {
     transition: none;
   }
 }

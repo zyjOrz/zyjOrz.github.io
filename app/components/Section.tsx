@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 type SectionProps = {
   id: string;
-  title: string;
+  title: ReactNode;
   note?: ReactNode;
   children: ReactNode;
 };
