@@ -166,7 +166,7 @@ export default function Miscellaneous({ groups }: { groups: Group[] }) {
           aria-controls="miscellaneous-list"
           onClick={toggle}
         >
-          Miscellaneous
+          Miscs
           <span className="fold-icon" aria-hidden="true" />
         </button>
       }

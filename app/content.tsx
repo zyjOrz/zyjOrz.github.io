@@ -331,16 +331,4 @@ export const miscellaneous: { label: string; items: ReactNode[] }[] = [
       </>,
     ],
   },
-  {
-    label: 'Social Media',
-    items: [
-      <>
-        Find me on{' '}
-        <ExtLink href="https://www.xiaohongshu.com/user/profile/5ce00f51000000001600bd54?xsec_token=ABarcBM9m82KvULRkEPPT9rkuVXIY2-OH9sybePLzfeo0%3D&xsec_source=pc_search">
-          RedNote
-        </ExtLink>
-        .
-      </>,
-    ],
-  },
 ];

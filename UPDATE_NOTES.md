@@ -7,12 +7,12 @@
 - 光标：平时是一朵樱花，悬停链接时变成颜色更深、带花苞的樱花，正文上是细衬线 I 形光标，见 `app/cursors.css`（SVG 以 data URI 内嵌，热点在花心）。
 - 首屏：宽屏下照片框自动与右侧文字等高（照片贴底，多出的高度留在头顶），所以改简介长度后两栏依然对齐。
 - 邮箱不直接显示，显示为 “Email”，点击复制地址并短暂提示 “Copied”（`app/components/CopyEmail.tsx`）。
-- Miscellaneous 默认折叠，只显示一行分类目录；点击标题旁的圆形 “+”（或目录本身）展开，分类名滑入左栏、内容依次淡入，再点 “−” 收起（`app/components/Miscellaneous.tsx`）。链接带 `#miscellaneous` 时直接展开；系统开启“减少动态效果”时不播放动画。
+- Miscs（Miscellaneous）默认折叠，只显示一行分类目录；点击标题旁的圆形 “+”（或目录本身）展开，分类名滑入左栏、内容依次淡入，再点 “−” 收起（`app/components/Miscellaneous.tsx`）。链接带 `#miscellaneous` 时直接展开；系统开启“减少动态效果”时不播放动画。
 - 页脚访客地图（MapMyVisitors）沿用原来的统计 token，只把颜色改为读取当前主题。
 
 ## 修改内容
 
-- 所有文字内容都在 `app/content.tsx`：简介、News、论文、经历、教育、荣誉和 Miscellaneous。新增一条 News 或一篇论文只需改这个文件。
+- 所有文字内容都在 `app/content.tsx`：简介、News、论文、经历、教育、荣誉和 Miscs。新增一条 News 或一篇论文只需改这个文件。
 - 论文作者里给名字末尾加 `*` 表示共同一作；`Yujia Zeng` 会自动加粗。
 - 论文配图放在 `public/images/pubs/`（WebP），列表中每张图都完整显示在统一的 2:1 白底框里，不裁剪；照片在 `public/images/portrait.webp`。
 - “少年班”三个字使用随站点托管的思源宋体子集 `public/fonts/noto-serif-sc-subset.woff2`。如果要加入其他中文字，需要重新下载子集（方法见 `app/globals.css` 中的注释）。
