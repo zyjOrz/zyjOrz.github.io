@@ -1,9 +1,11 @@
+import type { CSSProperties } from 'react';
 import { DateStamp, Greeting } from './components/ciel/Clock';
+import { DialMotion, RevealObserver, StatusTicker } from './components/ciel/Motion';
 import { Column, Dial, Dove, Ladder, Postmark, Stamp } from './components/ciel/Ornaments';
 import TagRail from './components/ciel/TagRail';
 import CopyEmail from './components/CopyEmail';
 import EntryList from './components/EntryList';
-import { amount, dotted, pad2 } from './components/format';
+import { amount, dotted, pad2, stagger } from './components/format';
 import Miscellaneous from './components/Miscellaneous';
 import PublicationList from './components/PublicationList';
 import Section from './components/Section';
@@ -16,6 +18,9 @@ const built = new Date();
 const builtDate = `${built.getFullYear()}/${pad2(built.getMonth() + 1)}/${pad2(built.getDate())}`;
 const builtMonth = built.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
 
+// Entrance order for the hero: each element rises out of the light in turn.
+const enter = (ms: number) => ({ '--d': `${ms}ms` }) as CSSProperties;
+
 function Hero() {
   return (
     <section id="home" aria-labelledby="home-title" className="hero">
@@ -24,53 +29,57 @@ function Hero() {
 
       <div className="hero-head">
         <div className="hero-title">
-          <span className="tag-ink">Portfolio · {built.getFullYear()}</span>
+          <span className="tag-ink" data-enter="" style={enter(150)}>
+            Academic homepage · {built.getFullYear()}
+          </span>
           <div className="hero-name-wrap">
-            <span className="numeral numeral-xl" aria-hidden="true">
+            <span className="numeral numeral-xl" data-enter="ghost" style={enter(250)} aria-hidden="true">
               YZ
             </span>
-            <h1 id="home-title" className="hero-name">
+            <h1 id="home-title" className="hero-name" data-enter="" style={enter(380)}>
               {profile.name}
             </h1>
           </div>
-          <p className="kicker">Dexterous hands · Generative models</p>
+          <p className="kicker" data-enter="" style={enter(500)}>
+            Dexterous hands · Generative models
+          </p>
         </div>
-        <Greeting />
-        <DateStamp built={builtDate}>
-          Index · {publications.length} papers · {news.length} nouvelles
-        </DateStamp>
+        <div className="hero-greeting" data-enter="write" style={enter(650)}>
+          <Greeting />
+        </div>
+        <div data-enter="" style={enter(300)}>
+          <DateStamp built={builtDate}>
+            Index · {publications.length} papers · {news.length} updates
+          </DateStamp>
+        </div>
       </div>
 
       <div className="hero-stage">
         <div className="hero-left" aria-hidden="true">
-          <Column className="orn-column" />
-          <figure className="quote-card">
-            <p lang="zh-Hans">让机器人的手，也学会说话。</p>
+          <div data-enter="" style={enter(200)}>
+            <Column className="orn-column" />
+          </div>
+          <figure className="quote-card" data-enter="card" style={enter(900)}>
+            <span className="quote-label">Research vision</span>
             <p className="quote-en">Teaching robot hands to speak.</p>
           </figure>
         </div>
 
         <div className="hero-center">
-          <Dial className="orn-dial" />
-          <div className="arch">
+          <DialMotion className="orn-dial">
+            <Dial />
+          </DialMotion>
+          <div className="arch" data-enter="arch" style={enter(320)}>
             <img src={profile.portrait} alt={`Portrait of ${profile.name}`} width={560} height={799} />
           </div>
-          <span className="numeral numeral-arch" aria-hidden="true">
-            01
-          </span>
-          <p className="arch-chip">
-            <span className="tag-ink">Maintenant</span>
-            MSC Lab · UC Berkeley
-          </p>
+          <StatusTicker />
         </div>
 
         <div className="hero-right">
-          <div className="panel panel-bio">
+          <div className="panel panel-bio" data-enter="" style={enter(560)}>
             <div className="panel-bar" aria-hidden="true">
               <span className="panel-index">01</span>
-              <span className="panel-label">
-                À propos · <span lang="zh-Hans">关于</span>
-              </span>
+              <span className="panel-label">About</span>
               <span className="panel-count">Nº 01</span>
             </div>
             <div className="panel-body">
@@ -89,8 +98,12 @@ function Hero() {
               </ul>
             </div>
           </div>
-          <Stamp className="hero-stamp" />
-          <Postmark className="hero-postmark" month={builtMonth} year={String(built.getFullYear())} />
+          <div className="hero-stamp" data-enter="stamp" style={enter(1100)}>
+            <Stamp />
+          </div>
+          <div className="hero-postmark" data-enter="" style={enter(1350)}>
+            <Postmark month={builtMonth} year={String(built.getFullYear())} />
+          </div>
         </div>
       </div>
     </section>
@@ -101,6 +114,7 @@ export default function Home() {
   return (
     <>
       <TagRail />
+      <RevealObserver />
       <div className="page">
         <SiteNav />
 
@@ -111,14 +125,19 @@ export default function Home() {
             id="news"
             index="02"
             title="News"
-            fr="Nouvelles"
-            zh="新闻"
-            script="Nouvelles du ciel"
+            tag="News"
+            script="Recent updates"
+            bar="News · latest first"
             count={`Nº ${pad2(news.length)}`}
           >
             <ol className="rows">
               {news.map((item, index) => (
-                <li key={`${item.date}-${index}`} className={`row${index === 0 ? ' is-current' : ''}`}>
+                <li
+                  key={`${item.date}-${index}`}
+                  className={`row${index === 0 ? ' is-current' : ''}`}
+                  data-reveal=""
+                  style={stagger(index)}
+                >
                   <span className="row-index" aria-hidden="true">
                     {pad2(index + 1)}
                   </span>
@@ -133,9 +152,9 @@ export default function Home() {
             id="publications"
             index="03"
             title="Publications"
-            fr="Publications"
-            zh="论文"
-            script="Écrire dans le ciel"
+            tag="Publications"
+            script="Selected papers"
+            bar="Publications · selected"
             count={`Nº ${pad2(publications.length)}`}
             note="* Equal contribution"
           >
@@ -146,15 +165,14 @@ export default function Home() {
             id="experiences"
             index="04"
             title="Experience"
-            fr="Parcours"
-            zh="经历"
-            script="Chemins parcourus"
+            tag="Experience"
+            script="Research & industry"
             count={`Nº ${pad2(experience.length)}`}
           >
             <EntryList entries={experience} />
           </Section>
 
-          <Section id="education" index="05" title="Education" fr="Formation" zh="教育" script="Années d’étude">
+          <Section id="education" index="05" title="Education" tag="Education" script="Academic training">
             <EntryList entries={education} />
           </Section>
 
@@ -162,16 +180,15 @@ export default function Home() {
             id="honors"
             index="06"
             title="Honors"
-            fr="Distinctions"
-            zh="荣誉"
-            script="Petites étoiles"
+            tag="Honors"
+            script="Awards & scholarships"
             count={`Nº ${pad2(honors.length)}`}
           >
             <ol className="rows">
               {honors.map((item, index) => {
                 const [value, rest] = amount(item.detail);
                 return (
-                  <li key={item.title} className="row">
+                  <li key={item.title} className="row" data-reveal="" style={stagger(index)}>
                     <span className="row-index" aria-hidden="true">
                       {pad2(index + 1)}
                     </span>

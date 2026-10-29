@@ -60,12 +60,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // The inline script adds a class before first paint; suppressHydrationWarning
+    // keeps React from reporting that difference on <html>.
     <html
       lang="en"
       data-theme="ciel"
       className={`${serif.variable} ${display.variable} ${script.variable} ${mono.variable}`}
+      suppressHydrationWarning
     >
-      <body>{children}</body>
+      <head>
+        {/* Animations are opt-in: without JavaScript, or with reduced motion, everything just shows. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion')",
+          }}
+        />
+      </head>
+      <body>
+        <div className="sky-drift" aria-hidden="true">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="intro-veil" aria-hidden="true" />
+        {children}
+      </body>
     </html>
   );
 }

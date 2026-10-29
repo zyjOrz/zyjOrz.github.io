@@ -31,11 +31,8 @@ export const profile = {
 export const bio: ReactNode = (
   <>
     <p>
-      I am a fourth-year undergraduate student in the School of the Gifted Young{' '}
-      <span className="whitespace-nowrap">
-        (<span lang="zh-Hans">少年班</span>)
-      </span>{' '}
-      at the University of Science and Technology of China (USTC). I am currently a visiting student at the{' '}
+      I am a fourth-year undergraduate student in the School of the Gifted Young at the University
+      of Science and Technology of China (USTC). I am currently a visiting student at the{' '}
       <ExtLink href="https://msc.berkeley.edu/">MSC Lab</ExtLink>, UC Berkeley, advised by{' '}
       <ExtLink href="https://msc.berkeley.edu/people/tomizuka.html">Prof. Masayoshi Tomizuka</ExtLink>,
       and I also work closely with <ExtLink href="https://yilundu.github.io/">Prof. Yilun Du</ExtLink> at

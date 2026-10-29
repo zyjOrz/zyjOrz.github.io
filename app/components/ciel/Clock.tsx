@@ -36,15 +36,12 @@ export function DateStamp({ built, children }: { built: string; children?: React
   );
 }
 
+// Follows the visitor's local time of day.
 export function Greeting() {
   const now = useNow();
   const hour = now ? now.getHours() : 9;
-  const text = hour >= 5 && hour < 12 ? 'Bonjour,' : hour >= 12 && hour < 18 ? 'Bon après-midi,' : 'Bonsoir,';
-  return (
-    <p className="greeting" lang="fr">
-      {text}
-    </p>
-  );
+  const text = hour >= 5 && hour < 12 ? 'Good morning,' : hour >= 12 && hour < 18 ? 'Good afternoon,' : 'Good evening,';
+  return <p className="greeting">{text}</p>;
 }
 
 export function TimeOnly() {

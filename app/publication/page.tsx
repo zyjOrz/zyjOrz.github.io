@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import TagRail from '../components/ciel/TagRail';
+import { RevealObserver } from '../components/ciel/Motion';
 import { pad2 } from '../components/format';
 import PublicationList from '../components/PublicationList';
 import Section from '../components/Section';
@@ -16,6 +17,7 @@ export default function PublicationPage() {
   return (
     <>
       <TagRail />
+      <RevealObserver />
       <div className="page">
         <SiteNav />
 
@@ -24,9 +26,9 @@ export default function PublicationPage() {
             id="publications"
             index="03"
             title="Publications"
-            fr="Publications"
-            zh="论文"
-            script="Écrire dans le ciel"
+            tag="Publications"
+            script="Selected papers"
+            bar="Publications · selected"
             count={`Nº ${pad2(publications.length)}`}
             note="* Equal contribution"
           >

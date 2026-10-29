@@ -10,7 +10,7 @@ export default function SiteNav() {
     <nav aria-label="Sections" className="site-nav">
       <a href="/" className="site-nav-home">
         <span className="tag-ink">YZ</span>
-        <span lang="fr">Archive du ciel</span>
+        <span>Yujia Zeng</span>
       </a>
       <ul>
         {items.map((item) => (

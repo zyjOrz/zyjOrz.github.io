@@ -25,34 +25,10 @@
 }
 
 @theme inline {
-  --font-serif: var(--font-newsreader), "Noto Serif SC CJK", "Songti SC", "STSong", Georgia, serif;
-  --font-display: var(--font-bodoni), "Noto Serif SC CJK", "Songti SC", Didot, serif;
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-display: var(--font-bodoni), Didot, "Bodoni 72", serif;
   --font-script: var(--font-pinyon), cursive;
   --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Consolas, monospace;
-}
-
-/* Only the Chinese characters the page uses, cut from Noto Serif SC (OFL).
-   To add characters, re-download from fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400&text=…
-   (and @900 for the section titles). */
-@font-face {
-  font-family: "Noto Serif SC CJK";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/noto-serif-sc-400.woff2") format("woff2");
-  unicode-range: U+3002, U+4E5F, U+4E8E, U+4EBA, U+4F1A, U+5173, U+5386, U+5668, U+5B66, U+5C11, U+5E74,
-    U+624B, U+6559, U+6587, U+65B0, U+673A, U+6742, U+73ED, U+7684, U+7ECF, U+80B2, U+8363, U+8A89, U+8BA9,
-    U+8BB0, U+8BBA, U+8BDD, U+8BF4, U+95FB, U+FF0C;
-}
-
-@font-face {
-  font-family: "Noto Serif SC Black";
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url("/fonts/noto-serif-sc-900.woff2") format("woff2");
-  unicode-range: U+4E8E, U+5173, U+5386, U+5C11, U+5E74, U+6559, U+6587, U+65B0, U+6742, U+73ED, U+7814,
-    U+7ECF, U+80B2, U+8363, U+8A89, U+8BB0, U+8BBA, U+95FB;
 }
 
 /* ------------------------------------------------------------------- base */
@@ -613,14 +589,19 @@ sup {
   transform: rotate(-2deg);
 }
 
-.quote-card [lang="zh-Hans"] {
-  font-family: "Noto Serif SC CJK", "Songti SC", serif;
-  letter-spacing: 0.04em;
+.quote-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--soft);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
 .quote-en {
-  margin-top: 0.25rem;
-  color: var(--soft);
+  color: var(--ink);
+  font-size: 1.05rem;
   font-style: italic;
 }
 
@@ -632,27 +613,29 @@ sup {
   padding-block: 1.5rem 2rem;
 }
 
+/* Centred with margins rather than a transform, so its entrance rotation turns
+   it in place. The inner ring is turned by DialMotion. */
 .orn-dial {
+  --dial-w: min(32rem, 125vw);
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 0;
-  width: min(32rem, 125vw);
-  height: auto;
+  width: var(--dial-w);
+  aspect-ratio: 1;
+  margin: calc(var(--dial-w) / -2) 0 0 calc(var(--dial-w) / -2);
   pointer-events: none;
-  transform: translate(-50%, -50%);
+}
+
+.orn-dial svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .dial-spin {
-  animation: dial-spin 180s linear infinite;
   transform-box: fill-box;
   transform-origin: center;
-}
-
-@keyframes dial-spin {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .dial-text {
@@ -707,6 +690,7 @@ sup {
   z-index: 2;
   bottom: 2.2rem;
   left: calc(50% - 12rem);
+  display: grid;
   font-size: 6.5rem;
 }
 
@@ -715,9 +699,7 @@ sup {
   z-index: 3;
   bottom: 1.1rem;
   left: 50%;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: grid;
   padding: 0.2rem 0.65rem 0.2rem 0.2rem;
   border: 1px solid var(--ink);
   background: #fff;
@@ -728,6 +710,27 @@ sup {
   box-shadow: 0 8px 18px rgba(24, 34, 74, 0.12);
   transform: translateX(-50%);
   white-space: nowrap;
+}
+
+.arch-chip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Layers sharing one grid cell; the one marked .is-on shows. */
+.swap {
+  grid-area: 1 / 1;
+  transition:
+    opacity 800ms var(--ease-soft),
+    filter 800ms var(--ease-soft),
+    translate 800ms var(--ease-soft);
+}
+
+.swap:not(.is-on) {
+  opacity: 0;
+  filter: blur(6px);
+  translate: 0 0.4rem;
 }
 
 .hero-right {
@@ -767,8 +770,13 @@ sup {
   right: 3.6rem;
   z-index: 4;
   width: 11.5rem;
-  height: auto;
   pointer-events: none;
+}
+
+.hero-postmark svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .orn-ladder {
@@ -919,11 +927,6 @@ sup {
   align-items: center;
 }
 
-.panel-label [lang="zh-Hans"] {
-  margin-left: 0.35em;
-  letter-spacing: 0.12em;
-}
-
 .panel-count {
   display: flex;
   align-items: center;
@@ -988,27 +991,24 @@ sup {
   font-size: 8rem;
 }
 
-.section-zh {
+/* Clickable again inside the click-through mark (the Miscs heading is a button). */
+.section-title {
   position: absolute;
-  top: 2.9rem;
-  left: 6.3rem;
+  top: 2.85rem;
+  left: 6.2rem;
+  margin: 0;
   color: var(--ink);
-  font-family: "Noto Serif SC Black", "Songti SC", serif;
+  font-family: var(--font-display);
   font-size: 3.4rem;
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1;
-  letter-spacing: 0.04em;
+  letter-spacing: -0.01em;
+  pointer-events: auto;
+  white-space: nowrap;
 }
 
-.section-title {
-  margin: 0;
-  color: var(--soft);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.26em;
-  line-height: 1.6;
-  text-transform: uppercase;
+.section-title .fold-toggle {
+  gap: 0.85rem;
 }
 
 .section-script {
@@ -1070,12 +1070,13 @@ sup {
   line-height: 1.55;
 }
 
-.row.is-current .row-index {
-  background: var(--ink);
-  color: #fff;
+.row-index {
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
-.row.is-current::before {
+/* The selection bar: shown on the current row, and on hover it moves to the
+   row under the pointer. */
+.row::before {
   position: absolute;
   top: 0.35rem;
   bottom: 0.6rem;
@@ -1083,6 +1084,38 @@ sup {
   width: 2px;
   background: var(--ink);
   content: "";
+  scale: 1 0;
+  transform-origin: 50% 0;
+  transition: scale 450ms var(--ease-soft);
+}
+
+.row.is-current::before {
+  scale: 1 1;
+}
+
+.row.is-current .row-index {
+  background: var(--ink);
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .row:hover::before {
+    scale: 1 1;
+  }
+
+  .row:hover .row-index {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .rows:hover .row.is-current:not(:hover)::before {
+    scale: 1 0;
+  }
+
+  .rows:hover .row.is-current:not(:hover) .row-index {
+    background: transparent;
+    color: var(--ink);
+  }
 }
 
 .row-main {
@@ -1204,6 +1237,14 @@ sup {
   border: 1px solid var(--rule);
   background: #fff;
   box-shadow: 0 10px 24px rgba(24, 34, 74, 0.08);
+  transition: translate 500ms var(--ease-soft), box-shadow 500ms var(--ease-soft);
+}
+
+@media (hover: hover) {
+  .pub:hover .pub-figure {
+    translate: 0 -0.25rem;
+    box-shadow: 0 18px 34px rgba(24, 34, 74, 0.14);
+  }
 }
 
 .pub-figure img {
@@ -1524,6 +1565,334 @@ sup {
   pointer-events: none;
 }
 
+/* ----------------------------------------------------------------- motion */
+/* Applies only under html.motion, which an inline script sets before first
+   paint unless the visitor prefers reduced motion; without JavaScript the
+   page is simply static. Scroll reveals additionally need html.reveal, set by
+   RevealObserver once it is watching. */
+
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* The page opens out of a wash of light. */
+.intro-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  background: radial-gradient(70% 60% at 28% 36%, #ffffff 0%, rgba(255, 255, 255, 0.94) 48%, rgba(243, 246, 251, 0.9) 100%);
+  pointer-events: none;
+}
+
+.motion .intro-veil {
+  display: block;
+  animation: veil-out 900ms var(--ease-soft) 100ms forwards;
+}
+
+@keyframes veil-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Clouds drifting slowly across the sky. */
+.sky-drift {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sky-drift span {
+  position: absolute;
+  top: 8%;
+  left: -12%;
+  width: 46vw;
+  height: 20vw;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+.sky-drift span:nth-child(2) {
+  top: 44%;
+  left: 58%;
+  width: 38vw;
+  height: 16vw;
+}
+
+.sky-drift span:nth-child(3) {
+  top: 72%;
+  left: 8%;
+  width: 52vw;
+  height: 22vw;
+}
+
+.motion .sky-drift span {
+  animation: drift 90s ease-in-out infinite alternate;
+}
+
+.motion .sky-drift span:nth-child(2) {
+  animation-duration: 120s;
+  animation-direction: alternate-reverse;
+}
+
+.motion .sky-drift span:nth-child(3) {
+  animation-duration: 105s;
+}
+
+@keyframes drift {
+  to {
+    translate: 18vw 0;
+  }
+}
+
+/* Hero entrance: each piece rises out of the light in turn (--d). The
+   individual translate/rotate/scale properties are animated, so the pieces'
+   own transforms stay as they are. */
+.motion [data-enter] {
+  animation: rise 1100ms var(--ease-out) both;
+  animation-delay: calc(var(--d, 0ms) + 250ms);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    translate: 0 16px;
+  }
+}
+
+/* Outlined letters settle in from wide spacing, like the video's numerals. */
+.motion [data-enter="ghost"] {
+  animation-name: ghost;
+  animation-duration: 1600ms;
+}
+
+@keyframes ghost {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    letter-spacing: 0.14em;
+  }
+}
+
+/* Calligraphy is written on from left to right. */
+.motion [data-enter="write"] {
+  animation-name: write;
+  animation-duration: 1600ms;
+  animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@keyframes write {
+  from {
+    clip-path: inset(-30% 100% -30% 0);
+  }
+  to {
+    clip-path: inset(-30% -10% -30% 0);
+  }
+}
+
+.motion [data-enter="card"] {
+  animation-name: card-in;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    translate: 0 22px;
+    rotate: -5deg;
+  }
+}
+
+.motion [data-enter="arch"] {
+  animation-name: arch-in;
+  animation-duration: 1300ms;
+}
+
+@keyframes arch-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    scale: 0.94;
+    translate: 0 18px;
+  }
+}
+
+/* The stamp lands with a small overshoot, as if pressed onto the card. */
+.motion [data-enter="stamp"] {
+  animation-name: stamp-in;
+  animation-duration: 650ms;
+  animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes stamp-in {
+  from {
+    opacity: 0;
+    scale: 1.6;
+    rotate: 18deg;
+  }
+  60% {
+    opacity: 1;
+  }
+}
+
+.motion .orn-dial {
+  animation: dial-in 1800ms var(--ease-out) 600ms both;
+}
+
+@keyframes dial-in {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    rotate: -60deg;
+    scale: 0.92;
+  }
+}
+
+.motion .orn-ladder {
+  animation: rise 1400ms var(--ease-out) 450ms both;
+}
+
+.motion .orn-dove {
+  animation:
+    rise 1200ms var(--ease-out) 900ms both,
+    hover-float 7s ease-in-out 2.1s infinite alternate;
+}
+
+@keyframes hover-float {
+  to {
+    translate: 0.4rem -0.6rem;
+  }
+}
+
+.motion .panel-bio .panel-bar {
+  animation: bar-draw 900ms var(--ease-soft) 1000ms both;
+}
+
+@keyframes bar-draw {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* The luggage tags drop onto the string one by one and settle. */
+.motion .tag-rail li {
+  animation: tag-drop 900ms var(--ease-out) both;
+  animation-delay: calc(250ms + var(--i, 0) * 70ms);
+  transform-origin: 50% 0;
+}
+
+@keyframes tag-drop {
+  from {
+    opacity: 0;
+    translate: 0 -1.6rem;
+    rotate: -10deg;
+  }
+  60% {
+    rotate: 4deg;
+  }
+}
+
+/* Scroll reveals. */
+.reveal [data-reveal] {
+  transition:
+    opacity 900ms var(--ease-out),
+    translate 900ms var(--ease-out),
+    filter 900ms var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+
+.reveal [data-reveal]:not(.is-in) {
+  opacity: 0;
+  filter: blur(6px);
+  translate: 0 22px;
+}
+
+/* Rows follow their panel in, one after another. */
+.reveal .row[data-reveal],
+.reveal .pub[data-reveal] {
+  transition-delay: calc(180ms + var(--i, 0) * 70ms);
+}
+
+/* Panels carry a backdrop blur, so they only fade and rise. */
+.reveal .panel[data-reveal]:not(.is-in) {
+  filter: none;
+}
+
+.reveal .panel[data-reveal] .panel-bar {
+  transition: clip-path 900ms var(--ease-soft) 120ms;
+}
+
+.reveal .panel[data-reveal]:not(.is-in) .panel-bar {
+  clip-path: inset(0 100% 0 0);
+}
+
+.reveal .panel[data-reveal].is-in .panel-bar {
+  clip-path: inset(0 0 0 0);
+}
+
+/* A heading animates its parts rather than as one block. */
+.reveal .section-head[data-reveal]:not(.is-in) {
+  opacity: 1;
+  filter: none;
+  translate: none;
+}
+
+.reveal .section-head .tag-ink,
+.reveal .section-head .numeral,
+.reveal .section-head .section-title {
+  transition:
+    opacity 1000ms var(--ease-out),
+    translate 1000ms var(--ease-out),
+    filter 1000ms var(--ease-out),
+    letter-spacing 1400ms var(--ease-out);
+}
+
+.reveal .section-head .numeral {
+  transition-delay: 80ms;
+}
+
+.reveal .section-head .section-title {
+  transition-delay: 200ms;
+}
+
+.reveal .section-head:not(.is-in) .tag-ink {
+  opacity: 0;
+  translate: -0.5rem 0;
+}
+
+.reveal .section-head:not(.is-in) .numeral {
+  opacity: 0;
+  filter: blur(10px);
+  letter-spacing: 0.14em;
+}
+
+.reveal .section-head:not(.is-in) .section-title {
+  opacity: 0;
+  filter: blur(6px);
+  translate: 0 18px;
+}
+
+.reveal .section-head .section-script {
+  transition: clip-path 1500ms cubic-bezier(0.65, 0, 0.35, 1) 350ms;
+}
+
+.reveal .section-head:not(.is-in) .section-script {
+  clip-path: inset(-30% 100% -30% 0);
+}
+
+.reveal .section-head.is-in .section-script {
+  clip-path: inset(-30% -10% -30% 0);
+}
+
 /* ------------------------------------------------------------ small screens */
 
 @media (max-width: 759px) {
@@ -1572,17 +1941,17 @@ sup {
     font-size: 6.5rem;
   }
 
-  .section-zh {
-    top: 2.5rem;
-    left: 5.1rem;
-    font-size: 2.7rem;
+  .section-title {
+    top: 2.55rem;
+    left: 4.9rem;
+    font-size: 2.45rem;
   }
 
   .panel-body {
     padding: 1rem 1rem 1.1rem;
   }
 
-  .row.is-current::before {
+  .row::before {
     left: -1rem;
   }
 }
@@ -1592,7 +1961,6 @@ sup {
     scroll-behavior: auto;
   }
 
-  .dial-spin,
   .hang-tag:hover,
   .hang-tag:focus-visible {
     animation: none;
@@ -1608,7 +1976,11 @@ sup {
   .fold-icon,
   .fold-icon::before,
   .fold-icon::after,
-  .misc dt {
+  .misc dt,
+  .row::before,
+  .row-index,
+  .swap,
+  .pub-figure {
     transition: none;
   }
 }

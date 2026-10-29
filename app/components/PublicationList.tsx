@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { publications, SELF, type Publication } from '../content';
-import { pad2 } from './format';
+import { pad2, stagger } from './format';
 
 function Authors({ names }: { names: string[] }) {
   return (
@@ -41,7 +41,7 @@ export default function PublicationList() {
         const primary = paper.links.find((link) => link.label === 'Project page') ?? paper.links[0];
 
         return (
-          <li key={paper.title} className="pub">
+          <li key={paper.title} className="pub" data-reveal="" style={stagger(index)}>
             <a
               href={primary.href}
               target="_blank"

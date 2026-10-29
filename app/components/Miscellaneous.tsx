@@ -159,9 +159,8 @@ export default function Miscellaneous({ groups }: { groups: Group[] }) {
     <Section
       id="miscellaneous"
       index="07"
-      fr="Divers"
-      zh="杂记"
-      script="Hors du laboratoire"
+      tag="Miscs"
+      script="Beyond the lab"
       title={
         <button
           type="button"

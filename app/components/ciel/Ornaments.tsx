@@ -119,11 +119,11 @@ export function Dove({ className }: { className?: string }) {
 
 /* ---------------------------------------------------------------- dial */
 
-// A compass ring with the section names running round it.
+// A compass ring with the section names running round it. The inner group
+// (.dial-spin) is turned by DialMotion.
 export function Dial({ className }: { className?: string }) {
   const ticks = Array.from({ length: 120 }, (_, i) => i * 3);
-  const label =
-    '01 NOUVELLES · 新闻 · 02 PUBLICATIONS · 论文 · 03 PARCOURS · 经历 · 04 FORMATION · 教育 · 05 DISTINCTIONS · 荣誉 · ';
+  const label = '01 NEWS · 02 PUBLICATIONS · 03 EXPERIENCE · 04 EDUCATION · 05 HONORS · 06 MISCS · ';
 
   return (
     <svg className={className} viewBox="-230 -230 460 460" aria-hidden="true" focusable="false">
@@ -172,15 +172,15 @@ export function Stamp({ className }: { className?: string }) {
   return (
     <div className={`stamp ${className ?? ''}`} aria-hidden="true">
       <div className="stamp-face">
-        <span className="stamp-top">La Poste du Ciel</span>
+        <span className="stamp-top">Air Mail</span>
         <svg className="stamp-art" viewBox="0 0 60 44">
           <path d="M14 44 V22 a16 16 0 0 1 32 0 V44" fill="#ffffff" stroke="#18224a" strokeWidth="1" />
           <path d="M19 44 V23 a11 11 0 0 1 22 0 V44" fill="#c9d6f0" stroke="#18224a" strokeWidth="0.7" />
           <path d="M22 34 q4 -3 8 0 q4 -3 8 0" fill="none" stroke="#ffffff" strokeWidth="1.2" />
           <path d="M6 44 h48" stroke="#18224a" strokeWidth="1" />
         </svg>
-        <span className="stamp-value">27</span>
-        <span className="stamp-bottom">USTC · Berkeley</span>
+        <span className="stamp-value">USTC</span>
+        <span className="stamp-bottom">Berkeley · 2026</span>
       </div>
     </div>
   );
@@ -204,7 +204,7 @@ export function Postmark({ className, month, year }: { className?: string; month
       </g>
       <g fill="#18224a" opacity="0.7">
         <text className="postmark-ring">
-          <textPath href="#postmark-path">UC BERKELEY · CALIFORNIE · </textPath>
+          <textPath href="#postmark-path">UC BERKELEY · CALIFORNIA · </textPath>
         </text>
         <text className="postmark-date" x="40" y="38" textAnchor="middle">
           {month}

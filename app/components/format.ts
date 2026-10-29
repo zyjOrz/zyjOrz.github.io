@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // "Oct 2026" -> "2026.10"; anything else is returned unchanged.
@@ -22,3 +24,6 @@ export function amount(detail?: string): [string, string] {
 }
 
 export const pad2 = (n: number) => String(n).padStart(2, '0');
+
+// Delay step for rows that scroll into view together (see [data-reveal] in globals.css).
+export const stagger = (i: number) => ({ '--i': Math.min(i, 10) }) as CSSProperties;

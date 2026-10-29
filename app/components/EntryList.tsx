@@ -1,5 +1,5 @@
 import type { Entry } from '../content';
-import { pad2, span } from './format';
+import { pad2, span, stagger } from './format';
 
 export default function EntryList({ entries }: { entries: Entry[] }) {
   return (
@@ -7,7 +7,7 @@ export default function EntryList({ entries }: { entries: Entry[] }) {
       {entries.map((entry, index) => {
         const [from, to] = span(entry.period);
         return (
-          <li key={`${entry.org}-${entry.period}`} className="row entry">
+          <li key={`${entry.org}-${entry.period}`} className="row entry" data-reveal="" style={stagger(index)}>
             <span className="row-index" aria-hidden="true">
               {pad2(index + 1)}
             </span>

@@ -12,9 +12,7 @@ export default function SiteFooter() {
         <VisitorGlobe />
       </div>
       <div className="footer-end" aria-hidden="true">
-        <p className="footer-script" lang="fr">
-          Merci de votre visite
-        </p>
+        <p className="footer-script">Thank you for visiting</p>
         <Barcode />
       </div>
     </footer>
