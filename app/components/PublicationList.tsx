@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { publications, SELF, type Publication } from '../content';
+import { pad2 } from './format';
 
 function Authors({ names }: { names: string[] }) {
   return (
@@ -20,31 +21,15 @@ function Authors({ names }: { names: string[] }) {
   );
 }
 
-function Venue({ paper }: { paper: Publication }) {
+function Chips({ paper }: { paper: Publication }) {
   return (
-    <p className="pub-venue">
-      <span title={paper.venueDetail}>{paper.venue}</span>
-      {paper.location ? <span className="pub-meta">, {paper.location}</span> : null}
-      {/* A no-break space keeps each separator with the item before it;
-          the plain space after it is where the line may wrap. */}
-      {paper.highlight ? (
-        <>
-          {'\u00a0'}
-          <span className="pub-sep" aria-hidden="true">
-            ·
-          </span>{' '}
-          <span className="highlight">{paper.highlight}</span>
-        </>
-      ) : null}
-      {paper.status ? (
-        <>
-          {'\u00a0'}
-          <span className="pub-sep" aria-hidden="true">
-            ·
-          </span>{' '}
-          <span className="pub-meta">{paper.status}</span>
-        </>
-      ) : null}
+    <p className="chips">
+      <span className="chip chip-ink" title={paper.venueDetail}>
+        {paper.venue}
+      </span>
+      {paper.highlight ? <span className="chip chip-rose">{paper.highlight}</span> : null}
+      {paper.status ? <span className="chip">{paper.status}</span> : null}
+      {paper.location ? <span className="chip-plain">{paper.location}</span> : null}
     </p>
   );
 }
@@ -52,7 +37,7 @@ function Venue({ paper }: { paper: Publication }) {
 export default function PublicationList() {
   return (
     <ol className="pubs">
-      {publications.map((paper) => {
+      {publications.map((paper, index) => {
         const primary = paper.links.find((link) => link.label === 'Project page') ?? paper.links[0];
 
         return (
@@ -65,25 +50,27 @@ export default function PublicationList() {
               tabIndex={-1}
               aria-hidden="true"
             >
+              <span className="pub-figure-no">Nº {pad2(index + 1)}</span>
               <img src={paper.image} alt="" loading="lazy" decoding="async" />
             </a>
 
             <div className="pub-text">
+              <Chips paper={paper} />
               <h3 className="pub-title">
                 <a href={primary.href} target="_blank" rel="noopener noreferrer">
                   {paper.title}
                 </a>
               </h3>
               <Authors names={paper.authors} />
-              <Venue paper={paper} />
+              <p className="pub-summary">{paper.summary}</p>
               <p className="pub-links">
                 {paper.links.map((link) => (
-                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="link">
+                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="chip-link">
                     {link.label}
+                    <span aria-hidden="true"> ↗</span>
                   </a>
                 ))}
               </p>
-              <p className="pub-summary">{paper.summary}</p>
             </div>
           </li>
         );

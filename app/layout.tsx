@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { Newsreader, Schibsted_Grotesk } from 'next/font/google';
+import { Bodoni_Moda, IBM_Plex_Mono, Newsreader, Pinyon_Script } from 'next/font/google';
 import './globals.css';
 import './cursors.css';
 
+// Body text.
 const serif = Newsreader({
   subsets: ['latin', 'latin-ext'],
   style: ['normal', 'italic'],
@@ -11,10 +12,29 @@ const serif = Newsreader({
   variable: '--font-newsreader',
 });
 
-const sans = Schibsted_Grotesk({
+// Name, dates, big numerals and letter-spaced labels.
+const display = Bodoni_Moda({
   subsets: ['latin', 'latin-ext'],
+  style: ['normal', 'italic'],
+  axes: ['opsz'],
   display: 'swap',
-  variable: '--font-schibsted',
+  variable: '--font-bodoni',
+});
+
+// French calligraphy.
+const script = Pinyon_Script({
+  subsets: ['latin', 'latin-ext'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-pinyon',
+});
+
+// Dates, indices and other small metadata.
+const mono = IBM_Plex_Mono({
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500'],
+  display: 'swap',
+  variable: '--font-plex-mono',
 });
 
 const description =
@@ -40,8 +60,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Color theme: "sage" (pale green), "blush" (pale pink) or "paper" (warm white).
-    <html lang="en" data-theme="sage" className={`${serif.variable} ${sans.variable}`}>
+    <html
+      lang="en"
+      data-theme="ciel"
+      className={`${serif.variable} ${display.variable} ${script.variable} ${mono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );

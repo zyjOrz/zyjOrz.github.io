@@ -17,11 +17,11 @@ function widgetUrl() {
     d: MAP_TOKEN,
     w: '240',
     t: 'n',
-    cl: color('--underline', 'c9d2c6'), // land
-    co: color('--paper', 'f8faf6'), // ocean
-    cmo: color('--soft', '5c6a5f'), // earlier visitors
-    cmn: color('--accent', '3d6e52'), // recent visitors
-    ct: color('--ink', '1c251e'), // labels
+    cl: color('--underline', 'c5cde4'), // land
+    co: color('--paper', 'fbfcfe'), // ocean
+    cmo: color('--soft', '56618a'), // earlier visitors
+    cmn: color('--accent', 'b0506b'), // recent visitors
+    ct: color('--ink', '18224a'), // labels
   });
   return `https://mapmyvisitors.com/map.js?${params}`;
 }

@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+import TagRail from '../components/ciel/TagRail';
+import { pad2 } from '../components/format';
 import PublicationList from '../components/PublicationList';
 import Section from '../components/Section';
 import SiteFooter from '../components/SiteFooter';
 import SiteNav from '../components/SiteNav';
+import { publications } from '../content';
 
 export const metadata: Metadata = {
   title: 'Publications · Yujia Zeng',
@@ -11,16 +14,28 @@ export const metadata: Metadata = {
 
 export default function PublicationPage() {
   return (
-    <div className="page">
-      <SiteNav />
+    <>
+      <TagRail />
+      <div className="page">
+        <SiteNav />
 
-      <main className="pt-12 md:pt-16">
-        <Section id="publications" title="Publications" note="* Equal contribution">
-          <PublicationList />
-        </Section>
-      </main>
+        <main className="pt-12 md:pt-16">
+          <Section
+            id="publications"
+            index="03"
+            title="Publications"
+            fr="Publications"
+            zh="论文"
+            script="Écrire dans le ciel"
+            count={`Nº ${pad2(publications.length)}`}
+            note="* Equal contribution"
+          >
+            <PublicationList />
+          </Section>
+        </main>
 
-      <SiteFooter />
-    </div>
+        <SiteFooter />
+      </div>
+    </>
   );
 }

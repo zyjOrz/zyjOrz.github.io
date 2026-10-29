@@ -158,6 +158,10 @@ export default function Miscellaneous({ groups }: { groups: Group[] }) {
   return (
     <Section
       id="miscellaneous"
+      index="07"
+      fr="Divers"
+      zh="杂记"
+      script="Hors du laboratoire"
       title={
         <button
           type="button"

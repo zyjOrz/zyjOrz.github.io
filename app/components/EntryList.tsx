@@ -1,14 +1,18 @@
 import type { Entry } from '../content';
+import { pad2, span } from './format';
 
 export default function EntryList({ entries }: { entries: Entry[] }) {
   return (
-    <ul className="entries">
-      {entries.map((entry) => (
-        <li key={`${entry.org}-${entry.period}`} className="entry">
-          <p className="date">{entry.period}</p>
-          <div>
-            <p className="entry-head">
-              <span className="entry-org">
+    <ol className="rows">
+      {entries.map((entry, index) => {
+        const [from, to] = span(entry.period);
+        return (
+          <li key={`${entry.org}-${entry.period}`} className="row entry">
+            <span className="row-index" aria-hidden="true">
+              {pad2(index + 1)}
+            </span>
+            <div className="row-main">
+              <p className="entry-org">
                 {entry.orgUrl ? (
                   <a href={entry.orgUrl} target="_blank" rel="noopener noreferrer">
                     {entry.org}
@@ -16,14 +20,18 @@ export default function EntryList({ entries }: { entries: Entry[] }) {
                 ) : (
                   entry.org
                 )}
-              </span>
-              {entry.place ? <span className="entry-place">{entry.place}</span> : null}
+              </p>
+              <p className="entry-role">{entry.role}</p>
+              {entry.note ? <p className="entry-note">{entry.note}</p> : null}
+              {entry.place ? <p className="row-meta">{entry.place}</p> : null}
+            </div>
+            <p className="row-date">
+              <span>{from}</span>
+              {to ? <span>— {to}</span> : null}
             </p>
-            <p className="entry-role">{entry.role}</p>
-            {entry.note ? <p className="entry-note">{entry.note}</p> : null}
-          </div>
-        </li>
-      ))}
-    </ul>
+          </li>
+        );
+      })}
+    </ol>
   );
 }
