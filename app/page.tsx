@@ -60,8 +60,8 @@ function Hero() {
             <Column className="orn-column" />
           </div>
           <figure className="quote-card" data-enter="card" style={enter(900)}>
-            <span className="quote-label">Research vision</span>
-            <p className="quote-en">Teaching robot hands to speak.</p>
+            <span className="quote-label">Research Interest</span>
+            <p className="quote-en">Robotics and generative AI</p>
           </figure>
         </div>
 
