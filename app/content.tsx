@@ -115,7 +115,7 @@ export const SELF = 'Yujia Zeng';
 
 export const publications: Publication[] = [
   {
-    title: 'RoboSTAR: Next-Scale Autoregressive Sign Language Motion Translation for Humanoid Robots',
+    title: 'RoboSTAR: Next-Scale Autoregressive Sign Language Translation for Humanoid Robots',
     authors: ['Yujia Zeng*', 'Chensheng Peng*', 'Yuxin Chen*', 'Alex Shao', 'Nathan Jew', 'Masayoshi Tomizuka'],
     venue: 'IROS 2026 Workshop',
     venueDetail: 'Workshop on Nonverbal Cues for Human-Robot Cooperative Intelligence',
@@ -210,10 +210,10 @@ export const experience: Entry[] = [
     org: 'UC Berkeley',
     orgUrl: 'https://msc.berkeley.edu/',
     place: 'Berkeley, CA',
-    role: 'Visiting Student, Mechanical Systems Control Lab',
+    role: 'Visiting Scholar, Mechanical Systems Control Lab',
     note: (
       <>
-        J-1 summer research, advised by{' '}
+        Advised by{' '}
         <ExtLink href="https://msc.berkeley.edu/people/tomizuka.html">Prof. Masayoshi Tomizuka</ExtLink>.
       </>
     ),
@@ -273,7 +273,7 @@ export const education: Entry[] = [
 export const honors: { title: string; detail?: string }[] = [
   {
     title: 'National Scholarship',
-    detail: '¥10,000 · top 1% · universally acknowledged as the highest national honor for undergraduates in China',
+    detail: "¥10,000 · top 1% · China's most prestigious national award for undergraduate students",
   },
   {
     title: 'Yang Ya Alumni Fund Scholarship',
