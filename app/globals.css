@@ -436,10 +436,8 @@ sup {
 
 /* ------------------------------------------------------------------- hero */
 
-/* The dial and ladder may reach past the edges; never let them scroll the page sideways. */
 .hero {
   position: relative;
-  overflow-x: clip;
   padding-block: 2rem 1rem;
 }
 
@@ -1529,6 +1527,11 @@ sup {
 /* ------------------------------------------------------------ small screens */
 
 @media (max-width: 759px) {
+  /* The dial is wider than a phone; it must not scroll the page sideways. */
+  .hero {
+    overflow-x: clip;
+  }
+
   .hero-name-wrap {
     height: 6.6rem;
   }
