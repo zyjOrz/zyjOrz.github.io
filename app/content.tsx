@@ -25,6 +25,7 @@ export const profile = {
     { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=3hZIwCoAAAAJ' },
     { label: 'GitHub', href: 'https://github.com/zyjOrz' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/yujiazng/' },
+    { label: 'X', href: 'https://x.com/zyjOrz' },
   ],
 };
 

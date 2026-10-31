@@ -531,6 +531,81 @@ sup {
   letter-spacing: 0.08em;
 }
 
+/* Date, clock and the way to the plain one-column page. */
+.hero-tools {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (min-width: 900px) {
+  .hero-tools {
+    align-items: flex-end;
+  }
+}
+
+/* Archive-tab button: navy icon cell, letter-spaced label, arrow. */
+.classic-link {
+  display: inline-flex;
+  align-items: stretch;
+  margin-top: 0.85rem;
+  border: 1px solid var(--ink);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba(24, 34, 74, 0.1);
+  transition:
+    background-color 300ms var(--ease-soft),
+    color 300ms var(--ease-soft),
+    box-shadow 300ms var(--ease-soft);
+}
+
+.classic-link-icon,
+.classic-link-label,
+.classic-link-arrow {
+  display: flex;
+  align-items: center;
+}
+
+.classic-link-icon {
+  padding: 0 0.42rem;
+  background: var(--ink);
+  color: #fff;
+  transition: background-color 300ms var(--ease-soft), color 300ms var(--ease-soft);
+}
+
+.classic-link-label {
+  padding: 0.36rem 0.3rem 0.36rem 0.62rem;
+}
+
+.classic-link-arrow {
+  padding-right: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  transition: translate 300ms var(--ease-soft);
+}
+
+.classic-link:hover {
+  background: var(--ink);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(24, 34, 74, 0.18);
+}
+
+.classic-link:hover .classic-link-icon {
+  background: var(--rose);
+  color: var(--ink);
+}
+
+.classic-link:hover .classic-link-arrow {
+  translate: 0.2rem 0;
+}
+
 .hero-stage {
   position: relative;
   z-index: 1;

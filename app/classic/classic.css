@@ -1,0 +1,289 @@
+/* The plain page at /classic. Everything is scoped to .classic; the sky,
+   grain, drifting clouds, intro veil and flower cursor of the main site are
+   switched off while this page is shown. */
+
+html:has(.classic) {
+  background: #fff;
+  cursor: auto;
+}
+
+body:has(.classic)::before,
+body:has(.classic)::after,
+body:has(.classic) .sky-drift,
+body:has(.classic) .intro-veil {
+  display: none;
+}
+
+.classic,
+.classic * {
+  cursor: auto;
+}
+
+.classic a,
+.classic button {
+  cursor: pointer;
+}
+
+.classic {
+  --c-text: #000;
+  --c-soft: #444;
+  --c-link: #1772d0;
+  --c-hover: #f09228;
+  --c-date: #ff0066;
+  min-height: 100vh;
+  background: #fff;
+  color: var(--c-text);
+  font-family: var(--font-lato), Verdana, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.classic ::selection {
+  background: #cfe3fb;
+  color: #000;
+}
+
+.classic a {
+  color: var(--c-link);
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+
+.classic a:hover,
+.classic a:focus-visible {
+  color: var(--c-hover);
+}
+
+.classic :focus-visible {
+  outline: 2px solid var(--c-link);
+  outline-offset: 2px;
+}
+
+.classic-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.25rem 1.25rem 3rem;
+}
+
+.classic h2 {
+  margin: 2.6rem 0 0.9rem;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.classic p {
+  margin: 0;
+}
+
+/* Name, bio and links on the left; oval portrait on the right. */
+.classic-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .classic-intro {
+    grid-template-columns: minmax(0, 63fr) minmax(0, 37fr);
+    gap: 2rem;
+  }
+}
+
+.classic h1 {
+  margin: 0 0 1rem;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.classic-bio p + p {
+  margin-top: 0.8em;
+}
+
+/* The shared bio and news content uses the main site's link and highlight
+   classes; here they read as plain template links. */
+.classic .link {
+  color: var(--c-link);
+  text-decoration: none;
+}
+
+.classic .link:hover {
+  color: var(--c-hover);
+}
+
+.classic .highlight {
+  color: inherit;
+  font-weight: 700;
+}
+
+.classic .classic-links {
+  margin-top: 1.1rem;
+  text-align: center;
+}
+
+.classic-bar {
+  margin: 0 0.45rem;
+  color: var(--c-soft);
+}
+
+/* The copy-to-clipboard Email button, dressed as a plain link. */
+.classic .copy-email {
+  position: relative;
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--c-link);
+  font: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  box-shadow: none;
+}
+
+.classic .copy-email .link {
+  color: inherit;
+}
+
+.classic .copy-email:hover {
+  border: 0;
+  background: none;
+  color: var(--c-hover);
+}
+
+.classic .copy-email:hover .link {
+  color: var(--c-hover);
+}
+
+.classic .copy-email-note {
+  bottom: calc(100% + 0.3rem);
+  padding: 0.05rem 0.35rem;
+  background: #000;
+  color: #fff;
+  font-size: 11px;
+}
+
+.classic .classic-switch {
+  margin-top: 0.7rem;
+  font-size: 13px;
+  text-align: center;
+}
+
+.classic-photo {
+  justify-self: center;
+  overflow: hidden;
+  width: min(15rem, 70vw);
+  aspect-ratio: 256 / 380;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #c9d4ee 0%, #e4eaf6 60%, #f4f6fb 100%);
+}
+
+.classic-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+
+/* News: bracketed dates in the template's pink. */
+.classic-news {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.classic-news li + li {
+  margin-top: 0.25rem;
+}
+
+.classic-date {
+  color: var(--c-date);
+}
+
+.classic .classic-lead {
+  margin-bottom: 0.4rem;
+}
+
+/* Papers: figure left, text right. */
+.classic-paper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.8rem;
+  padding: 1.1rem 0;
+}
+
+@media (min-width: 640px) {
+  .classic-paper {
+    grid-template-columns: 25% minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: center;
+  }
+}
+
+.classic-figure {
+  display: block;
+  max-width: 22rem;
+}
+
+.classic-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.classic h3 {
+  margin: 0 0 0.2rem;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.classic-award {
+  color: var(--c-date);
+}
+
+.classic .classic-paper-links {
+  margin-top: 0.15rem;
+}
+
+.classic .classic-summary {
+  margin-top: 0.55rem;
+}
+
+.classic-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.classic-list li + li {
+  margin-top: 0.35rem;
+}
+
+.classic-when,
+.classic-note {
+  color: var(--c-soft);
+}
+
+.classic-when {
+  white-space: nowrap;
+}
+
+.classic-note p {
+  display: inline;
+}
+
+.classic-sub {
+  display: block;
+  color: var(--c-soft);
+}
+
+.classic-footer {
+  margin-top: 3rem;
+  color: var(--c-soft);
+  font-size: 13px;
+  text-align: right;
+}

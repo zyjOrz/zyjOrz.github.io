@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import { AlignLeft } from 'lucide-react';
 import { DateStamp, Greeting } from './components/ciel/Clock';
 import { DialMotion, RevealObserver, StatusTicker } from './components/ciel/Motion';
 import { Column, Dial, Dove, Ladder, Postmark, Stamp } from './components/ciel/Ornaments';
@@ -47,10 +48,19 @@ function Hero() {
         <div className="hero-greeting" data-enter="write" style={enter(650)}>
           <Greeting />
         </div>
-        <div data-enter="" style={enter(300)}>
+        <div className="hero-tools" data-enter="" style={enter(300)}>
           <DateStamp built={builtDate}>
             Index · {publications.length} papers · {news.length} updates
           </DateStamp>
+          <a href="/classic" className="classic-link">
+            <span className="classic-link-icon" aria-hidden="true">
+              <AlignLeft size={13} strokeWidth={1.6} />
+            </span>
+            <span className="classic-link-label">Classic version</span>
+            <span className="classic-link-arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
         </div>
       </div>
 
