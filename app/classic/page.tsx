@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Fragment } from 'react';
 import { Lato } from 'next/font/google';
 import CopyEmail from '../components/CopyEmail';
+import { amount } from '../components/format';
 import { bio, education, experience, honors, miscellaneous, news, profile, publications, SELF } from '../content';
 import './classic.css';
 
@@ -66,7 +67,7 @@ export default function ClassicPage() {
             </p>
           </div>
           <div className="classic-photo">
-            <img src={profile.portrait} alt={`Portrait of ${profile.name}`} width={560} height={799} />
+            <img src="/photo.jpg" alt={`Photo of ${profile.name}`} width={1236} height={960} />
           </div>
         </section>
 
@@ -75,7 +76,7 @@ export default function ClassicPage() {
           <ul className="classic-news">
             {news.map((item, index) => (
               <li key={`${item.date}-${index}`}>
-                <span className="classic-date">[{item.date}]</span> {item.body}
+                <span className="classic-date">[{item.date}]</span> {item.plain ?? item.body}
               </li>
             ))}
           </ul>
@@ -161,12 +162,16 @@ export default function ClassicPage() {
         <section aria-labelledby="classic-awards">
           <h2 id="classic-awards">Awards</h2>
           <ul className="classic-list">
-            {honors.map((item) => (
-              <li key={item.title}>
-                {item.title}
-                {item.detail ? <span className="classic-note">, {item.detail.split(' · ').join(', ')}</span> : null}
-              </li>
-            ))}
+            {honors.map((item) => {
+              // Award amounts are left out on this page.
+              const [, rest] = amount(item.detail);
+              return (
+                <li key={item.title}>
+                  {item.title}
+                  {rest ? <span className="classic-note">, {rest.split(' · ').join(', ')}</span> : null}
+                </li>
+              );
+            })}
           </ul>
         </section>
 

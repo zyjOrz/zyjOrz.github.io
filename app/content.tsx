@@ -50,7 +50,8 @@ export const bio: ReactNode = (
 
 /* --------------------------------------------------------------------- news */
 
-export type NewsItem = { date: string; body: ReactNode };
+// `plain` is an optional wording for the /classic page (which shows no award amounts).
+export type NewsItem = { date: string; body: ReactNode; plain?: ReactNode };
 
 export const news: NewsItem[] = [
   {
@@ -92,7 +93,11 @@ export const news: NewsItem[] = [
   },
   { date: 'Mar 2025', body: <>Joined Baidu as a research intern.</> },
   { date: 'Dec 2024', body: <>Won a silver medal at the ICPC Hong Kong Regional.</> },
-  { date: 'Sep 2024', body: <>Awarded the National Scholarship (¥10,000, top 1% GPA).</> },
+  {
+    date: 'Sep 2024',
+    body: <>Awarded the National Scholarship (¥10,000, top 1% GPA).</>,
+    plain: <>Awarded the National Scholarship (top 1% GPA).</>,
+  },
   { date: 'Apr 2024', body: <>Served as President of the Student Union, School of the Gifted Young.</> },
 ];
 
