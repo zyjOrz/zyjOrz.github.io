@@ -285,7 +285,10 @@ export const honors: { title: string; detail?: string }[] = [
     title: 'Yang Ya Alumni Fund Scholarship',
     detail: '¥5,000 · top 5 female students in the School of the Gifted Young',
   },
-  { title: 'Guangfa Securities Scholarship', detail: '¥8,000' },
+  {
+    title: 'Guangfa Securities Scholarship',
+    detail: '¥8,000 · one of 10 recipients recognized for research and competition achievements',
+  },
   {
     title: 'AI Elite Class Scholarship',
     detail: '¥5,800 · top 3 students in the Artificial Intelligence major',
