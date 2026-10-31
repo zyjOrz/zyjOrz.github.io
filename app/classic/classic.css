@@ -171,19 +171,14 @@ body:has(.classic) .intro-veil {
   text-align: center;
 }
 
-/* The photo cropped to its aquarium window (public/images/photo-classic.webp,
-   rows 182-806 of photo.jpg). Each corner's radius is fitted to that corner of
-   the window, which is seen slightly in perspective, so the frame edge follows
-   the window's own rim. */
+/* The full photo, uncropped, at its own proportions with slightly rounded corners. */
 .classic-photo {
   justify-self: center;
   overflow: hidden;
   width: 100%;
   max-width: 26rem;
-  aspect-ratio: 1224 / 624;
-  border-radius: 21.2% 20.4% 16.3% 12.3% / 20% 25.6% 21.6% 9.9%;
-  background: #1f3fe0;
-  box-shadow: 0 10px 28px rgba(10, 26, 107, 0.18);
+  aspect-ratio: 1236 / 960;
+  border-radius: 10px;
 }
 
 .classic-photo img {

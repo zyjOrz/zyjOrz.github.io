@@ -67,7 +67,7 @@ export default function ClassicPage() {
             </p>
           </div>
           <div className="classic-photo">
-            <img src="/images/photo-classic.webp" alt={`Photo of ${profile.name}`} width={1224} height={624} />
+            <img src="/photo.jpg" alt={`Photo of ${profile.name}`} width={1236} height={960} />
           </div>
         </section>
 
