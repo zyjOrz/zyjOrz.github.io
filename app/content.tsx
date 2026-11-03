@@ -26,6 +26,7 @@ export const profile = {
     { label: 'GitHub', href: 'https://github.com/zyjOrz' },
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/yujiazng/' },
     { label: 'X', href: 'https://x.com/zyjOrz' },
+    { label: 'CV', href: '/Resume.pdf' },
   ],
 };
 
@@ -235,6 +236,19 @@ export const experience: Entry[] = [
     note: (
       <>
         Working with <ExtLink href="https://yilundu.github.io/">Prof. Yilun Du</ExtLink>.
+      </>
+    ),
+  },
+  {
+    period: 'Oct 2026 – Present',
+    org: 'UC Berkeley',
+    orgUrl: 'https://hybrid-robotics.berkeley.edu/',
+    place: 'Berkeley, CA',
+    role: 'Research Collaboration',
+    note: (
+      <>
+        Working with{' '}
+        <ExtLink href="https://hybrid-robotics.berkeley.edu/koushil/">Prof. Koushil Sreenath</ExtLink>.
       </>
     ),
   },

@@ -28,7 +28,6 @@
 
 ## 移除
 
-- CV 入口和 `public/resume.pdf`（Git 历史中仍可恢复）。
 - 论文图片不再外链 arXiv，改为本站托管。
 
 `/publication` 页面保留，与首页共用同一份论文数据和样式。
@@ -39,4 +38,4 @@
 - 简洁版照片是完整的原图 `public/photo.jpg`（不裁剪，按原比例显示，带小圆角）；首页仍用 `public/images/portrait.webp`。
 - 简洁版不显示奖项金额：Awards 会自动去掉开头的金额（如 “¥10,000 · …”）；News 里提到金额的条目在 `content.tsx` 里另写一个 `plain` 版本供简洁版使用。
 - 首页右上角日期下方有 “Classic version →” 按钮跳转过去；简洁版里有 “View the illustrated homepage” 链回首页。简洁版不显示天空背景、动效和樱花光标。
-- 社交链接（含 X）在 `app/content.tsx` 的 `profile.links`，两个页面都会显示。
+- 社交链接（含 X 和 CV）在 `app/content.tsx` 的 `profile.links`，两个页面都会显示。CV 文件是 `public/Resume.pdf`（网址区分大小写：`/Resume.pdf`），更新简历时直接替换这个文件即可。
