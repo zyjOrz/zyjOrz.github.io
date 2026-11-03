@@ -36,8 +36,10 @@ export const bio: ReactNode = (
       of Science and Technology of China (USTC). I am currently a visiting student at the{' '}
       <ExtLink href="https://msc.berkeley.edu/">MSC Lab</ExtLink>, UC Berkeley, advised by{' '}
       <ExtLink href="https://msc.berkeley.edu/people/tomizuka.html">Prof. Masayoshi Tomizuka</ExtLink>,
-      and I also work closely with <ExtLink href="https://yilundu.github.io/">Prof. Yilun Du</ExtLink> at
-      Harvard University. Before this, I was an algorithm intern at{' '}
+      and I also work closely with{' '}
+      <ExtLink href="https://hybrid-robotics.berkeley.edu/koushil/">Prof. Koushil Sreenath</ExtLink> at UC
+      Berkeley and <ExtLink href="https://yilundu.github.io/">Prof. Yilun Du</ExtLink> at Harvard University.
+      Before this, I was an algorithm intern at{' '}
       <ExtLink href="https://www.baidu.com/">Baidu</ExtLink> and{' '}
       <ExtLink href="https://hidreamai.com/home">HiDream.ai</ExtLink>.
     </p>
