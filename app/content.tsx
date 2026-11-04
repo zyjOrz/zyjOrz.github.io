@@ -34,7 +34,8 @@ export const bio: ReactNode = (
   <>
     <p>
       I am a fourth-year undergraduate student in the School of the Gifted Young at the University
-      of Science and Technology of China (USTC). I am currently a visiting student at the{' '}
+      of Science and Technology of China (USTC), where I rank first in GPA in the Artificial
+      Intelligence major (1/23). I am currently a visiting student at the{' '}
       <ExtLink href="https://msc.berkeley.edu/">MSC Lab</ExtLink>, UC Berkeley, advised by{' '}
       <ExtLink href="https://msc.berkeley.edu/people/tomizuka.html">Prof. Masayoshi Tomizuka</ExtLink>,
       and I also work closely with{' '}
