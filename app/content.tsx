@@ -34,8 +34,9 @@ export const bio: ReactNode = (
   <>
     <p>
       I am a fourth-year undergraduate student at the University of Science and Technology of China
-      (USTC), majoring in Artificial Intelligence in the School of the Gifted Young, where I rank first
-      in GPA among Artificial Intelligence majors (1/23). I am currently a visiting student at the{' '}
+      (USTC), majoring in Artificial Intelligence in the School of the Gifted Young (SGY), where I rank
+      first in GPA among Artificial Intelligence majors in SGY (1/23). I am currently a visiting student
+      at the{' '}
       <ExtLink href="https://msc.berkeley.edu/">MSC Lab</ExtLink>, UC Berkeley, advised by{' '}
       <ExtLink href="https://msc.berkeley.edu/people/tomizuka.html">Prof. Masayoshi Tomizuka</ExtLink>,
       and I also work closely with{' '}
@@ -287,7 +288,7 @@ export const education: Entry[] = [
     orgUrl: 'https://sgy.ustc.edu.cn/main.htm',
     place: 'Hefei, China',
     role: 'B.E. in Artificial Intelligence, School of the Gifted Young',
-    note: <>Expected June 2027. GPA rank: 1/23 among Artificial Intelligence majors.</>,
+    note: <>Expected June 2027. GPA rank: 1/23 among Artificial Intelligence majors in the School of the Gifted Young.</>,
   },
 ];
 
