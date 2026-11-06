@@ -67,7 +67,7 @@ export default function ClassicPage() {
             </p>
           </div>
           <div className="classic-photo">
-            <img src="/photo.jpg" alt={`Photo of ${profile.name}`} width={1236} height={960} />
+            <img src="/photo.jpg" alt={`Photo of ${profile.name}`} width={1420} height={1920} />
           </div>
         </section>
 

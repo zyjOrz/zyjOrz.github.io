@@ -35,7 +35,7 @@
 ## 简洁版 `/classic`
 
 - `app/classic/page.tsx` + `app/classic/classic.css`：仿 Jon Barron 学术模板的单栏简洁版（Lato 字体、800 px 宽、蓝色链接、粉色日期、左图右文的论文列表），内容与首页共用 `app/content.tsx`，改一处两边同步。
-- 简洁版照片是完整的原图 `public/photo.jpg`（不裁剪，按原比例显示，带小圆角）；首页仍用 `public/images/portrait.webp`。
+- 简洁版照片是完整的原图 `public/photo.jpg`（竖版 1420×1920，不裁剪，脸和手都完整，圆角矩形，最宽 16rem）；首页仍用 `public/images/portrait.webp`。换照片时如果比例不同，记得同步改 `app/classic/classic.css` 的 `aspect-ratio` 和 `page.tsx` 里图片的宽高。
 - 简洁版不显示奖项金额：Awards 会自动去掉开头的金额（如 “¥10,000 · …”）；News 里提到金额的条目在 `content.tsx` 里另写一个 `plain` 版本供简洁版使用。
 - 首页右上角日期下方有 “Classic version →” 按钮跳转过去；简洁版里有 “View the illustrated homepage” 链回首页。简洁版不显示天空背景、动效和樱花光标。
 - 社交链接（含 X 和 CV）在 `app/content.tsx` 的 `profile.links`，两个页面都会显示。CV 文件是 `public/Resume.pdf`（网址区分大小写：`/Resume.pdf`），更新简历时直接替换这个文件即可。

@@ -171,14 +171,16 @@ body:has(.classic) .intro-veil {
   text-align: center;
 }
 
-/* The full photo, uncropped, at its own proportions with slightly rounded corners. */
+/* The full photo, uncropped (face and raised hand stay whole), at its own
+   portrait proportions with rounded corners; narrow enough to sit beside the bio. */
 .classic-photo {
   justify-self: center;
   overflow: hidden;
   width: 100%;
-  max-width: 26rem;
-  aspect-ratio: 1236 / 960;
-  border-radius: 10px;
+  max-width: 16rem;
+  aspect-ratio: 1420 / 1920;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .classic-photo img {
