@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
 import { AlignLeft } from 'lucide-react';
+import { versioned } from './asset';
 import { DateStamp, Greeting } from './components/ciel/Clock';
 import { DialMotion, RevealObserver, StatusTicker } from './components/ciel/Motion';
 import { Column, Dial, Dove, Ladder, Postmark, Stamp } from './components/ciel/Ornaments';
@@ -80,7 +81,7 @@ function Hero() {
             <Dial />
           </DialMotion>
           <div className="arch" data-enter="arch" style={enter(320)}>
-            <img src={profile.portrait} alt={`Portrait of ${profile.name}`} width={560} height={799} />
+            <img src={versioned(profile.portrait)} alt={`Portrait of ${profile.name}`} width={560} height={799} />
           </div>
           <StatusTicker />
         </div>
@@ -100,7 +101,7 @@ function Hero() {
                 </li>
                 {profile.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="chip-link">
+                    <a href={versioned(link.href)} target="_blank" rel="noopener noreferrer" className="chip-link">
                       {link.label}
                     </a>
                   </li>

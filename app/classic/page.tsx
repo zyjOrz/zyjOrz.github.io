@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Fragment } from 'react';
 import { Lato } from 'next/font/google';
+import { versioned } from '../asset';
 import CopyEmail from '../components/CopyEmail';
 import { amount } from '../components/format';
 import { bio, education, experience, honors, miscellaneous, news, profile, publications, SELF } from '../content';
@@ -56,7 +57,7 @@ export default function ClassicPage() {
                   <span className="classic-bar" aria-hidden="true">
                     |
                   </span>
-                  <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  <a href={versioned(link.href)} target="_blank" rel="noopener noreferrer">
                     {link.label}
                   </a>
                 </Fragment>
@@ -67,7 +68,7 @@ export default function ClassicPage() {
             </p>
           </div>
           <div className="classic-photo">
-            <img src="/photo.jpg" alt={`Photo of ${profile.name}`} width={1420} height={1920} />
+            <img src={versioned('/photo.jpg')} alt={`Photo of ${profile.name}`} width={1420} height={1920} />
           </div>
         </section>
 

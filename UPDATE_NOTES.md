@@ -39,3 +39,4 @@
 - 简洁版不显示奖项金额：Awards 会自动去掉开头的金额（如 “¥10,000 · …”）；News 里提到金额的条目在 `content.tsx` 里另写一个 `plain` 版本供简洁版使用。
 - 首页右上角日期下方有 “Classic version →” 按钮跳转过去；简洁版里有 “View the illustrated homepage” 链回首页。简洁版不显示天空背景、动效和樱花光标。
 - 社交链接（含 X 和 CV）在 `app/content.tsx` 的 `profile.links`，两个页面都会显示。CV 文件是 `public/Resume.pdf`（网址区分大小写：`/Resume.pdf`），更新简历时直接替换这个文件即可。
+- 照片和 CV 的链接会在构建时自动带上文件指纹（如 `/photo.jpg?v=d70b88f0`，见 `app/asset.ts`）。GitHub Pages 会把文件缓存几个小时，同名替换后如果不换网址，访客会一直看到旧文件；带上指纹后，每次替换文件网址都会变，推送后就能立刻看到新版。
