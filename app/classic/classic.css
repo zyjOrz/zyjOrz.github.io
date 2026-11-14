@@ -236,6 +236,18 @@ body:has(.classic) .intro-veil {
   height: auto;
 }
 
+/* A paper without a figure yet. */
+.classic-figure-pending {
+  display: flex;
+  aspect-ratio: 2 / 1;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e3e3e3;
+  background: #f6f6f6;
+  color: var(--c-soft);
+  font-size: 12px;
+}
+
 .classic h3 {
   margin: 0 0 0.2rem;
   font-size: 15px;

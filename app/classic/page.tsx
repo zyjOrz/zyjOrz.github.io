@@ -93,14 +93,28 @@ export default function ClassicPage() {
               const primary = paper.links.find((link) => link.label === 'Project page') ?? paper.links[0];
               return (
                 <article key={paper.title} className="classic-paper">
-                  <a href={primary.href} target="_blank" rel="noopener noreferrer" className="classic-figure" tabIndex={-1} aria-hidden="true">
-                    <img src={paper.image} alt="" loading="lazy" decoding="async" />
-                  </a>
+                  {paper.image && primary ? (
+                    <a href={primary.href} target="_blank" rel="noopener noreferrer" className="classic-figure" tabIndex={-1} aria-hidden="true">
+                      <img src={paper.image} alt="" loading="lazy" decoding="async" />
+                    </a>
+                  ) : paper.image ? (
+                    <div className="classic-figure" aria-hidden="true">
+                      <img src={paper.image} alt="" loading="lazy" decoding="async" />
+                    </div>
+                  ) : (
+                    <div className="classic-figure classic-figure-pending" aria-hidden="true">
+                      Figure coming soon
+                    </div>
+                  )}
                   <div>
                     <h3>
-                      <a href={primary.href} target="_blank" rel="noopener noreferrer">
-                        {paper.title}
-                      </a>
+                      {primary ? (
+                        <a href={primary.href} target="_blank" rel="noopener noreferrer">
+                          {paper.title}
+                        </a>
+                      ) : (
+                        paper.title
+                      )}
                     </h3>
                     <p>
                       <Authors names={paper.authors} />
@@ -115,16 +129,18 @@ export default function ClassicPage() {
                       ) : null}
                       {paper.status ? <> ({paper.status.toLowerCase()})</> : null}
                     </p>
-                    <p className="classic-paper-links">
-                      {paper.links.map((link, index) => (
-                        <Fragment key={link.label}>
-                          {index > 0 ? ' / ' : null}
-                          <a href={link.href} target="_blank" rel="noopener noreferrer">
-                            {link.label.toLowerCase()}
-                          </a>
-                        </Fragment>
-                      ))}
-                    </p>
+                    {paper.links.length ? (
+                      <p className="classic-paper-links">
+                        {paper.links.map((link, index) => (
+                          <Fragment key={link.label}>
+                            {index > 0 ? ' / ' : null}
+                            <a href={link.href} target="_blank" rel="noopener noreferrer">
+                              {link.label.toLowerCase()}
+                            </a>
+                          </Fragment>
+                        ))}
+                      </p>
+                    ) : null}
                     <p className="classic-summary">{paper.summary}</p>
                   </div>
                 </article>

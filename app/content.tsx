@@ -117,7 +117,9 @@ export type Publication = {
   location?: string;
   highlight?: string;
   status?: string;
-  image: string;
+  // Both optional: a paper without a figure gets a placeholder, and one without
+  // links gets an unlinked title.
+  image?: string;
   links: { label: string; href: string }[];
   summary: string;
 };
@@ -201,6 +203,31 @@ export const publications: Publication[] = [
     ],
     summary:
       'StableWorld introduces a model-agnostic Dynamic Frame Eviction Mechanism that filters degraded frames while retaining geometrically consistent ones, reducing cumulative drift and improving stability and temporal consistency across interactive video generation frameworks.',
+  },
+  {
+    title: 'GenRec4D: Hybrid 4D Gaussian Reconstruction with Feedforward and Generative Priors',
+    authors: [
+      'Chensheng Peng',
+      'Chenpeng Su',
+      'Chengwei Zhang',
+      'Jiuming Liu',
+      'Yujia Zeng',
+      'Yixiao Wang',
+      'Chenfeng Xu',
+      'Yichen Xie',
+      'Thomas Monninger',
+      'Zhipeng Mo',
+      'Sihao Ding',
+      'Wenzhao Zheng',
+      'Kurt Keutzer',
+      'Masayoshi Tomizuka',
+      'Wei Zhan',
+    ],
+    venue: 'IEEE TPAMI',
+    venueDetail: 'IEEE Transactions on Pattern Analysis and Machine Intelligence',
+    status: 'Under review',
+    links: [],
+    summary: 'More details coming soon.',
   },
 ];
 

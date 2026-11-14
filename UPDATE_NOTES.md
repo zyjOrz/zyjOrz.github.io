@@ -23,6 +23,7 @@
 - 首屏引言卡的文字在 `app/page.tsx`（`quote-card`），状态标签的三条文字在 `app/components/ciel/Motion.tsx`（`statuses`）。
 - 各小节的标签、标题和花体副标题在 `app/page.tsx` 的 `<Section>` 上。
 - 论文作者里给名字末尾加 `*` 表示共同一作；`Yujia Zeng` 会自动加下划线强调。
+- 论文可以暂时没有配图和链接（如 GenRec4D）：`image` 不写时显示 “Figure coming soon” 占位框，`links` 留空时标题不加链接、也不显示链接行。之后补上配图（放进 `public/images/pubs/`）和链接即可。
 - 论文配图放在 `public/images/pubs/`（WebP），每张图完整显示在统一的 2:1 白底框里；照片在 `public/images/portrait.webp`。
 - 页面不含中文，因此不再托管中文字体子集。
 
