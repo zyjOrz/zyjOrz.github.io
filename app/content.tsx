@@ -351,7 +351,7 @@ export const honors: { title: string; detail?: string }[] = [
 export const miscellaneous: { label: string; items: ReactNode[] }[] = [
   {
     label: 'Academic Service',
-    items: [<>Reviewer for ICLR.</>],
+    items: [<>Reviewer for ICLR and CVPR.</>],
   },
   {
     label: 'Student Leadership',
