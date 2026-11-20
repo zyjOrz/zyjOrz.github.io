@@ -226,8 +226,10 @@ export const publications: Publication[] = [
     venue: 'IEEE TPAMI',
     venueDetail: 'IEEE Transactions on Pattern Analysis and Machine Intelligence',
     status: 'Under review',
+    image: '/images/pubs/genrec4d.webp',
     links: [],
-    summary: 'More details coming soon.',
+    summary:
+      'GenRec4D reconstructs dynamic urban scenes by combining feedforward Gaussian initialization, pose-conditioned generation of shifted-trajectory views that serve as uncertain appearance priors grounded by projected LiDAR depth, and a short per-scene refinement, cutting per-scene optimization from hours to minutes without 3D bounding-box annotations.',
   },
 ];
 
