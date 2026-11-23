@@ -284,6 +284,18 @@ export const experience: Entry[] = [
     ),
   },
   {
+    period: 'Aug 2024 – Present',
+    org: 'University of Science and Technology of China',
+    orgUrl: 'https://hexiangnan.github.io/',
+    place: 'Hefei, China',
+    role: 'Research Intern, Lab for Data Science',
+    note: (
+      <>
+        Advised by <ExtLink href="https://hexiangnan.github.io/">Prof. Xiangnan He</ExtLink>.
+      </>
+    ),
+  },
+  {
     period: 'Aug 2025 – Feb 2026',
     org: 'Nanyang Technological University',
     orgUrl: 'https://www.ntu.edu.sg/',
