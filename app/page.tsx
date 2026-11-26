@@ -50,9 +50,7 @@ function Hero() {
           <Greeting />
         </div>
         <div className="hero-tools" data-enter="" style={enter(300)}>
-          <DateStamp built={builtDate}>
-            Index · {publications.length} papers · {news.length} updates
-          </DateStamp>
+          <DateStamp built={builtDate} />
           <a href="/classic" className="classic-link">
             <span className="classic-link-icon" aria-hidden="true">
               <AlignLeft size={13} strokeWidth={1.6} />
