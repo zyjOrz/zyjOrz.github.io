@@ -149,7 +149,7 @@ export const publications: Publication[] = [
       { label: 'Project page', href: 'https://finedex.github.io/' },
     ],
     summary:
-      'FineDex generates coordinated human body, hand, and object motions that follow fine-grained instructions on which hand, finger, and contact to use, then uses these interactions as actionable priors for an agent that discovers physically feasible contact strategies in a physics-based digital twin, transferring to a real dexterous humanoid robot.',
+      'FineDex generates human-object interaction (HOI) motions following fine-grained instructions on hand selection, finger usage, and contacts, guiding an agent to discover physically feasible contact programs through test-time practice in a physics-based digital twin for real-world dexterous humanoid manipulation.',
   },
   {
     title: 'RoboSTAR: Next-Scale Autoregressive Sign Language Translation for Humanoid Robots',
