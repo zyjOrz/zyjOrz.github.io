@@ -362,7 +362,11 @@ export const education: Entry[] = [
 export const honors: { title: string; detail?: string }[] = [
   {
     title: 'National Scholarship',
-    detail: "¥10,000 · top 1% · China's most prestigious national award for undergraduate students",
+    detail: '¥10,000 · top 1% · China’s most prestigious scholarship',
+  },
+  {
+    title: 'Guo Moruo Scholarship Finalist',
+    detail: 'most prestigious scholarship at USTC',
   },
   {
     title: 'Yang Ya Alumni Fund Scholarship',
