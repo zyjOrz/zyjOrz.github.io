@@ -128,6 +128,30 @@ export const SELF = 'Yujia Zeng';
 
 export const publications: Publication[] = [
   {
+    title: 'FineDex: Bridging Fine-Grained Human–Object Interaction Generation to Dexterous Humanoid Manipulation',
+    authors: [
+      'Yujia Zeng',
+      'Yuxin Chen',
+      'Yuzhen Song',
+      'Runhan Huang',
+      'Chensheng Peng',
+      'Yiyang Shao',
+      'Koushil Sreenath',
+      'Masayoshi Tomizuka',
+      'Yilun Du',
+    ],
+    venue: 'CVPR 2027',
+    venueDetail: 'IEEE/CVF Conference on Computer Vision and Pattern Recognition',
+    status: 'Under review',
+    image: '/images/pubs/finedex.webp',
+    links: [
+      { label: 'Paper', href: 'https://arxiv.org/abs/2611.34884' },
+      { label: 'Project page', href: 'https://finedex.github.io/' },
+    ],
+    summary:
+      'FineDex generates coordinated human body, hand, and object motions that follow fine-grained instructions on which hand, finger, and contact to use, then uses these interactions as actionable priors for an agent that discovers physically feasible contact strategies in a physics-based digital twin, transferring to a real dexterous humanoid robot.',
+  },
+  {
     title: 'RoboSTAR: Next-Scale Autoregressive Sign Language Translation for Humanoid Robots',
     authors: ['Yujia Zeng*', 'Chensheng Peng*', 'Yuxin Chen*', 'Alex Shao', 'Nathan Jew', 'Masayoshi Tomizuka'],
     venue: 'IROS 2026 Workshop',
