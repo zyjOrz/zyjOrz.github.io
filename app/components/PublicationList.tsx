@@ -24,9 +24,11 @@ function Authors({ names }: { names: string[] }) {
 function Chips({ paper }: { paper: Publication }) {
   return (
     <p className="chips">
-      <span className="chip chip-ink" title={paper.venueDetail}>
-        {paper.venue}
-      </span>
+      {paper.venue ? (
+        <span className="chip chip-ink" title={paper.venueDetail}>
+          {paper.venue}
+        </span>
+      ) : null}
       {paper.highlight ? <span className="chip chip-rose">{paper.highlight}</span> : null}
       {paper.status ? <span className="chip">{paper.status}</span> : null}
       {paper.location ? <span className="chip-plain">{paper.location}</span> : null}

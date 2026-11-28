@@ -112,7 +112,8 @@ export type Publication = {
   title: string;
   // Mark equal contribution with a trailing "*". The site owner is highlighted automatically.
   authors: string[];
-  venue: string;
+  // Optional: a paper under review without a named venue shows only its status.
+  venue?: string;
   venueDetail?: string;
   location?: string;
   highlight?: string;
@@ -140,8 +141,6 @@ export const publications: Publication[] = [
       'Masayoshi Tomizuka',
       'Yilun Du',
     ],
-    venue: 'CVPR 2027',
-    venueDetail: 'IEEE/CVF Conference on Computer Vision and Pattern Recognition',
     status: 'Under review',
     image: '/images/pubs/finedex.webp',
     links: [

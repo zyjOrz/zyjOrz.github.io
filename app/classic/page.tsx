@@ -120,14 +120,20 @@ export default function ClassicPage() {
                       <Authors names={paper.authors} />
                     </p>
                     <p>
-                      <em title={paper.venueDetail}>{paper.venue}</em>
-                      {paper.location ? <>, {paper.location}</> : null}
-                      {paper.highlight ? (
+                      {paper.venue ? (
                         <>
-                          , <strong className="classic-award">{paper.highlight}</strong>
+                          <em title={paper.venueDetail}>{paper.venue}</em>
+                          {paper.location ? <>, {paper.location}</> : null}
+                          {paper.highlight ? (
+                            <>
+                              , <strong className="classic-award">{paper.highlight}</strong>
+                            </>
+                          ) : null}
+                          {paper.status ? <> ({paper.status.toLowerCase()})</> : null}
                         </>
-                      ) : null}
-                      {paper.status ? <> ({paper.status.toLowerCase()})</> : null}
+                      ) : (
+                        <em>{paper.status}</em>
+                      )}
                     </p>
                     {paper.links.length ? (
                       <p className="classic-paper-links">
